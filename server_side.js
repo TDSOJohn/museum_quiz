@@ -24,6 +24,7 @@ const server    = http.createServer((request, response) =>
 //  If error in syscall is not handled, everything will crash <3
     try
     {
+//  Build jsonPathName from id and try to readSync it
         let jsonPathName    = `data${id}.json`;
         console.log(jsonPathName);
         let rawData         = fs.readFileSync(jsonPathName);
