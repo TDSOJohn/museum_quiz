@@ -10,13 +10,16 @@ const hostname  = '0.0.0.0';
 //  ruby-on-rails default, better change it
 const port      = 3000;
 
+const baseURL   = 'http://'
 //  create http server, have it send the json through http
 const server    = http.createServer((request, response) =>
 {
     const url   = request.url;
     console.log(url);
-//    const myURL = new URL(request.url);
-//    console.log(url.searchParams.get('id'));
+    var baseURL = 'http://' + request.headers.host;
+    var myURL   = new URL(request.url, baseURL);
+    console.log(myURL);
+    console.log(myURL.searchParams.get('id'));
 //  readFileSync imposes program halting till file is read
 //  Error handling if file is missing (ENOENT) or not permitted (EACCES), otherwise throw err
 //  If error in syscall is not handled, everything will crash <3
