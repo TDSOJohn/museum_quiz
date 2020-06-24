@@ -10,22 +10,35 @@ const hostname  = '0.0.0.0';
 //  ruby-on-rails default, better change it
 const port      = 3000;
 
-const baseURL   = 'http://'
-//  create http server, have it send the json through http
+//  create http server, retrieve id and have it send the correct json through http
 const server    = http.createServer((request, response) =>
 {
-    const url   = request.url;
-    console.log(url);
+//  myURL is (baseURL + request.url) in order to form a correct WHATWG URL
     var baseURL = 'http://' + request.headers.host;
     var myURL   = new URL(request.url, baseURL);
-    console.log(myURL);
-    console.log(myURL.searchParams.get('id'));
+    var id      = myURL.searchParams.get('id'));
+    console.log(id);
+
 //  readFileSync imposes program halting till file is read
 //  Error handling if file is missing (ENOENT) or not permitted (EACCES), otherwise throw err
 //  If error in syscall is not handled, everything will crash <3
     try
     {
-        let rawData     = fs.readFileSync('data.json');
+//      switch ids
+        switch(id)
+        {
+            case(1):
+                let rawData  = fs.readFileSync('data1.json');
+                break;
+            case(2):
+                let rawData  = fs.readFileSync('data2.json');
+                break;
+            case(3):
+                let rawData  = fs.readFileSync('data3.json');
+                break;
+            default:
+                break;
+        }
         response.statusCode  = 200;
         response.setHeader('Content-Type', 'application/json');
         response.write(rawData);
