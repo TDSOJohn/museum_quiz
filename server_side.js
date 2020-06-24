@@ -15,7 +15,7 @@ const server    = http.createServer((request, response) =>
 {
     const url   = request.url;
     console.log(url);
-    const myURL = new URL(request.url);
+//    const myURL = new URL(request.url);
 //    console.log(url.searchParams.get('id'));
 //  readFileSync imposes program halting till file is read
 //  Error handling if file is missing (ENOENT) or not permitted (EACCES), otherwise throw err
