@@ -28,13 +28,13 @@ const server    = http.createServer((request, response) =>
         switch(id)
         {
             case(1):
-                let rawData  = fs.readFileSync('data1.json');
+                var rawData  = fs.readFileSync('data1.json');
                 break;
             case(2):
-                let rawData  = fs.readFileSync('data2.json');
+                var rawData  = fs.readFileSync('data2.json');
                 break;
             case(3):
-                let rawData  = fs.readFileSync('data3.json');
+                var rawData  = fs.readFileSync('data3.json');
                 break;
             default:
                 break;
