@@ -24,22 +24,10 @@ const server    = http.createServer((request, response) =>
 //  If error in syscall is not handled, everything will crash <3
     try
     {
-//      switch ids
-        switch(id)
-        {
-            case(1):
-                var rawData  = fs.readFileSync('data1.json');
-                break;
-            case(2):
-                var rawData  = fs.readFileSync('data2.json');
-                break;
-            case(3):
-                var rawData  = fs.readFileSync('data3.json');
-                break;
-            default:
-                break;
-        }
-        response.statusCode  = 200;
+        let jsonPathName    = `data${id}.json`;
+        console.log(jsonPathName);
+        let rawData         = fs.readFileSync(jsonPathName);
+        response.statusCode = 200;
         response.setHeader('Content-Type', 'application/json');
         response.write(rawData);
     } catch(err)
