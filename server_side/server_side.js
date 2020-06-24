@@ -28,7 +28,7 @@ const server    = http.createServer((request, response) =>
     {
         try
         {
-            let htmlPathName    = 'client_side/basic.html';
+            let htmlPathName    = '../client_side/basic.html';
             let htmlData        = fs.readFileSync(htmlPathName);
             response.statusCode = 200;
             response.setHeader('Content-Type', 'text/html');
