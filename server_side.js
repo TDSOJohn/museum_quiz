@@ -16,7 +16,7 @@ const server    = http.createServer((request, response) =>
 //  myURL is (baseURL + request.url) in order to form a correct WHATWG URL
     var baseURL = 'http://' + request.headers.host;
     var myURL   = new URL(request.url, baseURL);
-    var id      = myURL.searchParams.get('id'));
+    var id      = myURL.searchParams.get('id');
     console.log(id);
 
 //  readFileSync imposes program halting till file is read
