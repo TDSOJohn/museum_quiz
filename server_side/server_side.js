@@ -1,6 +1,7 @@
 //  javascript is in strict mode => throws more errors and could give better performance
 'use strict';
 
+//  HTTP, FileSystem and URL modules are required
 const http      = require('http');
 const fs        = require('fs');
 const url       = require('url');
