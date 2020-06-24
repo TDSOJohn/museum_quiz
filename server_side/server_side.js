@@ -37,8 +37,8 @@ const server    = http.createServer((request, response) =>
         {
 
         }
-    }
-
+    } else
+    {
 //  RESTful API part
 //  readFileSync imposes program halting till file is read
 //  Error handling if file is missing (ENOENT) or access is not permitted (EACCES), otherwise throw err
@@ -71,6 +71,7 @@ const server    = http.createServer((request, response) =>
                 throw err;
             }
         }
+    }
     response.end();
 });
 
