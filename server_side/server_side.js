@@ -8,7 +8,7 @@ const http      = require('http');
 const fs        = require('fs');
 const url       = require('url');
 
-const utilities = require('utilities.js');
+const utilities = require('./utilities.js');
 
 //  accept any connection to the correct port
 const hostname  = '0.0.0.0';
