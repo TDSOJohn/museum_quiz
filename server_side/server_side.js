@@ -39,13 +39,13 @@ const server    = http.createServer((request, response) =>
             response.write(htmlData);
         } catch (e)
         {
-            if(err.code === 'ENOENT')
+            if(e.code === 'ENOENT')
             {
                 response.statusCode = 404;
                 response.setHeader('Content-Type', 'text/plain');
                 response.write('404 - file not found!');
             }
-            else if(err.code === 'EACCES')
+            else if(e.code === 'EACCES')
             {
                 response.statusCode = 403;
                 response.setHeader('Content-Type', 'text/plain');
@@ -53,7 +53,7 @@ const server    = http.createServer((request, response) =>
             }
             else
             {
-                throw err;
+                throw e;
             }
         }
     } else
