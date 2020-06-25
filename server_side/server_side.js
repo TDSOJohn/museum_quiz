@@ -8,6 +8,8 @@ const http      = require('http');
 const fs        = require('fs');
 const url       = require('url');
 
+const utilities = require('utilities.js');
+
 //  accept any connection to the correct port
 const hostname  = '0.0.0.0';
 //  ruby-on-rails default, better change it
@@ -17,21 +19,23 @@ const port      = 3000;
 const server    = http.createServer((request, response) =>
 {
 //  myURL is (baseURL + request.url) in order to form a correct WHATWG URL
-    var baseURL = 'http://' + request.headers.host;
-    var myURL   = new URL(request.url, baseURL);
-    var pathName= myURL.pathname;
-    var id      = myURL.searchParams.get('id');
-    var type    = myURL.searchParams.get('type');
+    let baseURL = 'http://' + request.headers.host;
+    let myURL   = new URL(request.url, baseURL);
+    let pathName= myURL.pathname;
+    let type    = myURL.searchParams.get('type');
+    let id      = utilities.intParser(myURL.searchParams.get('id'));
+
+    let parsed  = parseInt(id, 10);
     console.log(pathName);
     console.log(id);
     console.log(type);
 
     if((type === null) && (pathName !== '/'))
     {
-//      CREARE FUNZIONE
+//      CREARE FUNZIONE DI ERROR HANDLING
         try
         {
-            var relativePathName    = '..' + pathName;
+            let relativePathName    = '..' + pathName;
             console.log(relativePathName);
             let htmlData        = fs.readFileSync(relativePathName);
             response.statusCode = 200;
@@ -56,7 +60,7 @@ const server    = http.createServer((request, response) =>
                 throw e;
             }
         }
-    } else
+    } else if(id)
     {
 //  RESTful API part
 //  readFileSync imposes program halting till file is read
