@@ -31,7 +31,7 @@ const server    = http.createServer((request, response) =>
 //      CREARE FUNZIONE
         try
         {
-            relativePathName    = '..' + pathName;
+            var relativePathName    = '..' + pathName;
             console.log(relativePathName);
             let htmlData        = fs.readFileSync(relativePathName);
             response.statusCode = 200;
