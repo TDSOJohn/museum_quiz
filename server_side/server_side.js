@@ -32,6 +32,7 @@ const server    = http.createServer((request, response) =>
         try
         {
             relativePathName    = '..' + pathName;
+            console.log(relativePathName);
             let htmlData        = fs.readFileSync(relativePathName);
             response.statusCode = 200;
             response.setHeader('Content-Type', 'text/html');
