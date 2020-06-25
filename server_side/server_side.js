@@ -31,7 +31,8 @@ const server    = http.createServer((request, response) =>
 //      CREARE FUNZIONE
         try
         {
-            let htmlData        = fs.readFileSync(pathName);
+            relativePathName    = '..' + pathName;
+            let htmlData        = fs.readFileSync(relativePathName);
             response.statusCode = 200;
             response.setHeader('Content-Type', 'text/html');
             response.write(htmlData);
