@@ -26,7 +26,7 @@ const server    = http.createServer((request, response) =>
     console.log(id);
     console.log(type);
 
-    if((type === null))
+    if((type === null) & (pathName !== '/'))
     {
 //      CREARE FUNZIONE
         try
