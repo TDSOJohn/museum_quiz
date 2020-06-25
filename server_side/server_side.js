@@ -21,21 +21,38 @@ const server    = http.createServer((request, response) =>
     var myURL   = new URL(request.url, baseURL);
     var pathName= myURL.pathname;
     var id      = myURL.searchParams.get('id');
+    var type    = myURL.searchParams.get('type');
     console.log(pathName);
     console.log(id);
+    console.log(type);
 
-    if(pathName === '/client_side')
+    if((type === 'null'))
     {
+//      CREARE FUNZIONE
         try
         {
-            let htmlPathName    = '../client_side/basic.html';
-            let htmlData        = fs.readFileSync(htmlPathName);
+            let htmlData        = fs.readFileSync(pathName);
             response.statusCode = 200;
             response.setHeader('Content-Type', 'text/html');
             response.write(htmlData);
         } catch (e)
         {
-
+            if(err.code === 'ENOENT')
+            {
+                response.statusCode = 404;
+                response.setHeader('Content-Type', 'text/plain');
+                response.write('404 - file not found!');
+            }
+            else if(err.code === 'EACCES')
+            {
+                response.statusCode = 403;
+                response.setHeader('Content-Type', 'text/plain');
+                response.write('403 - file reading permission denied!');
+            }
+            else
+            {
+                throw err;
+            }
         }
     } else
     {
