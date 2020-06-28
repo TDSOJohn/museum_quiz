@@ -1,5 +1,5 @@
 //  RESTful API URL format: http://192.168.1.110/?id=n (n is integer {1, 2, 3})
-//  client-side HTML retrieval URL format: http://192.168.1.110/client_side/(index.php)
+//  client-side HTML retrieval URL format: http://192.168.1.110/client_side/webpage.html
 //  javascript is in strict mode => throws more errors and could give better performance
 'use strict';
 
@@ -32,11 +32,30 @@ const server    = http.createServer((request, response) =>
 //      CREARE FUNZIONE DI ERROR HANDLING
         try
         {
+            let extName         = String(path.extName(pathName)).toLowerCase();
+            let mimeTypes       = {
+                '.html' : 'text/html',
+                '.js'   : 'text/javascript',
+                '.css'  : 'text/css',
+                '.json' : 'application/json',
+                '.jpg'  : 'image/jpg',
+                '.png'  : 'image/png',
+                '.gif'  : 'image/gif',
+                '.woff' : 'application/font-woff',
+                '.ttf'  : 'application/font-ttf',
+                '.eot'  : 'application/vnd.ms-fontobject',
+                '.otf'  : 'application/font-otf'
+            };
+
+//          Back to "home" folder
             let relativePathName    = '..' + pathName;
             console.log(relativePathName);
             let htmlData        = fs.readFileSync(relativePathName);
+
+//          If no ContentType matches, send as binary stream
+            let contentType     = mimeTypes[extName] || 'application/octet-stream';
             response.statusCode = 200;
-            response.setHeader('Content-Type', 'text/html');
+            response.setHeader('Content-Type', contentType);
             response.write(htmlData);
         } catch (e)
         {

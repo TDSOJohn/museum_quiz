@@ -9,7 +9,9 @@ var id          = '1';
 const callAPI   = async () =>
 {
 //  Build well-formed WHATWG URL and wait for json data
-    let myURL       = 'http://' + baseURL + ':' + apiPort + '/?id=' + id;
+    let myURL       = ('http://' + encodeURIComponent(baseURL) +
+                                ':' + encodeURIComponent(apiPort) +
+                                '/?id=' + encodeURIComponent(id));
     alert(myURL);
 
     const response  = await fetch(myURL);
