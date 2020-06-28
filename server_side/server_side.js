@@ -22,14 +22,12 @@ const server    = http.createServer((request, response) =>
     let baseURL = 'http://' + request.headers.host;
     let myURL   = new URL(request.url, baseURL);
     let pathName= myURL.pathname;
-    let type    = myURL.searchParams.get('type');
     let id      = utilities.intParser(myURL.searchParams.get('id'));
 
     console.log(pathName);
     console.log(id);
-    console.log(type);
 
-    if((type === null) && (pathName !== '/'))
+    if(pathName !== '/')
     {
 //      CREARE FUNZIONE DI ERROR HANDLING
         try
@@ -59,7 +57,7 @@ const server    = http.createServer((request, response) =>
                 throw e;
             }
         }
-    } else if(id)
+    } else if(id > 0)
     {
 //  RESTful API part
 //  readFileSync imposes program halting till file is read
