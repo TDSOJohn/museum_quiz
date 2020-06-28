@@ -1,5 +1,5 @@
 //  RESTful API URL format: http://192.168.1.110/?id=n (n is integer {1, 2, 3})
-//  client-side HTML retrieval URL format: http://192.168.1.110/client_side/index.php
+//  client-side HTML retrieval URL format: http://192.168.1.110/client_side/(index.php)
 //  javascript is in strict mode => throws more errors and could give better performance
 'use strict';
 
@@ -25,7 +25,6 @@ const server    = http.createServer((request, response) =>
     let type    = myURL.searchParams.get('type');
     let id      = utilities.intParser(myURL.searchParams.get('id'));
 
-    let parsed  = parseInt(id, 10);
     console.log(pathName);
     console.log(id);
     console.log(type);
