@@ -7,6 +7,7 @@
 const http      = require('http');
 const fs        = require('fs');
 const url       = require('url');
+const path      = require('path');
 
 const utilities = require('./utilities.js');
 
@@ -27,25 +28,26 @@ const server    = http.createServer((request, response) =>
     console.log(pathName);
     console.log(id);
 
+    let mimeTypes       = {
+        '.html' : 'text/html',
+        '.js'   : 'text/javascript',
+        '.css'  : 'text/css',
+        '.json' : 'application/json',
+        '.jpg'  : 'image/jpg',
+        '.png'  : 'image/png',
+        '.gif'  : 'image/gif',
+        '.woff' : 'application/font-woff',
+        '.ttf'  : 'application/font-ttf',
+        '.eot'  : 'application/vnd.ms-fontobject',
+        '.otf'  : 'application/font-otf'
+    };
+
     if(pathName !== '/')
     {
 //      CREARE FUNZIONE DI ERROR HANDLING
         try
         {
-            let extName         = String(path.extName(pathName)).toLowerCase();
-            let mimeTypes       = {
-                '.html' : 'text/html',
-                '.js'   : 'text/javascript',
-                '.css'  : 'text/css',
-                '.json' : 'application/json',
-                '.jpg'  : 'image/jpg',
-                '.png'  : 'image/png',
-                '.gif'  : 'image/gif',
-                '.woff' : 'application/font-woff',
-                '.ttf'  : 'application/font-ttf',
-                '.eot'  : 'application/vnd.ms-fontobject',
-                '.otf'  : 'application/font-otf'
-            };
+            let extName         = String(path.extname(pathName)).toLowerCase();
 
 //          Back to "home" folder
             let relativePathName    = '..' + pathName;
@@ -54,27 +56,13 @@ const server    = http.createServer((request, response) =>
 
 //          If no ContentType matches, send as binary stream
             let contentType     = mimeTypes[extName] || 'application/octet-stream';
+            console.log(contentType);
             response.statusCode = 200;
             response.setHeader('Content-Type', contentType);
             response.write(htmlData);
         } catch (e)
         {
-            if(e.code === 'ENOENT')
-            {
-                response.statusCode = 404;
-                response.setHeader('Content-Type', 'text/plain');
-                response.write('404 - file not found!');
-            }
-            else if(e.code === 'EACCES')
-            {
-                response.statusCode = 403;
-                response.setHeader('Content-Type', 'text/plain');
-                response.write('403 - file reading permission denied!');
-            }
-            else
-            {
-                throw e;
-            }
+            utilities.errorHandler(e, response);
         }
     } else if(id > 0)
     {
@@ -93,22 +81,7 @@ const server    = http.createServer((request, response) =>
             response.write(rawData);
         } catch(err)
         {
-            if(err.code === 'ENOENT')
-            {
-                response.statusCode = 404;
-                response.setHeader('Content-Type', 'text/plain');
-                response.write('404 - file not found!');
-            }
-            else if(err.code === 'EACCES')
-            {
-                response.statusCode = 403;
-                response.setHeader('Content-Type', 'text/plain');
-                response.write('403 - file reading permission denied!');
-            }
-            else
-            {
-                throw err;
-            }
+            utilities.errorHandler(err, response);
         }
     }
     response.end();
