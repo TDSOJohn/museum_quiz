@@ -41,6 +41,14 @@ const server    = http.createServer((request, response) =>
         '.eot'  : 'application/vnd.ms-fontobject',
         '.otf'  : 'application/font-otf'
     };
+    // Website you wish to allow to connect
+    response.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Request methods you wish to allow
+    response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 
     if(pathName !== '/')
     {
@@ -79,6 +87,7 @@ const server    = http.createServer((request, response) =>
             response.statusCode = 200;
             response.setHeader('Content-Type', 'application/json');
             response.write(rawData);
+            console.log('json' + jsonPathName);
         } catch(err)
         {
             utilities.errorHandler(err, response);
