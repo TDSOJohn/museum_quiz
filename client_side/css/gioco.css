@@ -1,0 +1,13 @@
+#slide {
+    animation-name:slidein;
+    animation-duration: 1s;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: -100%;
+    }
+    to {
+        margin-left: 0%;
+    }
+}
