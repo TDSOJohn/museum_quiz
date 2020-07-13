@@ -52,13 +52,12 @@ const server    = http.createServer((request, response) =>
 
     if(pathName !== '/')
     {
-//      CREARE FUNZIONE DI ERROR HANDLING
         try
         {
             let extName         = String(path.extname(pathName)).toLowerCase();
 
 //          Back to "home" folder
-            let relativePathName    = '..' + pathName;
+            let relativePathName    = '../client_side' + pathName;
             console.log(relativePathName);
             let htmlData        = fs.readFileSync(relativePathName);
 

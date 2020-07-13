@@ -2,7 +2,8 @@
 //  Support: Chrome 55+, Edge 15+, Firefox 52+, Opera 42+, Safari 10.1+ (no IE support)
 //  If not supported, use XMLHttpRequest instead
 
-const baseURL   = '192.168.1.51';
+//  baseURL should be server ip
+const baseURL   = '192.168.1.110';
 const apiPort   = '3000';
 var id          = '1';
 
