@@ -22,7 +22,7 @@
             "Cercate il  nome, ma non fatevi sentire!!!"],
         ["AHOY! SIETE STRABILIANTI! DEI PIRATI UNICI!",
             "Per continuare la ricerca del nostro bottino, dobbiamo cercare un altro quadro!",
-            "Vi lascio il mio cannocchiale... è PREZIOSISSIMO", 
+            "Vi lascio il mio cannocchiale... è PREZIOSISSIMO",
             "con questo potrete vedere facilmente lo sfondo del quadro fatt dal pirata MONET...",
             "al suo interno ha una grande spiaggia...",
             "ricordatevi...abbiamo bisogno del colore dello sfondo, piccola ciurma!",
@@ -82,4 +82,3 @@
             ],
         "immagine": "cippy.png"
     }
-    

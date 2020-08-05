@@ -3,6 +3,7 @@
 module.exports =
 {
 //  Sanitizes string_in checking for ints. Warning: "11fxoifS" => 11, "a11b" => NaN
+//  Convert to hex and find first char that is number. Delete everything else
     intParser: function(string_in)
     {
         const parsed = parseInt(string_in, 10);
