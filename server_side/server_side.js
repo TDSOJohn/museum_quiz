@@ -19,12 +19,16 @@ const port      = 3000;
 //  create http server, retrieve id and have it send the correct json through http
 const server    = http.createServer((request, response) =>
 {
+    const { method, url }   = request;
+    const { headers }       = request;
+
 //  myURL is (baseURL + request.url) in order to form a correct WHATWG URL
     let baseURL = 'http://' + request.headers.host;
     let myURL   = new URL(request.url, baseURL);
     let pathName= myURL.pathname;
     let id      = utilities.intParser(myURL.searchParams.get('id'));
 
+    console.log(myURL);
     console.log(pathName);
     console.log(id);
 
@@ -42,13 +46,14 @@ const server    = http.createServer((request, response) =>
         '.otf'  : 'application/font-otf'
     };
 
+//  If pathname is path to a resource, try to send it to the client
     if(pathName !== '/')
     {
         try
         {
             let extName         = String(path.extname(pathName)).toLowerCase();
 
-//          Back to "home" folder
+//          Back to "home" folder ( /client_side )
             let relativePathName= '../client_side' + pathName;
             console.log(relativePathName);
             let htmlData        = fs.readFileSync(relativePathName);

@@ -1,4 +1,4 @@
-//utilities
+//  server_side utilities
 
 module.exports =
 {
@@ -14,6 +14,7 @@ module.exports =
         return parsed;
     },
 
+//  Error Handler works if file not found or file reading not permitted (errors 403 and 404)
     errorHandler: function(err_in, response_in)
     {
         if(err_in.code === 'ENOENT')

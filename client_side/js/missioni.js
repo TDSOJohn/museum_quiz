@@ -2,36 +2,14 @@
 //  Support: Chrome 55+, Edge 15+, Firefox 52+, Opera 42+, Safari 10.1+ (no IE support)
 //  If not supported, use XMLHttpRequest instead
 
+import * as utilities from './utilities.js';
+
 //  baseURL should be RESTful API ip
+//const baseURL   = '192.168.1.157';
 const baseURL   = '127.0.0.1';
+
 const apiPort   = '3000';
 var id          = '1';
-
-//  Sanitizes string_in checking for ints. Warning: 11fxoifS => 11, a11b => NaN
-function intParser(string_in)
-{
-    const parsed = parseInt(string_in, 10);
-    if(isNaN(parsed) && (parsed !== null))
-    {
-        return 1;
-    }
-    return parsed;
-}
-
-function getQueryVariable(variable)
-{
-    var query   = window.location.search.substring(1);
-    var vars    = query.split('&');
-    for (var i  = 0; i < vars.length; i++)
-    {
-        var pair= vars[i].split('=');
-        if (decodeURIComponent(pair[0]) == variable)
-        {
-            return decodeURIComponent(pair[1]);
-        }
-    }
-    console.log('Query variable %s not found', variable);
-}
 
 const callAPI   = async () =>
 {
@@ -51,7 +29,7 @@ var i = -1;
 var MyArr, img_personaggio, frasi;
 
 async function loadFile() {
-    id = intParser(getQueryVariable('id'));
+    id = utilities.intParser(utilities.getQueryVariable('id'));
     MyArr = await callAPI();
 
     updateHTML();
@@ -82,3 +60,8 @@ function updateHTML() {
         </style>`
     document.getElementById("personaggio").innerHTML = codice;
 }
+
+//  Using type="module" in the HTML document creates a different scope to avoid name collisions
+//  This code is used to expose functions to the window object
+window.loadFile     = loadFile;
+window.updateHTML   = updateHTML;
