@@ -1,0 +1,24 @@
+body {
+    background-color: aqua;
+    text-align: center;
+}
+
+h1 {
+    color: red;
+}
+
+p {
+    color: blue;
+}
+
+form {
+    color: blue;
+}
+
+button {
+    background-color: blue;
+    color: aqua;
+    border-radius: 20px;
+    margin-top: 25%;
+    margin-left: 75%;
+}
