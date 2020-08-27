@@ -16,6 +16,21 @@ const hostname  = '0.0.0.0';
 //  ruby-on-rails default, better change it
 const port      = 3000;
 
+var mimeTypes       = {
+    '.html' : 'text/html',
+    '.js'   : 'text/javascript',
+    '.css'  : 'text/css',
+    '.json' : 'application/json',
+    '.jpg'  : 'image/jpg',
+    '.png'  : 'image/png',
+    '.gif'  : 'image/gif',
+    '.woff' : 'application/font-woff',
+    '.ttf'  : 'application/font-ttf',
+    '.eot'  : 'application/vnd.ms-fontobject',
+    '.otf'  : 'application/font-otf'
+};
+
+
 //  create http server, retrieve id and have it send the correct json through http
 const server    = http.createServer((request, response) =>
 {
@@ -32,64 +47,77 @@ const server    = http.createServer((request, response) =>
     console.log(pathName);
     console.log(id);
 
-    let mimeTypes       = {
-        '.html' : 'text/html',
-        '.js'   : 'text/javascript',
-        '.css'  : 'text/css',
-        '.json' : 'application/json',
-        '.jpg'  : 'image/jpg',
-        '.png'  : 'image/png',
-        '.gif'  : 'image/gif',
-        '.woff' : 'application/font-woff',
-        '.ttf'  : 'application/font-ttf',
-        '.eot'  : 'application/vnd.ms-fontobject',
-        '.otf'  : 'application/font-otf'
-    };
+    console.log(method);
 
-//  If pathname is path to a resource, try to send it to the client
-    if(pathName !== '/')
+//  If method is GET, it is access to file or to RESTful API
+    if(method =='GET')
     {
-        try
+//  If pathname is path to a resource, try to fetch it and send it to the client
+        if(pathName !== '/')
         {
-            let extName         = String(path.extname(pathName)).toLowerCase();
+            try
+            {
+                let extName         = String(path.extname(pathName)).toLowerCase();
 
-//          Back to "home" folder ( /client_side )
-            let relativePathName= '../client_side' + pathName;
-            console.log(relativePathName);
-            let htmlData        = fs.readFileSync(relativePathName);
+//  Back to "home" folder ( /client_side )
+                let relativePathName= '../client_side' + pathName;
+                console.log(relativePathName);
+                let htmlData        = fs.readFileSync(relativePathName);
 
-//          If no ContentType matches, send as binary stream
-            let contentType     = mimeTypes[extName] || 'application/octet-stream';
-            console.log(contentType);
-            response.statusCode = 200;
-            response.setHeader('Content-Type', contentType);
-            response.write(htmlData);
-        } catch (e)
+//  If no ContentType matches, send as binary stream
+                let contentType     = mimeTypes[extName] || 'application/octet-stream';
+                console.log(contentType);
+                response.statusCode = 200;
+                response.setHeader('Content-Type', contentType);
+                response.write(htmlData);
+            } catch (e)
+            {
+                utilities.errorHandler(e, response);
+            }
+        } else if(id > 0)
         {
-            utilities.errorHandler(e, response);
-        }
-    } else if(id > 0)
-    {
 //  RESTful API part
 //  readFileSync imposes program halting till file is read
-//  Error handling if file is missing (ENOENT) or access is not permitted (EACCES), otherwise throw err
 //  If error in syscall is not handled, everything will crash <3
-        try
-        {
+            try
+            {
 //  Build jsonPathName from id and try to readSync it
-            let jsonPathName    = `data${id}.json`;
-            let rawData         = fs.readFileSync(jsonPathName);
+                let jsonPathName    = `database/data${id}.json`;
+                let rawData         = fs.readFileSync(jsonPathName);
 
-            response.statusCode = 200;
-            response.setHeader('Content-Type', 'application/json');
-            response.write(rawData);
-            console.log('json' + jsonPathName);
-        } catch(err)
-        {
-            utilities.errorHandler(err, response);
+                response.statusCode = 200;
+                response.setHeader('Content-Type', 'application/json');
+                response.write(rawData);
+                console.log(jsonPathName);
+            } catch(err)
+            {
+                utilities.errorHandler(err, response);
+            }
         }
+        response.end();
     }
-    response.end();
+//  If method is POST, try to catch body and save it in server storage
+    else if(method == 'POST')
+    {
+        let body = [];
+        request.on('data', (chunk) => {
+            body.push(chunk);
+            console.log(chunk);
+        }).on('end', () => {
+            body = Buffer.concat(body).toString();
+            if(body) console.log(body);
+            fs.writeFile('new_data.json', body, 'utf8', (err) => {
+                if (err) throw err;
+                console.log('The file has been saved!');
+            });
+        });
+
+//  Then send a 201 - Created response
+//  The origin server MUST create the resource before returning the 201 status code
+//  If the action cannot be carried out immediately, the server SHOULD respond with 202 (Accepted) response instead
+        response.statusCode = 201;
+        response.end();
+    }
 });
 
 //  function called on server listening gives some basic server info
