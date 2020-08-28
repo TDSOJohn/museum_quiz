@@ -7,12 +7,13 @@ var xhr         = new XMLHttpRequest();
 var myURL       = ('http://' + encodeURIComponent(baseURL) +
                                 ':' + encodeURIComponent(apiPort));
 
+var file        = '{"risposte":["1888","Gaugin","azzurro","73 x 58 cm","Nudo Blu","Donna","Composizione in Giallo, Blu e Rosso","Ricerca di Equilibrio","Vincent Van Gogh","I tre Girasoli"]}';
+
+
 function send_file() {
     xhr.open("POST", myURL, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     console.log("trying to send file...");
-
-    var file = document.getElementById('json_uploader').files[0];
 
     xhr.send(file);
 

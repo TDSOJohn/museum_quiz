@@ -21,17 +21,21 @@ module.exports =
         {
             response_in.statusCode = 404;
             response_in.setHeader('Content-Type', 'text/plain');
-            response_in.write('404 - file not found!');
+            response_in.write('404 - file not found');
         }
         else if(err_in.code === 'EACCES')
         {
             response_in.statusCode = 403;
             response_in.setHeader('Content-Type', 'text/plain');
-            response_in.write('403 - file reading permission denied!');
+            response_in.write('403 - file reading permission denied');
         }
         else
         {
+//  Default generic server error
             console.log(err_in);
+            response_in.statusCode = 500;
+            response_in.setHeader('Content-Type', 'text/plain');
+            response_in.write('500 - Internal Server Error');
         }
     }
 };

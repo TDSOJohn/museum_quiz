@@ -97,25 +97,28 @@ const server    = http.createServer((request, response) =>
         response.end();
     }
 //  If method is POST, try to catch body and save it in server storage
+//  Then send a 201 - Created response
+//  The origin server MUST create the resource before returning the 201 status code
+//  If the action cannot be carried out immediately, the server SHOULD respond with 202 (Accepted) response instead
     else if(method == 'POST')
     {
         let body = [];
         request.on('data', (chunk) => {
             body.push(chunk);
-            console.log(chunk);
         }).on('end', () => {
-            body = Buffer.concat(body).toString();
-            if(body) console.log(body);
-            fs.writeFile('new_data.json', body, 'utf8', (err) => {
-                if (err) throw err;
-                console.log('The file has been saved!');
-            });
+            try
+            {
+                body = Buffer.concat(body).toString();
+                if(body) console.log(body);
+                fs.writeFile('database/new_data.json', body, 'utf8', (err) => {
+                    console.log('The file has been saved!');
+                });
+                response.statusCode = 201;
+            } catch(err)
+            {
+                utilities.errorHandler(err, response);
+            }
         });
-
-//  Then send a 201 - Created response
-//  The origin server MUST create the resource before returning the 201 status code
-//  If the action cannot be carried out immediately, the server SHOULD respond with 202 (Accepted) response instead
-        response.statusCode = 201;
         response.end();
     }
 });
