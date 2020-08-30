@@ -10,6 +10,7 @@ const url       = require('url');
 const path      = require('path');
 
 const utilities = require('./utilities.js');
+const dbFolder  = './database/';
 
 //  accept any connection to the correct port
 const hostname  = '0.0.0.0';
@@ -38,16 +39,14 @@ const server    = http.createServer((request, response) =>
     const { headers }       = request;
 
 //  myURL is (baseURL + request.url) in order to form a correct WHATWG URL
-    let baseURL = 'http://' + request.headers.host;
-    let myURL   = new URL(request.url, baseURL);
-    let pathName= myURL.pathname;
-    let id      = utilities.intParser(myURL.searchParams.get('id'));
-
-    console.log(myURL);
-    console.log(pathName);
-    console.log(id);
+    let baseURL     = 'http://' + request.headers.host;
+    let myURL       = new URL(request.url, baseURL);
+    let pathName    = myURL.pathname;
+    let id          = utilities.intParser(myURL.searchParams.get('id'));
+    let queryType   = myURL.searchParams.get('type');
 
     console.log(method);
+    console.log(myURL);
 
 //  If method is GET, it is access to file or to RESTful API
     if(method =='GET')
@@ -70,31 +69,42 @@ const server    = http.createServer((request, response) =>
                 response.statusCode = 200;
                 response.setHeader('Content-Type', contentType);
                 response.write(htmlData);
+                response.end();
             } catch (e)
             {
                 utilities.errorHandler(e, response);
             }
-        } else if(id > 0)
+        } else if(id >= 0)
         {
 //  RESTful API part
 //  readFileSync imposes program halting till file is read
-//  If error in syscall is not handled, everything will crash <3
-            try
+            if(queryType == 'json')
             {
-//  Build jsonPathName from id and try to readSync it
+//  Build jsonPathName from id and try to readSync the file
                 let jsonPathName    = `database/data${id}.json`;
-                let rawData         = fs.readFileSync(jsonPathName);
-
-                response.statusCode = 200;
-                response.setHeader('Content-Type', 'application/json');
-                response.write(rawData);
-                console.log(jsonPathName);
-            } catch(err)
+                fs.readFile(jsonPathName, (err, data) => {
+                    response.statusCode = 200;
+                    response.setHeader('Content-Type', 'application/json');
+                    response.write(data);
+                    console.log(jsonPathName);
+                    utilities.errorHandler(err, response);
+                    response.end();
+                });
+            }
+//  Build qrPathName from id and try to readSync the file
+            else if(queryType == 'qr')
             {
-                utilities.errorHandler(err, response);
+                let qrPathName      = `qrCodes/data${id}.png`;
+                fs.readFile(qrPathName, (err, data) => {
+                    response.statusCode = 200;
+                    response.setHeader('Content-Type', 'image/png');
+                    response.write(data);
+                    console.log(qrPathName);
+                    utilities.errorHandler(err, response);
+                    response.end();
+                });
             }
         }
-        response.end();
     }
 //  If method is POST, try to catch body and save it in server storage
 //  Then send a 201 - Created response
@@ -102,24 +112,31 @@ const server    = http.createServer((request, response) =>
 //  If the action cannot be carried out immediately, the server SHOULD respond with 202 (Accepted) response instead
     else if(method == 'POST')
     {
-        let body = [];
+        let body        = [];
+        let dbFiles     = undefined;
+        let qrFilePath  = undefined;
+
         request.on('data', (chunk) => {
             body.push(chunk);
         }).on('end', () => {
-            try
-            {
-                body = Buffer.concat(body).toString();
-                if(body) console.log(body);
-                fs.writeFile('database/new_data.json', body, 'utf8', (err) => {
-                    console.log('The file has been saved!');
+            body = Buffer.concat(body).toString();
+
+//  Get list of all elements inside the folder to avoid rewriting existing .json
+            fs.readdir(dbFolder, (err, dbFiles) => {
+                fs.writeFile(`database/data${dbFiles.length}.json`, body, 'utf8', (err) => {
+                    console.log('data' + dbFiles.length + ' has been saved!');
                 });
-                response.statusCode = 201;
-            } catch(err)
-            {
-                utilities.errorHandler(err, response);
-            }
+//  Generate qr code and save it as .png file in ./qrCodes/, then call callback() to respond with 303 - redirect
+                qrFilePath = `qrCodes/data${dbFiles.length}.png`;
+//  Send a 303 response (see other) with the location of the .png qr code
+                utilities.qrGenerator(`127.0.0.1:3000/html/missioni.html/?id=${dbFiles.length}`, qrFilePath, () => {
+                    response.writeHead(303, {
+                        'Location' : `?id=${dbFiles.length}&type=qr`
+                    }).end();
+                    console.log(qrFilePath + ' saved!');
+                });
+            });
         });
-        response.end();
     }
 });
 
