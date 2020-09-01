@@ -40,13 +40,7 @@ module.exports =
                 response_in.statusCode = 500;
                 response_in.setHeader('Content-Type', 'text/plain');
                 response_in.write('500 - Internal Server Error');
-            }            
+            }
         }
-    },
-
-    qrGenerator:    function(text_in, path_in, callback)
-    {
-        console.log('creating qr code...');
-        QRCode.toFile(path_in, text_in, callback());
     }
 };

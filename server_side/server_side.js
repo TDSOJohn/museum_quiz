@@ -9,6 +9,9 @@ const fs        = require('fs');
 const url       = require('url');
 const path      = require('path');
 
+//  npm dependencies
+var QRCode      = require('qrcode');
+
 const utilities = require('./utilities.js');
 const dbFolder  = './database/';
 
@@ -126,10 +129,10 @@ const server    = http.createServer((request, response) =>
                 fs.writeFile(`database/data${dbFiles.length}.json`, body, 'utf8', (err) => {
                     console.log('data' + dbFiles.length + ' has been saved!');
                 });
-//  Generate qr code and save it as .png file in ./qrCodes/, then call callback() to respond with 303 - redirect
                 qrFilePath = `qrCodes/data${dbFiles.length}.png`;
+//  Generate qr code and save it as .png file in ./qrCodes/, then call callback() to respond with 303 - redirect
 //  Send a 303 response (see other) with the location of the .png qr code
-                utilities.qrGenerator(`127.0.0.1:3000/html/missioni.html/?id=${dbFiles.length}`, qrFilePath, () => {
+                QRCode.toFile(qrFilePath, `127.0.0.1:3000/html/missioni.html/?id=${dbFiles.length}`, function (err) {
                     response.writeHead(303, {
                         'Location' : `?id=${dbFiles.length}&type=qr`
                     }).end();
