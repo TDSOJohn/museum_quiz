@@ -1,3 +1,5 @@
+//  Route
+
 //  RESTful API URL format: http://192.168.1.110/?id=n (n is integer {1, 2, 3})
 //  client-side HTML retrieval URL format: http://192.168.1.110/client_side/webpage.html
 //  javascript is in strict mode => throws more errors and could give better performance
@@ -20,7 +22,7 @@ const hostname  = '0.0.0.0';
 //  ruby-on-rails default, better change it
 const port      = 3000;
 
-var mimeTypes       = {
+var mimeTypes   = {
     '.html' : 'text/html',
     '.js'   : 'text/javascript',
     '.css'  : 'text/css',
