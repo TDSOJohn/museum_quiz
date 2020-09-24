@@ -59,26 +59,26 @@ const server    = http.createServer((request, response) =>
 //  If pathname is path to a resource, try to fetch it and send it to the client
         if(pathName !== '/')
         {
-            try
-            {
-                let extName         = String(path.extname(pathName)).toLowerCase();
+            let extName         = String(path.extname(pathName)).toLowerCase();
 
 //  Back to "home" folder ( /client_side )
-                let relativePathName= '../client_side' + pathName;
-                console.log(relativePathName);
-                let htmlData        = fs.readFileSync(relativePathName);
+            let relativePathName= '../client_side' + pathName;
+            console.log(relativePathName);
 
+            fs.readFile(relativePathName, (err, data) => {
+                if(err)
+                    utilities.errorHandler(err, response);
+                else
+                {
 //  If no ContentType matches, send as binary stream
-                let contentType     = mimeTypes[extName] || 'application/octet-stream';
-                console.log(contentType);
-                response.statusCode = 200;
-                response.setHeader('Content-Type', contentType);
-                response.write(htmlData);
+                    let contentType     = mimeTypes[extName] || 'application/octet-stream';
+                    console.log(contentType);
+                    response.statusCode = 200;
+                    response.setHeader('Content-Type', contentType);
+                    response.write(data);
+                }
                 response.end();
-            } catch (e)
-            {
-                utilities.errorHandler(e, response);
-            }
+            });
         } else if(id >= 0)
         {
 //  RESTful API part
@@ -88,11 +88,15 @@ const server    = http.createServer((request, response) =>
 //  Build jsonPathName from id and try to readSync the file
                 let jsonPathName    = `database/data${id}.json`;
                 fs.readFile(jsonPathName, (err, data) => {
-                    response.statusCode = 200;
-                    response.setHeader('Content-Type', 'application/json');
-                    response.write(data);
-                    console.log(jsonPathName);
-                    utilities.errorHandler(err, response);
+                    if(err)
+                        utilities.errorHandler(err, response);
+                    else {
+                        response.statusCode = 200;
+                        response.setHeader('Content-Type', 'application/json');
+                        response.write(data);
+                        console.log(jsonPathName);
+                        utilities.errorHandler(err, response);
+                    }
                     response.end();
                 });
             }
@@ -101,11 +105,14 @@ const server    = http.createServer((request, response) =>
             {
                 let qrPathName      = `qrCodes/data${id}.png`;
                 fs.readFile(qrPathName, (err, data) => {
-                    response.statusCode = 200;
-                    response.setHeader('Content-Type', 'image/png');
-                    response.write(data);
-                    console.log(qrPathName);
-                    utilities.errorHandler(err, response);
+                    if(err)
+                        utilities.errorHandler(err, response);
+                    else {
+                        response.statusCode = 200;
+                        response.setHeader('Content-Type', 'image/png');
+                        response.write(data);
+                        console.log(qrPathName);
+                    }
                     response.end();
                 });
             }
@@ -128,18 +135,22 @@ const server    = http.createServer((request, response) =>
 
 //  Get list of all elements inside the folder to avoid rewriting existing .json
             fs.readdir(dbFolder, (err, dbFiles) => {
-                fs.writeFile(`database/data${dbFiles.length}.json`, body, 'utf8', (err) => {
-                    console.log('data' + dbFiles.length + ' has been saved!');
-                });
-                qrFilePath = `qrCodes/data${dbFiles.length}.png`;
+                if(err)
+                    utilities.errorHandler(err);
+                else {
+                    fs.writeFile(`database/data${dbFiles.length}.json`, body, 'utf8', (err) => {
+                        console.log('data' + dbFiles.length + ' has been saved!');
+                    });
+                    qrFilePath = `qrCodes/data${dbFiles.length}.png`;
 //  Generate qr code and save it as .png file in ./qrCodes/, then call callback() to respond with 303 - redirect
 //  Send a 303 response (see other) with the location of the .png qr code
-                QRCode.toFile(qrFilePath, `127.0.0.1:3000/html/missioni.html/?id=${dbFiles.length}`, function (err) {
-                    response.writeHead(303, {
-                        'Location' : `?id=${dbFiles.length}&type=qr`
-                    }).end();
-                    console.log(qrFilePath + ' saved!');
-                });
+                    QRCode.toFile(qrFilePath, `127.0.0.1:3000/html/missioni.html/?id=${dbFiles.length}`, function (err) {
+                        response.writeHead(303, {
+                            'Location' : `?id=${dbFiles.length}&type=qr`
+                        }).end();
+                        console.log(qrFilePath + ' saved!');
+                    });
+                }
             });
         });
     }

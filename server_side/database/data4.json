@@ -1,19 +1,21 @@
 {[
     {
-        "missione":"scelta_multipla",
-        "risposte":
+        "type":"mult_choice",
+        "question":"in quale anno?",
+        "answers":
             ["1888",
             "1972",
             "1846",
             "73 x 58 cm"]
     },
     {
-        "missione":"impiccato",
-        "risposta":"termosifone"
+        "type":"impiccato",
+        "answer":"termosifone"
     },
     {
-        "missione":"scelta_multipla",
-        "risposte":
+        "type":"mult_choice",
+        "question":"che colore?",
+        "answers":
             ["bianco",
             "giallo",
             "verde",

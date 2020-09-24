@@ -11,15 +11,18 @@ var file        = '{"missioni":[ ["ARRR! Benvenuta a bordo, piccola ciurma! Siam
 
 var body_dom = document.getElementsByTagName('body');
 
-function send_file() {
+function send_file()
+{
     xhr.open("POST", myURL, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     console.log("trying to send file...");
 
     xhr.send(file);
 
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
+    xhr.onreadystatechange = function ()
+    {
+        if (xhr.readyState === 4 && xhr.status === 200)
+        {
             console.log("file sent!");
             body_dom[0].innerHTML = `<img src=\"${xhr.responseURL}\">`;
         }
