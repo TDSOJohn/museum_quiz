@@ -1,4 +1,7 @@
 body {
+    min-height: 500px;
+    max-width: 1200px;
+    overflow-y: hidden;
     background-color: aqua;
     font-size: 50cm;
 }
