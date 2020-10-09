@@ -1,0 +1,32 @@
+//--------ERRORS--------//
+
+
+GET
+URL {
+  href: 'http://127.0.0.1:3000/html/gioco.html?id=1&type=json',
+  origin: 'http://127.0.0.1:3000',
+  protocol: 'http:',
+  username: '',
+  password: '',
+  host: '127.0.0.1:3000',
+  hostname: '127.0.0.1',
+  port: '3000',
+  pathname: '/html/gioco.html',
+  search: '?id=1&type=json',
+  searchParams: URLSearchParams { 'id' => '1', 'type' => 'json' },
+  hash: ''
+}
+1
+/html/gioco.html
+../client_side/html/gioco.html
+JSON REQUESTED: 1
+text/html
+_http_outgoing.js:518
+    throw new ERR_HTTP_HEADERS_SENT('set');
+    ^
+
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:518:11)
+    at /Users/giovannibasso/Documents/GitHub/museum_quiz/server_side/server_side.js:97:34
+    at FSReqCallback.readFileAfterClose [as oncomplete] (internal/fs/read_file_context.js:63:3) {
+  code: 'ERR_HTTP_HEADERS_SENT'

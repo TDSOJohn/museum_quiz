@@ -13,10 +13,9 @@ var risp = [{
 ];
 
 window.onload = function() {
-    console.log("loaded!");
-    rbs = document.querySelectorAll("label");
+    rbs = document.querySelectorAll(".option");
     for (let i = 0; i < rbs.length; ++i) {
-        rbs[i].innerHTML = "<input type=\"radio\" name=\"optradio\" checked>" + risp[i].testo;
+        rbs[i].innerHTML = risp[i].testo;
     }
 };
 
@@ -37,7 +36,4 @@ function evaluate_answer() {
     }
     gg == true ? alert("Missione compiuta") :
         alert("Che peccato hai sbagliato! Ritenta, questa volta non sbaglierai!");
-
-
-
 };

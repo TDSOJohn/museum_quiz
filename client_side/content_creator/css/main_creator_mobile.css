@@ -1,0 +1,39 @@
+@media screen and (max-width: 900px) {
+    h3 {
+        text-align: center;
+    }
+    .mult_choice {
+        width: 92%;
+        margin: 4%;
+        padding: 15px;
+    }
+    .hanged_man {
+        width: 92%;
+        margin: 4%;
+        padding: 15px;
+    }
+    .dropdown {
+        width: 92%;
+        margin: 4%;
+    }
+    #submit {
+        width: 92%;
+        margin: 4%;
+    }
+    #demo {
+        width: 100%;
+    }
+    .dropdown-content {
+        display: block;
+        position: relative;
+    }
+    .question {
+        width: 100%;
+    }
+    .answer {
+        width: 100%;
+    }
+    .choice {
+        width: 100%;
+    }
+}

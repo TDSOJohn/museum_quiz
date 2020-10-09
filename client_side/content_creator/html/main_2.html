@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/micol_impara_a_disegnare.js"></script>
+    <link rel="stylesheet" href="../css/main_creator.css">
+    <link rel="stylesheet" href="../css/main_creator_mobile.css">
+</head>
+
+
+
+<body>
+    <div class="intro">
+        <h1>Area Autore</h1>
+        <p>In questa sezione dovrai inserire le domande per il quiz</p>
+    </div>
+
+    <div class="dropdown">
+        <button class="btn">Possibili domande</button>
+        <div class="dropdown-content">
+            <a class="questType" href="#">Scelta Multipla</a>
+            <a class="questType" href="#">Impiccato</a>
+        </div>
+    </div>
+
+
+    <p id="demo"></p>
+    <div id="submit">
+        <label>Il QR Code verrà generato automaticamente</label>
+        <button class="btn" onclick="verifyAndUpload()">Create JSON and Upload</button>
+    </div>
+</body>
+
+</html>

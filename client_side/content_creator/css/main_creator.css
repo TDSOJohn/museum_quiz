@@ -1,0 +1,108 @@
+* {
+    font-family: arial;
+}
+
+body {
+    background-color: #222;
+    color: white;
+    margin: 0;
+}
+
+.btn {
+    background-color: #444;
+    color: white;
+    padding: 20px;
+    font-size: 16px;
+    border: none;
+    width: 100%;
+    margin: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+}
+
+.intro {
+    margin: 20px;
+}
+
+.btn:hover {
+    background-color: #666;
+}
+
+.mult_choice {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 10px;
+    width: 400px;
+    background-color: #333;
+    color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+}
+
+.hanged_man {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 10px;
+    width: 400px;
+    background-color: #333;
+    color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+}
+
+.choice {
+    padding: 12px 1%;
+    width: 90%;
+}
+.question {
+    padding: 12px 1%;
+    width: 90%;
+}
+
+label {
+    display: block;
+    padding: 10px;
+}
+
+input {
+    width: 100%;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #555;
+    color: white;
+    min-width: 160px;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 8px;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #666;
+}
+#submit {
+    width: 400px;
+    margin: 50px;
+}
+#submit label {
+    padding: 12px 20px;
+    display: block;
+}

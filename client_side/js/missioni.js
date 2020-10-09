@@ -6,7 +6,7 @@ import * as utilities from './utilities.js';
 
 //  baseURL should be RESTful API ip
 //const baseURL   = '192.168.1.157';
-const baseURL   = '127.0.0.1';
+const baseURL   = '192.168.1.51';
 
 const apiPort   = '3000';
 var id          = '1';

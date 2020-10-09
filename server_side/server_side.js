@@ -52,6 +52,8 @@ const server    = http.createServer((request, response) =>
 
     console.log(method);
     console.log(myURL);
+    console.log(id);
+    console.log(pathName);
 
 //  If method is GET, it is access to file or to RESTful API
     if(method =='GET')
@@ -76,28 +78,29 @@ const server    = http.createServer((request, response) =>
                     response.statusCode = 200;
                     response.setHeader('Content-Type', contentType);
                     response.write(data);
+                    response.end();
                 }
-                response.end();
             });
         } else if(id >= 0)
         {
-//  RESTful API part
-//  readFileSync imposes program halting till file is read
-            if(queryType == 'json')
+        console.log('JSON REQUESTED: ' + id);
+//  RESTful API part. URL type:     http://ip:3000?id=n(&type=t)
+            if(queryType == 'json' || queryType == null)
             {
 //  Build jsonPathName from id and try to readSync the file
                 let jsonPathName    = `database/data${id}.json`;
                 fs.readFile(jsonPathName, (err, data) => {
-                    if(err)
+                    if(err) {
                         utilities.errorHandler(err, response);
+                        response.end();
+                    }
                     else {
                         response.statusCode = 200;
                         response.setHeader('Content-Type', 'application/json');
                         response.write(data);
                         console.log(jsonPathName);
-                        utilities.errorHandler(err, response);
+                        response.end();
                     }
-                    response.end();
                 });
             }
 //  Build qrPathName from id and try to readSync the file
@@ -119,9 +122,7 @@ const server    = http.createServer((request, response) =>
         }
     }
 //  If method is POST, try to catch body and save it in server storage
-//  Then send a 201 - Created response
-//  The origin server MUST create the resource before returning the 201 status code
-//  If the action cannot be carried out immediately, the server SHOULD respond with 202 (Accepted) response instead
+//  Then send a 303 - See Other with a location header to newly created resource
     else if(method == 'POST')
     {
         let body        = [];
@@ -144,7 +145,7 @@ const server    = http.createServer((request, response) =>
                     qrFilePath = `qrCodes/data${dbFiles.length}.png`;
 //  Generate qr code and save it as .png file in ./qrCodes/, then call callback() to respond with 303 - redirect
 //  Send a 303 response (see other) with the location of the .png qr code
-                    QRCode.toFile(qrFilePath, `127.0.0.1:3000/html/missioni.html/?id=${dbFiles.length}`, function (err) {
+                    QRCode.toFile(qrFilePath, `127.0.0.1:3000/html/missioni.html?id=${dbFiles.length}`, function (err) {
                         response.writeHead(303, {
                             'Location' : `?id=${dbFiles.length}&type=qr`
                         }).end();

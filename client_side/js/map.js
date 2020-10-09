@@ -22,12 +22,10 @@ jQuery(document).ready(function() {
 
     $('.uno').mouseout(function() {
         $("#map").attr('src', '../images/grotta_dell_uncino.jpg');
-
     }),
     $('.uno').mouseover(function() {
         $("#map").attr('src', '../images/grotta_dell_uncino.jpg');
     });
-
 
     $('.due').mouseout(function() {
         $("#map").attr('src', '../images/lago_senza_nome.jpg');

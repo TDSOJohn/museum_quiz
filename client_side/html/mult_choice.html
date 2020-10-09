@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/missione1.js"></script>
+    <script src="../js/mult_choice.js"></script>
 </head>
 
 
@@ -18,27 +18,27 @@
         <div class="container">
 
             <div style="text-align: center; font-size:3vh; color:red">
-                <h1 class="mt-5">RISPOSTA</h1>
+                <h1 class="mt-5" id="title">RISPOSTA</h1>
             </div>
             <div style="text-align: center; color: blue;">
-                <p class="lead">La risposta è:</p>
+                <p class="lead" id="subtitle">La risposta è:</p>
             </div>
             <div style="background-color: aqua; text-align: center;">
                 <form>
                     <div class="radio">
-                        <label><input type="radio" name="optradio" checked>parola</label>
+                        <label><input type="radio" name="optradio" class="option" checked></label>
                     </div>
                     <div class="radio">
-                        <label><input type="radio" name="optradio">par_err1</label>
+                        <label><input type="radio" name="optradio" class="option"></label>
                     </div>
                     <div class="radio">
-                        <label><input type="radio" name="optradio">par_err2</label>
+                        <label><input type="radio" name="optradio" class="option"></label>
                     </div>
                     <input type="submit" id="btn" value="Submit" onclick="evaluate_answer()">
                 </form>
             </div>
         </div>
-        
+
     </main>
 </body>
 </html>
