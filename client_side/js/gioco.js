@@ -3,7 +3,7 @@
 //  If not supported, use XMLHttpRequest instead
 
 //  baseURL should be server ip
-const baseURL   = '127.0.0.1';
+const baseURL   = '192.168.1.110';
 const apiPort   = '3000';
 var id          = '1';
 
