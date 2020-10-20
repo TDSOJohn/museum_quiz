@@ -10,7 +10,8 @@
     		"ALL'ARREMBAGGIO, PIRATI!!!"
         ]
     },
-    "missioni":[
+    {
+        "missioni":[
     {
         "type":"mult_choice",
         "question":["ARRR! Piccola ciurma, dobbiamo cercare il nostro tesoro",

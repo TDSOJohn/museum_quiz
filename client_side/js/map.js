@@ -12,7 +12,7 @@ precarica([
     '../images/sabbie_mobili.jpg',
     '../images/foresta_buia.jpg',
     '../images/montagna_del_fuoco.jpg',
-    '../images/deserto_dei_serpenti.jpg.jpg',
+    '../images/deserto_dei_serpenti.jpg',
     '../images/tesoro.jpg'
 ]);
 

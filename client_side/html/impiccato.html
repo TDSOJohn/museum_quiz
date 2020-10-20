@@ -14,18 +14,13 @@
         $("#sfondo").append("<div class=\"container\"><div class=\"row\" style=\"height: 15vh\"><div class=\"col-sm\"><div id =\"risposta\" style=\"text-align: center; font-size:3vh;\"></div></div></div></div>")
         $("#risposta").append("<p id=\"frase\">La risposta è:</p><div id=\"interazione\"><p id=\"suggerimento\"></p><input type=\"text\" id=\"insert\" onfocus=\"this.value=''\" value=\"inserisci la tua risposta\"></input><button onclick=\"controlla()\">Invia la risposta</button></div>")
         var risposte = ["Gaugin", "azzurro", "Composizione in Giallo, Blu e Rosso", "Vincent Van Gogh"]
-        var parola = risposte[0]
+        var parola = risposte[0];
         var bits = new Array(parola.length).fill(0);
         bits[0] = 1;
         bits[bits.length-1] = 1;
-        var tentativi = 0
-        var tentativi_max = parola.length -3
-        var incompleta = calcolaincompleta (parola,bits)
-
-
-
-        //aggiornabits(bits, tentativi)
-
+        var tentativi = 0;
+        var tentativi_max = parola.length -3;
+        var incompleta = calcolaincompleta (parola,bits);
 
         function calcolaincompleta (parola, bits){
             incompleta = ""
