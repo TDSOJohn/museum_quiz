@@ -3,6 +3,10 @@
     animation-duration: 1s;
 }
 
+.bg-cover {
+    background-color: #5ABFF7;
+}
+
 @keyframes slidein {
     from {
         margin-left: -100%;
