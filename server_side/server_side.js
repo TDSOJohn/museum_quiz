@@ -139,15 +139,15 @@ const server    = http.createServer((request, response) =>
                 if(err)
                     utilities.errorHandler(err);
                 else {
-                    fs.writeFile(`database/data${dbFiles.length}.json`, body, 'utf8', (err) => {
-                        console.log('data' + dbFiles.length + ' has been saved!');
+                    fs.writeFile(`database/data${dbFiles.length + 1}.json`, body, 'utf8', (err) => {
+                        console.log('data' + (dbFiles.length + 1) + ' has been saved!');
                     });
-                    qrFilePath = `qrCodes/data${dbFiles.length}.png`;
+                    qrFilePath = `qrCodes/data${dbFiles.length + 1}.png`;
 //  Generate qr code and save it as .png file in ./qrCodes/, then call callback() to respond with 303 - redirect
 //  Send a 303 response (see other) with the location of the .png qr code
-                    QRCode.toFile(qrFilePath, `192.168.1.110:3000/html/missioni.html?id=${dbFiles.length}`, function (err) {
+                    QRCode.toFile(qrFilePath, `192.168.1.110:3000/html/missioni.html?id=${dbFiles.length + 1}`, function (err) {
                         response.writeHead(303, {
-                            'Location' : `?id=${dbFiles.length}&type=qr`
+                            'Location' : `?id=${dbFiles.length + 1}&type=qr`
                         }).end();
                         console.log(qrFilePath + ' saved!');
                     });
