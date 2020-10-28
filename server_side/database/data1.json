@@ -1,4 +1,5 @@
-{ {"benvenuto":
+{ 
+{"benvenuto":
     ["ARRR! Benvenuta a bordo, piccola ciurma! Siamo in 5 nel nostro equipaggio!",
 		" Io sono Cippy, il miglior pappagallo pirata sulla terra, per tutti i bucanieri!",
 		"Devo trovare il tesoro che il pirata Azzurro ha nascosto su un isola in mezzo al mare!",
@@ -7,7 +8,8 @@
 		"Per non creare guazzabugli, vi accompagnerò e vi darò suggerimenti per acciuffare il bottino!",
 		"ALL'ARREMBAGGIO, PIRATI!!!"]
 },
-{"missioni": [
+{"missioni": 
+ [
  {"type": "mult_choice",
   "question":
     ["ARRR! Piccola ciurma, dobbiamo cercare il nostro tesoro",
@@ -117,11 +119,12 @@
         "Ora ve le elenco, così sarà più facile completare la ricerca",
         "Il quadro con 3 grandi fiori gialli, è del 1888, misura solo 73x58cm, fatto con pittura ad olio, il pirata OLANDESE è VINCENT VAN GOGH!",
         "CIURMA!!! Abbiamo tutto quello che ci serve...Sta a voi ora cercare il nostro TESORO!!!",
-        "CE LA FARETE, NE SONO SICURO!!!"]
+        "CE LA FARETE, NE SONO SICURO!!!"
         ],
  "answers": []
 }
-]},
+]
+},
 {
     "immagine": "cippy.png"
 }}
