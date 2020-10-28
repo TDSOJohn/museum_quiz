@@ -1,44 +1,101 @@
+{"benvenuto":
+    [""
+]
+},
+{"missioni": 
+ [
+ {"type": "",
+  "question":
+    [""
+        ],
+ "answers": [ 
+     "1888",
+"1900",
+"1671",
+"1700"
+]
+ },
+ {"type": "",
+ "question":
+    [""
+],
+ "answers":["Gaugin"]
+},
+{"type":"",
+ "question":
+    [""
+],
+ "answers": ["Azzurro"]
+},
+{"type": "",
+ "question":
+    [""
+],
+ "answers": [
+"73x58 cm",
+"60x80 cm",
+"10x5 cm",
+"30x40 cm"
+]
+},
+{"type": "",
+ "question":
+    [""
+],
+ "answers": [
+"Nudo Blu",
+"Figura Blu",
+"Corpo Bl",
+"Quadro Blu"
+]
+},
+{"type": "",
+ "question":
+    [""
+],
+ "answers": [
+"Donna",
+"Uomo",
+"Squalo",
+"Oggetto"
+]
+},
+{"type": "",
+ "question":
+    [""
+],
+ "answers": ["Olanda"]
+},
+{"type": "",
+ "question":
+    [""
+        ],
+ "answers": [
+"Ricerca di Equilibrio",
+"L’autore apprezzava i colori",
+"Confusione",
+"L’autore apprezzava i quadrati"
+]
+},
+{"type": "",
+ "question":
+    [""
+        ],
+ "answers": ["Vincent Van Gogh"]
+},
+{"type": "",
+ "question":
+    [""
+        ],
+ "answers": [
+"I tre Girasoli",
+"I fiori Gialli",
+"Il vaso",
+"Natura"
+]
+}
+]
+},
 {
-    {
-        "benvenuto":[
-            "ARRR! Benvenuta a bordo, piccola ciurma! Siamo in 5 nel nostro equipaggio!",
-    		" Io sono Cippy, il miglior pappagallo pirata sulla terra, per tutti i bucanieri!",
-    		"Devo trovare il tesoro che il pirata Azzurro ha nascosto su un isola in mezzo al mare!",
-    		"Tu e i tuoi compagni mi aiuterete in questa avventura?",
-    		"Corpo di mille balene! STRABILIANTE! Tu sei il pirata che mi mancava!",
-    		"Per non creare guazzabugli, vi accompagnerò e vi darò suggerimenti per acciuffare il bottino!",
-    		"ALL'ARREMBAGGIO, PIRATI!!!"
-        ]
-    },
-    {
-        "missioni":[
-    {
-        "type":"mult_choice",
-        "question":["ARRR! Piccola ciurma, dobbiamo cercare il nostro tesoro",
-            "Il nostro amico Cippy, volando nella nave del Pirata Azzurro, ha scoperto che si tratta di un quadro preziosissimo, con tre grandi fiori gialli!",
-            "(lo dirò solo a voi, piccola e coraggiosa ciurma, sono fatti d'oro!!!)",
-            "Miei piccoli pirati, dovrete prima trovare un altro quadro però!",
-            "Ha tre donne velate di spalle al suo interno...trovatelo, miei fidati PIRATI e ditemi l'anno in cui è stato fatto",
-            "Corpo di mille balene!!! è lo stesso anno del quadro che noi stiamo cercando!" ,
-            "ANDATE E NON FATEMI ATTENDERE! ALL'ARREMBAGGIO!"],
-        "answers":
-            ["1888",
-            "1972",
-            "1846",
-            "73 x 58 cm"]
-    },
-    {
-        "type":"hanged_man",
-        "question":"how to hot?",
-        "answer":"termosifone"
-    },
-    {
-        "type":"mult_choice",
-        "question":"che colore?",
-        "answers":
-            ["bianco",
-            "giallo",
-            "verde",
-            "rosso"]
-    }
-]}
+    "immagine": "jacksparrow.png"
+}
