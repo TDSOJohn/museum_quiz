@@ -1,4 +1,3 @@
-{ 
 {"benvenuto":
     ["ARRR! Benvenuta a bordo, piccola ciurma! Siamo in 5 nel nostro equipaggio!",
 		" Io sono Cippy, il miglior pappagallo pirata sulla terra, per tutti i bucanieri!",
@@ -127,4 +126,4 @@
 },
 {
     "immagine": "cippy.png"
-}}
+}
