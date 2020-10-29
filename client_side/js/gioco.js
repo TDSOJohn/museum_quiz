@@ -29,7 +29,9 @@ const callAPI   = async () =>
 
 id = utilities.intParser(utilities.getQueryVariable('id'));
 
-MyArr = callAPI();
+callAPI().then(result => {
+    MyArr = result;
+});
 
 function receivedText(e)
 {
