@@ -44,7 +44,7 @@ var frasi;
 
 function updateHTML()
 {
-    frasi = MyArr.missioni[n];
+    frasi = MyArr.missioni[3];
     i = Math.min(i + 1, MyArr.missioni[0].length - 1);
     document.getElementById("testo").value = frasi[i];
 }
