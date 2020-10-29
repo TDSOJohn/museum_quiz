@@ -49,6 +49,8 @@ function updateHTML()
     document.getElementById("testo").value = frasi[i];
 }
 
+window.updateHTML = updateHTML;
+
 function loadImg ()
 {
     let codice =  `<img src="` + MyArr.immagine + `" id="slide" alt="personaggio" style="box-sizing: border-box;width:37vh;">
