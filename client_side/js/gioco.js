@@ -69,5 +69,5 @@ function loadImg ()
 window.onload = function() {
     id = utilities.intParser(utilities.getQueryVariable('id'));
     MyArr = callAPI();
-    alert(MyArr);
+    console.log(MyArr);
 }
