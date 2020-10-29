@@ -21,9 +21,10 @@ const callAPI   = async () =>
                                 '/?id=' + encodeURIComponent(id));
     alert(myURL);
 
-    const response  = await fetch(myURL);
-    const file      = await response.body;
-    return file;
+    fetch(myURL).then(function() {
+        const file      = await response.body;
+        return file;        
+    });
 }
 
 function receivedText(e)
