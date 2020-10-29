@@ -22,7 +22,7 @@ const callAPI   = async () =>
     alert(myURL);
 
     const response  = await fetch(myURL);
-    const file      = await response.json();
+    const file      = await response.text();
     return file;
 }
 
