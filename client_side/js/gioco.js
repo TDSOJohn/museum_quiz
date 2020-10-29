@@ -22,7 +22,7 @@ const callAPI   = async () =>
     alert(myURL);
 
     const response  = await fetch(myURL);
-    const file      = await response.json();
+    const file      = await response.body();
     return file;
 }
 
@@ -68,5 +68,6 @@ function loadImg ()
 
 window.onload = function() {
     id = utilities.intParser(utilities.getQueryVariable('id'));
-    callAPI();
+    MyArr = callAPI();
+    alert(MyArr);
 }
