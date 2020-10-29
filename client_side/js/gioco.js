@@ -23,9 +23,8 @@ const callAPI   = async () =>
     alert(myURL);
 
     const response  = await fetch(myURL);
-    file            = await response;
+    file            = response.json();
     MyArr = file;
-    alert(JSON.parse(file));
 }
 
 id = utilities.intParser(utilities.getQueryVariable('id'));
