@@ -67,4 +67,4 @@ function loadImg ()
         }
         </style>`
     document.getElementById("personaggio").innerHTML=codice;
-};
+}
