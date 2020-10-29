@@ -12,7 +12,6 @@ let id          = '1';
 let i = -1;
 let MyArr, img_personaggio;
 let sel_eta = 2;
-let file;
 
 const callAPI   = async () =>
 {
@@ -23,7 +22,7 @@ const callAPI   = async () =>
     alert(myURL);
 
     const response  = await fetch(myURL);
-    file            = await response.json();
+    const file      = await response.json();
     return file;
 }
 
