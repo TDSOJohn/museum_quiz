@@ -23,6 +23,7 @@ const callAPI   = async () =>
 
     fetch(myURL).then((response) => {
         const file  = response.body;
+        console.log(file);
         return file;
     }).catch(err => {
         alert(err);
