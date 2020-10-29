@@ -27,12 +27,6 @@ const callAPI   = async () =>
     return file;
 }
 
-id = utilities.intParser(utilities.getQueryVariable('id'));
-
-callAPI().then(result => {
-    MyArr = result;
-});
-
 function receivedText(e)
 {
     let lines = e.target.result;
@@ -70,4 +64,10 @@ function loadImg ()
         }
         </style>`
     document.getElementById("personaggio").innerHTML=codice;
+}
+
+
+window.onload = function() {
+    id = utilities.intParser(utilities.getQueryVariable('id'));
+    callAPI();
 }
