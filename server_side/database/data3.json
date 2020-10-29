@@ -1,5 +1,5 @@
 {"benvenuto":
-    ["Signori, ricorderete questo giorno come il giorno in cui avete quasi catturato Capitan Jack Sparrow...", 
+    ["Signori, ricorderete questo giorno come il giorno in cui avete quasi catturato Capitan Jack Sparrow...",
         "Sto scherzando, nessuno può avvicinarsi a me...",
         "MMMH, tranne i pirati come TE... ho bisogno di una nave e tu ne hai una...",
         "Lo confesso. È mia intenzione requisire la tua nave...",
@@ -9,16 +9,16 @@
         "Ogni uomo che indietro rimane, indietro viene lasciato, ma io ti accompagnerò per tutto il viaggio!"
 ]
 },
-{"missioni": 
+{"missioni":
  [
  {"type": "mult_choice",
   "question":
-    ["Sono proprio io, JACK SPARROW... so che mi stavi aspettando, dobbiamo cercare il tesoro", 
+    ["Sono proprio io, JACK SPARROW... so che mi stavi aspettando, dobbiamo cercare il tesoro",
         "Ovviamente ci riuscirei da solo, ma tu hai la nave...",
         "grazie alla mia astuzia ho scoperto che si tratta di un tesoro preziosissimo...",
         "...ma per trovarlo, dovrai prima trovare un altro indizio!",
         "Il quadro ha tre donne velate di spalle al suo interno...trovalo e dimmi l'anno in cui è stato fatto...è lo stesso del nostro tesoro",
-        "RICORDATI...devi cavartela da solo, io ho altro da fare!", 
+        "RICORDATI...devi cavartela da solo, io ho altro da fare!",
         "VAI E BADA A NON FARMI ATTENDERE!"
         ],
  "answers": []
@@ -39,7 +39,7 @@
  "question":
     ["Mhhh notevole!",
             "Per continuare la ricerca del nostro bottino, devi, mio caro, cercare un altro indizio!",
-            "Ti lascio la mia preziosissima bussola... TUTTI SANNO QUANTO IO CI TENGA", 
+            "Ti lascio la mia preziosissima bussola... TUTTI SANNO QUANTO IO CI TENGA",
             "con questa andrai dritto al tuo obiettivo...sempre che tu ne sia in grado",
             "Cerca il quadnro di MONET con una grande spiaggia...ho bisogno del colore dello sfondo!",
             "ricordati...stai lavorando per me!",
@@ -134,5 +134,5 @@
 ]
 },
 {
-    "immagine": "jacksparrow.png"
+    "immagine": "../images/jacksparrow.png"
 }

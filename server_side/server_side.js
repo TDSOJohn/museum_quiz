@@ -58,6 +58,10 @@ const server    = http.createServer((request, response) =>
 //  If method is GET, it is access to file or to RESTful API
     if(method =='GET')
     {
+        if((pathName == '/') && (id <= 0))
+        {
+            pathName            = '/html/welcome.html';
+        }
 //  If pathname is path to a resource, try to fetch it and send it to the client
         if(pathName !== '/')
         {
