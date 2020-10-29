@@ -7,12 +7,12 @@ import * as utilities from './utilities.js';
 //  baseURL should be server ip
 const baseURL   = '192.168.1.110';
 const apiPort   = '3000';
-var id          = '1';
+let id          = '1';
 
-var i = -1;
-var MyArr, img_personaggio;
-var sel_eta = 2;
-var file;
+let i = -1;
+let MyArr, img_personaggio;
+let sel_eta = 2;
+let file;
 
 const callAPI   = async () =>
 {
@@ -40,18 +40,13 @@ function receivedText(e)
     loadImg();
 }
 
+var frasi;
+
 function updateHTML()
 {
-    i++;
-    if(i < MyArr.missioni[0].length)
-    {
-        // update "benvenuto" text
-        document.getElementById("testo").value = MyArr.missioni[0][i];
-    } else
-    {
-        // redirect to map.html
-        window.location.replace('../html/map.html');
-    }
+    frasi = MyArr.missioni[n];
+    i = Math.min(i + 1, MyArr.missioni[0].length - 1);
+    document.getElementById("testo").value = frasi[i];
 }
 
 function loadImg ()
