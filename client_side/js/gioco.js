@@ -22,8 +22,8 @@ const callAPI   = async () =>
     alert(myURL);
 
     fetch(myURL).then(function() {
-        const file      = await response.body;
-        return file;        
+        const file  = response.body;
+        return file;
     });
 }
 
