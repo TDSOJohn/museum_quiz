@@ -24,12 +24,12 @@ const callAPI   = async () =>
 
     const response  = await fetch(myURL);
     file            = await response.json();
-    MyArr = file;
+    return file;
 }
 
 id = utilities.intParser(utilities.getQueryVariable('id'));
 
-callAPI();
+MyArr = callAPI();
 
 function receivedText(e)
 {
