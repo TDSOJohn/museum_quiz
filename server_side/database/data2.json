@@ -1,35 +1,35 @@
-{"benvenuto":
-    ["AHOY! Corpo di mille balene! Ero sicuro di trovarvi qui! Mi hanno a lungo parlato di voi, i migliori pirati in circolazione!",
+{
+    "benvenuto":
+        ["AHOY! Corpo di mille balene! Ero sicuro di trovarvi qui! Mi hanno a lungo parlato di voi, i migliori pirati in circolazione!",
         "Sono il CAPITANO! Per tutti i bucanieri, sto per iniziare un'avventura...voglio conquistare il bottino segreto! ",
         "Ho bisogno di voi, però...",
         "ARRR...Siete disposti ad aiutarmi? Sarò con voi per tutto il viaggio... per darvi consigli da veri pirati!",
-        "STRABILIANTE! Salite a bordo CIURMA!"]
-},
-{"missioni": 
- [
- {"type": "mult_choice",
-  "question":
-    ["ARRR! Miei pirati, dobbiamo cercare il tesoro", 
+        "STRABILIANTE! Salite a bordo CIURMA!"],
+    "missioni":
+    [
+    {"type": "mult_choice",
+    "question":
+    ["ARRR! Miei pirati, dobbiamo cercare il tesoro",
         "Sono sempre io, il Capitano... ho scoperto che si tratta di un tesoro preziosissimo!",
         "(ovviamente i dettagli sono fatti d'oro purissimo!!!)",
         "AHOY Pirati, dovrete prima trovare un altro indizio però!",
         "il nostro quadro ha tre grandi girasoli, ma il quadro con tre donne velate di spalle al suo interno è stato fatto nello stesso anno...ditemelo!",
-        "Corpo di mille balene!!!", 
+        "Corpo di mille balene!!!",
         "ANDATE E NON FATEMI ATTENDERE! ALL'ARREMBAGGIO!"
-        ],
- "answers": []
- },
- {"type": "impiccato",
- "question":
+    ],
+"answers": []
+},
+{"type": "impiccato",
+"question":
     ["Per la benda di Barbanera! Siete stati velocissimi, più veloci dei fulmini delle tempeste di mare!!!",
-            "ARRR! Ricordatevi che non dobbiamo farci sentire dagli altri pirati!!!",
-            "Ho scoperto degli indizi utili...",
-            "Se mi dimostrerete di essere dei bravi pirati, vi aiuterò!",
-            "Ora dovete dirmi il nome del pirata che ha creato il quadro che avete appena scovato",
-            "FATE MOLTA ATTENZIONE! Parlate a bassa voce, corpo di mille balene...",
-            "Cercate, ma non fatevi sentire!!!"
-],
- "answers":[]
+        "ARRR! Ricordatevi che non dobbiamo farci sentire dagli altri pirati!!!",
+        "Ho scoperto degli indizi utili...",
+        "Se mi dimostrerete di essere dei bravi pirati, vi aiuterò!",
+        "Ora dovete dirmi il nome del pirata che ha creato il quadro che avete appena scovato",
+        "FATE MOLTA ATTENZIONE! Parlate a bassa voce, corpo di mille balene...",
+        "Cercate, ma non fatevi sentire!!!"
+    ],
+"answers":[]
 },
 {"type":"impiccato",
  "question":
@@ -126,9 +126,6 @@
             "CE LA FARETE, NE SONO SICURO!!!"
         ],
  "answers": []
-}
-]
-},
-{
-    "immagine": "capitano.png"
+}],
+    "immagine": "../images/capitano.png"
 }
