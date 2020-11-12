@@ -39,9 +39,9 @@ var frasi;
 
 function updateHTML()
 {
-    frasi = MyArr.missioni[3];
-    i = Math.min(i + 1, MyArr.missioni[0].length - 1);
-    document.getElementById("testo").value = frasi[i];
+    frasi = MyArr[3];
+    i = Math.min(i + 1, MyArr.length - 1);
+    document.getElementById("testo").value = MyArr[i];
 }
 
 window.updateHTML = updateHTML;
