@@ -35,11 +35,8 @@ function receivedText(e)
     loadImg();
 }
 
-var frasi;
-
 function updateHTML()
 {
-    frasi = MyArr[3];
     i = Math.min(i + 1, MyArr.length - 1);
     document.getElementById("testo").value = MyArr[i];
 }
@@ -63,7 +60,7 @@ function loadImg ()
             }
         }
         </style>`
-    document.getElementById("personaggio").innerHTML=codice;
+    document.getElementById("personaggio").innerHTML = codice;
 }
 
 
