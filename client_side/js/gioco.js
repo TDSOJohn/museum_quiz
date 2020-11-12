@@ -37,8 +37,8 @@ function receivedText(e)
 
 function updateHTML()
 {
-    i = Math.min(i + 1, MyArr.length - 1);
-    document.getElementById("testo").value = MyArr[i];
+    i = Math.min(i + 1, MyArr.benvenuto.length - 1);
+    document.getElementById("testo").value = MyArr.benvenuto[i];
 }
 
 window.updateHTML = updateHTML;
@@ -69,7 +69,7 @@ window.onload = function() {
     id = utilities.intParser(utilities.getQueryVariable('id'));
     callAPI().then(result => {
         alert(result);
-        MyArr = result.benvenuto;
+        MyArr = result;
         alert(MyArr);
         receivedText(MyArr);
     });
