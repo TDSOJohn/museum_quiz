@@ -21,13 +21,10 @@ const callAPI   = async () =>
                                 '/?id=' + encodeURIComponent(id));
     alert(myURL);
 
-    const file = fetch(myURL).then((response) => {
-        const file  = response;
-        console.log(file);
-        return file;
-    }).catch(err => {
-        alert(err);
-    });
+    const response  = await fetch(myURL);
+    const apiJSON   = await response.json();
+
+    return apiJSON;
 }
 
 function receivedText(e)
@@ -71,7 +68,11 @@ function loadImg ()
 
 
 window.onload = function() {
+    alert("loaded!");
     id = utilities.intParser(utilities.getQueryVariable('id'));
-    MyArr = callAPI();
+    callAPI().then(result => {
+        alert(result);
+        receivedText(result);
+    });
     console.log(MyArr);
 }
