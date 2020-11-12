@@ -29,8 +29,8 @@ const callAPI   = async () =>
 
 function receivedText(e)
 {
-    let lines = e.target.result;
-    MyArr = lines;
+//    let lines = e.target.result;
+//    MyArr = lines;
     updateHTML();
     loadImg();
 }
@@ -72,7 +72,9 @@ window.onload = function() {
     id = utilities.intParser(utilities.getQueryVariable('id'));
     callAPI().then(result => {
         alert(result);
-        receivedText(result);
+        MyArr = result.benvenuto;
+        alert(MyArr);
+        receivedText(MyArr);
     });
     console.log(MyArr);
 }
