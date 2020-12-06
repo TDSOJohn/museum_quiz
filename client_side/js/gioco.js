@@ -62,7 +62,8 @@ function loadImg ()
 }
 
 
-window.onload = function() {
+window.onload = function()
+{
     alert("loaded!");
     id = utilities.intParser(utilities.getQueryVariable('id'));
     callAPI().then(result => {
