@@ -5,7 +5,7 @@
 import * as utilities from './utilities.js';
 
 //  baseURL should be server ip
-const baseURL   = '192.168.1.167';
+const baseURL   = '192.168.1.110';
 const apiPort   = '3000';
 let id          = '1';
 
@@ -29,8 +29,6 @@ const callAPI   = async () =>
 
 function receivedText(e)
 {
-//    let lines = e.target.result;
-//    MyArr = lines;
     updateHTML();
     loadImg();
 }

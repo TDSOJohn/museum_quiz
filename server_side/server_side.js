@@ -22,6 +22,8 @@ const hostname  = '0.0.0.0';
 //  ruby-on-rails default, better change it
 const port      = 3000;
 
+const this_ip   = '192.168.1.110';
+
 var mimeTypes   = {
     '.html' : 'text/html',
     '.js'   : 'text/javascript',
@@ -149,7 +151,7 @@ const server    = http.createServer((request, response) =>
                     qrFilePath = `qrCodes/data${dbFiles.length + 1}.png`;
 //  Generate qr code and save it as .png file in ./qrCodes/, then call callback() to respond with 303 - redirect
 //  Send a 303 response (see other) with the location of the .png qr code
-                    QRCode.toFile(qrFilePath, `192.168.1.110:3000/html/missioni.html?id=${dbFiles.length + 1}`, function (err) {
+                    QRCode.toFile(qrFilePath, `${this_ip}:${port}/html/missioni.html?id=${dbFiles.length + 1}`, function (err) {
                         response.writeHead(303, {
                             'Location' : `?id=${dbFiles.length + 1}&type=qr`
                         }).end();
