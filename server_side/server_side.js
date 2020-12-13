@@ -22,7 +22,7 @@ const hostname  = '0.0.0.0';
 //  ruby-on-rails default, better change it
 const port      = 3000;
 
-const this_ip   = '192.168.1.110';
+const this_ip   = '192.168.1.167';
 
 var mimeTypes   = {
     '.html' : 'text/html',
