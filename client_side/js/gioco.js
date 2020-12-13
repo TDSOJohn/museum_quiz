@@ -19,7 +19,7 @@ const callAPI   = async () =>
     let myURL       = ('http://' + encodeURIComponent(baseURL) +
                                 ':' + encodeURIComponent(apiPort) +
                                 '/?id=' + encodeURIComponent(id));
-    alert(myURL);
+    console.log(myURL);
 
     const response  = await fetch(myURL);
     const apiJSON   = await response.json();
@@ -27,7 +27,7 @@ const callAPI   = async () =>
     return apiJSON;
 }
 
-function receivedText(e)
+function receivedText()
 {
     updateHTML();
     loadImg();
@@ -64,13 +64,10 @@ function loadImg ()
 
 window.onload = function()
 {
-    alert("loaded!");
     id = utilities.intParser(utilities.getQueryVariable('id'));
     callAPI().then(result => {
-        alert(result);
         MyArr = result;
-        alert(MyArr);
-        receivedText(MyArr);
+        receivedText();
     });
     console.log(MyArr);
 }
