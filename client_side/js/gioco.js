@@ -34,7 +34,7 @@ function updateHTML()
 {
     i = i + 1
     if (i > MyArr.benvenuto.length - 1) {
-        window.location.href = '/map.html?id=${id}';
+        window.location.href = '/html/map.html?id=${id}';
     } else {
         document.getElementById("testo").value = MyArr.benvenuto[i];
     }
