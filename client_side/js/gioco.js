@@ -2,6 +2,9 @@
 //  Support: Chrome 55+, Edge 15+, Firefox 52+, Opera 42+, Safari 10.1+ (no IE support)
 //  If not supported, use XMLHttpRequest instead
 
+//  http:ip_address:3000/html/gioco.html?id=n
+
+
 import * as utilities from './utilities.js';
 
 //  baseURL should be server ip
@@ -35,8 +38,12 @@ function receivedText()
 
 function updateHTML()
 {
-    i = Math.min(i + 1, MyArr.benvenuto.length - 1);
-    document.getElementById("testo").value = MyArr.benvenuto[i];
+    i = i + 1
+    if (i > MyArr.benvenuto.length - 1) {
+        window.location.href = \map.html?id=${id}
+    } else {
+        document.getElementById("testo").value = MyArr.benvenuto[i];
+    }
 }
 
 window.updateHTML = updateHTML;
