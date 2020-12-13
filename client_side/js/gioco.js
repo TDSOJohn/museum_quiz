@@ -30,17 +30,11 @@ const callAPI   = async () =>
     return apiJSON;
 }
 
-function receivedText()
-{
-    updateHTML();
-    loadImg();
-}
-
 function updateHTML()
 {
     i = i + 1
     if (i > MyArr.benvenuto.length - 1) {
-        window.location.href = \map.html?id=${id}
+        window.location.href = '/map.html?id=${id}';
     } else {
         document.getElementById("testo").value = MyArr.benvenuto[i];
     }
@@ -68,6 +62,11 @@ function loadImg ()
     document.getElementById("personaggio").innerHTML = codice;
 }
 
+function receivedText()
+{
+    updateHTML();
+    loadImg();
+}
 
 window.onload = function()
 {
