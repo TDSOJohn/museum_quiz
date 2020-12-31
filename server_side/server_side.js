@@ -18,11 +18,11 @@ const utilities = require('./utilities.js');
 const dbFolder = './database/';
 
 //  accept any connection to the correct port
-const hostname = '127.0.0.1';
+const hostname = '0.0.0.0';
 //  ruby-on-rails default, better change it
 const port = 3000;
 
-const this_ip = '192.168.1.167';
+const this_ip = '192.168.2.10';
 
 var mimeTypes = {
     '.html': 'text/html',
