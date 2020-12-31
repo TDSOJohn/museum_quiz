@@ -8,11 +8,11 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-      <script type="module" src="../js/missioni.js"></script>
+      <script src="../js/missioni.js"></script>
 
     </HEAD>
     <BODY>
-      <div class="container-fluid bg-cover" style="background-image: url(mappa_pirati.jpg); background-repeat: no-repeat;background-position: center; height: 100%; width: 100%; background-size: cover;">
+      <div class="container-fluid bg-cover" style="background-image: url(https://i.pinimg.com/originals/8a/8c/0f/8a8c0f5011f4468cba5e4da9957cdf40.jpg); background-repeat: no-repeat;background-position: center; height: 100%; width: 100%; background-size: cover;">
         <div class="row" style="height: 15vh">
           <div class="col-sm">
             <h1 style="text-align: center; font-size:3vh;"><b><i>ECCO LE TUE MISSIONI!</i></b></h1>
@@ -20,7 +20,13 @@
         </div>
         <div class="row" style="height: 25vh">
           <div class="col-sm">
-             <input type="button" id="btnLoad" value="Load" onclick="loadFile()">
+            <form id="jsonFile" name="jsonFile" enctype="multipart/form-data" method="post">
+              <fieldset>
+                <h2>Json File</h2>
+                 <input type="file" id="fileinput">
+                 <input type="button" id="btnLoad" value="Load" onclick="loadFile()">
+              </fieldset>
+            </form>
           </div>
         </div>
         <div class = "row border-0 p-0 m-0" style="height: 35vh">
@@ -51,4 +57,4 @@
           </div>
         </div>
     </BODY>
-</HTML>
+    </HTML>

@@ -57,22 +57,29 @@ const server = http.createServer((request, response) => {
     console.log(pathName);
 
     //  If method is GET, it is access to file or to RESTful API
-    if (method == 'GET') {
-        if ((pathName == '/') && (id <= 0)) {
-            pathName = '/html/welcome.html';
+    if (method == 'GET')
+    {
+        //  If no path to file nor id is given, run the first example (id = 1)
+        if ((pathName == '/') && (id <= 0))
+        {
+            pathName = '/html/gioco.html';
+            id = 1;
         }
         //  If pathname is path to a resource, try to fetch it and send it to the client
-        if (pathName !== '/') {
+        if (pathName !== '/')
+        {
             let extName = String(path.extname(pathName)).toLowerCase();
 
             //  Back to "home" folder ( /client_side )
             let relativePathName = '../client_side' + pathName;
             console.log(relativePathName);
 
-            fs.readFile(relativePathName, (err, data) => {
+            fs.readFile(relativePathName, (err, data) =>
+            {
                 if (err)
                     utilities.errorHandler(err, response);
-                else {
+                else
+                {
                     //  If no ContentType matches, send as binary stream
                     let contentType = mimeTypes[extName] || 'application/octet-stream';
                     console.log(contentType);
@@ -82,18 +89,22 @@ const server = http.createServer((request, response) => {
                     response.end();
                 }
             });
-        } else if (id >= 0) {
+        } else if (id >= 0)
+        {
             console.log('JSON REQUESTED: ' + id);
             //  RESTful API part. URL type:     http://ip:3000?id=n(&type=t)
-            if (queryType == 'json' || queryType == null) {
+            if (queryType == 'json' || queryType == null)
+            {
                 //  Build jsonPathName from id and try to readSync the file
                 let jsonPathName = `database/data${id}.json`;
-                fs.readFile(jsonPathName, (err, data) => {
-                    if (err) {
+                fs.readFile(jsonPathName, (err, data) =>
+                {
+                    if (err)
+                    {
                         utilities.errorHandler(err, response);
                         response.end();
-                    }
-                    else {
+                    } else
+                    {
                         response.statusCode = 200;
                         response.setHeader('Content-Type', 'application/json');
                         response.write(data);
@@ -103,12 +114,15 @@ const server = http.createServer((request, response) => {
                 });
             }
             //  Build qrPathName from id and try to readSync the file
-            else if (queryType == 'qr') {
+            else if (queryType == 'qr')
+            {
                 let qrPathName = `qrCodes/data${id}.png`;
-                fs.readFile(qrPathName, (err, data) => {
+                fs.readFile(qrPathName, (err, data) =>
+                {
                     if (err)
                         utilities.errorHandler(err, response);
-                    else {
+                    else
+                    {
                         response.statusCode = 200;
                         response.setHeader('Content-Type', 'image/png');
                         response.write(data);
@@ -121,22 +135,27 @@ const server = http.createServer((request, response) => {
     }
     //  If method is POST, try to catch body and save it in server storage
     //  Then send a 303 - See Other with a location header to newly created resource
-    else if (method == 'POST') {
+    else if (method == 'POST')
+    {
         let body = [];
         let dbFiles = undefined;
         let qrFilePath = undefined;
 
-        request.on('data', (chunk) => {
+        request.on('data', (chunk) =>
+        {
             body.push(chunk);
         }).on('end', () => {
             body = Buffer.concat(body).toString();
 
             //  Get list of all elements inside the folder to avoid rewriting existing .json
-            fs.readdir(dbFolder, (err, dbFiles) => {
+            fs.readdir(dbFolder, (err, dbFiles) =>
+            {
                 if (err)
                     utilities.errorHandler(err);
-                else {
-                    fs.writeFile(`database/data${dbFiles.length + 1}.json`, body, 'utf8', (err) => {
+                else
+                {
+                    fs.writeFile(`database/data${dbFiles.length + 1}.json`, body, 'utf8', (err) =>
+                    {
                         console.log('data' + (dbFiles.length + 1) + ' has been saved!');
                     });
                     qrFilePath = `qrCodes/data${dbFiles.length + 1}.png`;
@@ -155,6 +174,7 @@ const server = http.createServer((request, response) => {
 });
 
 //  function called on server listening gives some basic server info
-server.listen(port, hostname, () => {
+server.listen(port, hostname, () =>
+{
     console.log(`Server running at http://${hostname}:${port}/`);
 });
