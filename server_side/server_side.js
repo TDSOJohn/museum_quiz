@@ -134,7 +134,7 @@ const server = http.createServer((request, response) => {
         }
     }
     //  If method is POST, try to catch body and save it in server storage
-    //  Then send a 303 - See Other with a location header to newly created resource
+    //  Then send a 303 - See Other with a location header to newly created qr code
     else if (method == 'POST')
     {
         let body = [];

@@ -36,14 +36,22 @@ function parseTemplate(htmlIn)
 
 function showContent(pathToTempl)
 {
-    var x = document.getElementById("demo");
+    quiz_quests = document.querySelectorAll('.quiz_quest');
 
-    let myURL = templURL + pathToTempl;
-    callAPI(myURL).then(result => {
-        htmlContent = result;
-        var htmlOut = parseTemplate(htmlContent);
-        x.insertAdjacentHTML('beforeend', htmlOut.documentElement.innerHTML);
-    });
+    if(quiz_quests >= 10)
+    {
+        alert('Hai già selezionato 10 domande! Clicca "Create JSON and Upload" per completare la creazione');
+    } else
+    {
+        var x       = document.getElementById("demo");
+
+        let myURL   = templURL + pathToTempl;
+        callAPI(myURL).then(result => {
+            htmlContent = result;
+            var htmlOut = parseTemplate(htmlContent);
+            x.insertAdjacentHTML('beforeend', htmlOut.documentElement.innerHTML);
+        });
+    }
 }
 
 function compileJSON()
