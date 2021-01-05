@@ -3,16 +3,16 @@ const baseURL       = 'http://192.168.2.10:3000';
 const htmlTemplURL  = baseURL + '/content_creator/html/';
 const jsonTemplURL  = baseURL + '/content_creator/json/';
 
-var domparser   = new DOMParser();
-var xhr         = new XMLHttpRequest();
+var domparser       = new DOMParser();
+var xhr             = new XMLHttpRequest();
 
-var htmlContent = "";
-var risp = [];
+var htmlContent     = "";
+var risp            = [];
 var file;
-var local_json = [];
-var template_json = [];
+var local_json      = [];
+var template_json   = [];
 
-var body = document.getElementsByTagName('body');
+var body            = document.getElementsByTagName('body');
 var quiz_quests;
 
 
@@ -65,38 +65,32 @@ function getJSONTemplate(pathToTempl)
 {
     var myURL = jsonTemplURL + pathToTempl;
     callAPI(myURL).then(result => {
-        template_json = result;
+        template_json = JSON.parse(result);
     });
 }
 
 
 function compileJSON()
 {
-    var tempArray   = [];
-    var tempElement = {};
     var i;
     var j;
+
+    //  Cycle through every question, compile JSON template using data from user
     for(i = 0; i < quiz_quests.length; i++)
     {
-        tempElement         = {};
-        tempArray           = [];
         if(quiz_quests[i].classList.contains('mult_choice'))
         {
             for(j = 1; j < quiz_quests[i].elements.length; j++)
             {
-                tempArray.push(quiz_quests[i].elements[j].value);
+                template_json.missioni[i].answers.push(quiz_quests[i].elements[j].value);
             }
-            tempElement.type    = "mult_choice";
-            tempElement.question= quiz_quests[i].elements[0].value;
-            tempElement.answers = tempArray;
-            local_json.push(tempElement);
+            template_json.missioni[i].type          = "mult_choice";
+            template_json.missioni[i].question[4]   = quiz_quests[i].elements[0].value;
         } else if(quiz_quests[i].classList.contains('hanged_man'))
         {
-            tempElement         = {};
-            tempElement.type    = "hanged_man";
-            tempElement.question= quiz_quests[i].elements[0].value;
-            tempElement.answer  = quiz_quests[i].elements[1].value;
-            local_json.push(tempElement);
+            template_json.missioni[i].type          = "hanged_man";
+            template_json.missioni[i].question[4]   = quiz_quests[i].elements[0].value;
+            template_json.missioni[i].answers       = quiz_quests[i].elements[1].value;
         }
     }
     alert(JSON.stringify(local_json));
