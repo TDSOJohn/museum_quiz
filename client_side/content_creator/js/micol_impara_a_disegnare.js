@@ -38,7 +38,7 @@ function showContent(pathToTempl)
 {
     quiz_quests = document.querySelectorAll('.quiz_quest');
 
-    if(quiz_quests >= 10)
+    if(quiz_quests.length >= 10)
     {
         alert('Hai già selezionato 10 domande! Clicca "Create JSON and Upload" per completare la creazione');
     } else
