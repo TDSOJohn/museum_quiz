@@ -93,7 +93,7 @@ function compileJSON()
             template_json.missioni[i].answers       = quiz_quests[i].elements[1].value;
         }
     }
-    alert(JSON.stringify(local_json));
+    alert(JSON.stringify(template_json));
 }
 
 
@@ -107,7 +107,7 @@ function verifyAndUpload()
         xhr.open("POST", baseURL, true);
         xhr.setRequestHeader("Content-Type", "application/json");
 
-        xhr.send('{' + JSON.stringify(local_json) + '}');
+        xhr.send('{' + JSON.stringify(template_json) + '}');
 
         xhr.onreadystatechange = function ()
         {
