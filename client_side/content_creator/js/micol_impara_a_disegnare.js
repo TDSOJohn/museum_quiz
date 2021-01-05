@@ -118,7 +118,8 @@ function verifyAndUpload()
 var questionTypes;
 
 window.onload = function() {
-    questionTypes = document.querySelectorAll('.questType');
+    questionTypes   = document.querySelectorAll('.questType');
+    etaTypes        = document.querySelectorAll('.etaType');
 
     questionTypes[0].addEventListener('click', function() { showContent('mult_choice_templ.html'); });
     questionTypes[1].addEventListener('click', function() { showContent('hanged_man_templ.html'); });
