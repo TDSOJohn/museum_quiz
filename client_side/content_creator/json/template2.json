@@ -1,131 +1,138 @@
-{
-    "benvenuto":
-        ["AHOY! Corpo di mille balene! Ero sicuro di trovarvi qui! Mi hanno a lungo parlato di voi, i migliori pirati in circolazione!",
-        "Sono il CAPITANO! Per tutti i bucanieri, sto per iniziare un'avventura...voglio conquistare il bottino segreto! ",
-        "Ho bisogno di voi, però...",
-        "ARRR...Siete disposti ad aiutarmi? Sarò con voi per tutto il viaggio... per darvi consigli da veri pirati!",
-        "STRABILIANTE! Salite a bordo CIURMA!"],
-    "missioni":
-    [
-    {"type": "mult_choice",
-    "question":
-    ["ARRR! Miei pirati, dobbiamo cercare il tesoro",
-        "Sono sempre io, il Capitano... ho scoperto che si tratta di un tesoro preziosissimo!",
-        "(ovviamente i dettagli sono fatti d'oro purissimo!!!)",
-        "AHOY Pirati, dovrete prima trovare un altro indizio però!",
-        "il nostro quadro ha tre grandi girasoli, ma il quadro con tre donne velate di spalle al suo interno è stato fatto nello stesso anno...ditemelo!",
-        "Corpo di mille balene!!!",
-        "ANDATE E NON FATEMI ATTENDERE! ALL'ARREMBAGGIO!"
-    ],
-"answers": []
+{"benvenuto":
+    ["Signori, ricorderete questo giorno come il giorno in cui avete quasi catturato Capitan Jack Sparrow...",
+        "Sto scherzando, nessuno può avvicinarsi a me...",
+        "MMMH, tranne i pirati come TE... ho bisogno di una nave e tu ne hai una...",
+        "Lo confesso. È mia intenzione requisire la tua nave...",
+        "prendere una ciurma a Tortuga, razziare, predare, saccheggiare... il bottino!",
+        "Ho scelto te come mio compagno... accetti?",
+        "Siamo in un sogno? No!!! Ora che hai accettato, ricorda...",
+        "Ogni uomo che indietro rimane, indietro viene lasciato, ma io ti accompagnerò per tutto il viaggio!"
+]
 },
-{"type": "impiccato",
-"question":
-    ["Per la benda di Barbanera! Siete stati velocissimi, più veloci dei fulmini delle tempeste di mare!!!",
-        "ARRR! Ricordatevi che non dobbiamo farci sentire dagli altri pirati!!!",
-        "Ho scoperto degli indizi utili...",
-        "Se mi dimostrerete di essere dei bravi pirati, vi aiuterò!",
-        "Ora dovete dirmi il nome del pirata che ha creato il quadro che avete appena scovato",
-        "FATE MOLTA ATTENZIONE! Parlate a bassa voce, corpo di mille balene...",
-        "Cercate, ma non fatevi sentire!!!"
-    ],
-"answers":[]
+{"missioni":
+ [
+ {"type": "mult_choice",
+  "question":
+    ["Sono proprio io, JACK SPARROW... so che mi stavi aspettando, dobbiamo cercare il tesoro",
+        "Ovviamente ci riuscirei da solo, ma tu hai la nave...",
+        "grazie alla mia astuzia ho scoperto che si tratta di un tesoro preziosissimo...",
+        "...ma per trovarlo, dovrai prima trovare un altro indizio!",
+        "Il quadro ha tre donne velate di spalle al suo interno...trovalo e dimmi l'anno in cui è stato fatto...è lo stesso del nostro tesoro",
+        "RICORDATI...devi cavartela da solo, io ho altro da fare!",
+        "VAI E BADA A NON FARMI ATTENDERE!"
+        ],
+ "answers": []
+ },
+ {"type": "impiccato",
+ "question":
+    ["Ehm...sei stato velocissimo, fin troppo... mi stavo ancora rilassando",
+            "e va bene... sei stato bravo. Ma ora devi dirmi un'altra informazione!",
+            "Ho scoperto degli indizi utili... MA non devi farti scoprire dagli altri pirati...Tortuga è piena di impiccioni",
+            "Se mi dimostrerai di essere all'altezza del mio STRABILIANTE nome, ti aiuterò...forse!",
+            "dimmi il nome del pirata che ha dipinto il quadro che hai appena scovato.",
+            "FAI MOLTA ATTENZIONE! Parla a bassa voce e datti da fare...",
+            "Cerca la risposta, ma non farti sentire!!!"
+],
+ "answers":[]
 },
 {"type":"impiccato",
  "question":
-    ["AHOY! SIETE STRABILIANTI! DEI PIRATI UNICI!",
-            "Per continuare la ricerca del nostro bottino, dobbiamo cercare un altro indizio!",
-            "Vi lascio il mio cannocchiale... è PREZIOSISSIMO",
-            "con questo potrete vedere facilmente ogni dettaglio",
-            "dovete dirmi il colore dello sfondo del quadro fatto dal pirata MONET...al suo interno ha una grande spiaggia...",
-            "ricordatevi...osservate con molta attenzione!",
-            "FATE ATTENZIONE e usate il cannocchiale...!"
+    ["Mhhh notevole!",
+            "Per continuare la ricerca del nostro bottino, devi, mio caro, cercare un altro indizio!",
+            "Ti lascio la mia preziosissima bussola... TUTTI SANNO QUANTO IO CI TENGA",
+            "con questa andrai dritto al tuo obiettivo...sempre che tu ne sia in grado",
+            "Cerca il quadnro di MONET con una grande spiaggia...ho bisogno del colore dello sfondo!",
+            "ricordati...stai lavorando per me!",
+            "FAI ATTENZIONE e usa la bussola, non mi fido del tuo istinto...!"
 ],
  "answers": []
 },
 {"type": "mult_choice",
  "question":
-    ["Il bottino deve entrare nella nostra nave!!!",
-            "Con il mio aiuto riuscirete sicuramente a trovarlo!",
-            "LEGGETE OGNI DETTAGLIO...vi assisterò io stesso",
-            "Prestate molta attenzione e scovate anche questo indizio...",
-            "Il quadro che avete appena trovato ha le stesse dimensioni del quadro con i girasoli...Cercatele!",
-            "quando siete sicuri della risposta, venite da me e ditemela!",
-            "ALL'ARREMBAGGIO!!!"
+    ["Il bottino deve entrare nella MIA... o tua... nave!!!",
+            "in ogni caso, sono JACK SPARROW... CAPITAN JACK SPARROW!",
+            "Presta molta attenzione...",
+            "LEGGI OGNI DETTAGLIO...Ti assisterò io stesso, se ne ho voglia. ",
+            "Il quadro che hai appena trovato, GRAZIE A ME, ha le stesse dimensioni del quadro dei Girasoli!",
+            "quando sei sicuro della risposta, vieni da me e dammela!",
+            "VELOCE!!!"
 ],
  "answers": []
 },
 {"type": "mult_choice",
  "question":
-    ["SIETE LA MIGLIOR CIURMA DI SEMPRE!",
-            "Vi ricordate bene qual è il nostro obiettivo, vero?",
-            "Dobbiamo trovare il nostro tesoro!",
-            "Corpo di mille balene! Ha un dettaglio che lo rende ancora più prezioso!",
-            "è stato realizzato con la tecnica della pittura ad olio, come un quadro di HENRI MATISSE fatto nel 1907 con una figura blu. Qual è il suo titolo?",
-            "MIA CIURMA!!!",
-            "Non fatemi attendere, andate e fate presto!!!"
+    ["Devo dire che tra tutti i ridicoli pirati che ho incontrato, tu sei uno dei migliori",
+            "Ti ricordi bene qual è il nostro obiettivo, vero?",
+            "Devo...dobbiamo... trovare il tesoro... lo avevi già scordato",
+            "So che per te sarà difficile, sei un pirata qualunque... vuoi dimostrarmi che non è così?",
+            "è stato realizzato con la tecnica della pittura ad olio, come un quadro di HENRI MATISSE deel 1907 con una figura blu. Qual è il suo titolo?.",
+            "Spero di sbagliarmi sul tuo conto...",
+            "...VAI e dimostrami chi sei!"
 ],
  "answers": []
 },
 {"type": "mult_choice",
  "question":
-    ["Ottimo, Pirati!",
-            "Ora dovete darmi un'altra informazione che ci porterà al tesoro...",
-            "...è di fondamentale importanza...",
-            "Ma i miei poveri occhi mi fanno brutti scherzi... mi fido più di voi...",
-            "dovete dirmi cosa è la figura blu al centro del quadro che avete appena trovato...",
-            "Credete che sia così semplice?",
-            "Allora datemi la risposta, CIURMA!!!"
+    ["Notevole!",
+            "Ora devi aiutarmi con un altro dettaglio...",
+            "Mi fido ciecamente di ME...ma voglio sapere cosa sembra a TE, sono solo curioso ovviamente...",
+            "se mi darai la risposta giusta, potrai usare ancora la mia preziosissima bussola!",
+            "cosa è la figura blu al centro del quadro che hai appena trovato...?",
+            "non ho voglia di pensare...",
+            "dammi la risposta!!!"
 ],
  "answers": []
 },
 {"type": "impiccato",
  "question":
     ["A tutti i pirati piacciono i tesori...",
-            "...ma a NOI piacciono TANTISSIMO!",
+            "...ma a me piace tantissimo QUESTO TESORO!",
             "Ho scoperto una cosa...",
-            "MA HO BISOGNO DEL VOSTRO AIUTO!",
-            "il pittore del nostro bottino viene dalla stessa terra di un altro pirata, cercate il quadro Composizione in rosso, blu e giallo e ditemi da dove viene!",
-            "però... dovete fare in fretta, sento che qualcuno ci sta seguendo",
-            "Andate e datemi la risposta!!!"
+            "Avevi dubbi? io so sempre tutto!",
+            "il pittore del nostro bottino viene dalla stessa terra di un altro pirata, cercate il suo quadro Composizione in rosso, blu e giallo. Da dove viene?",
+            "però... mi sto stancando di attendere!",
+            "DEVI SBRIGARTI, mi sto spazientendo!"
 ],
  "answers": []
 },
 {"type": "mult_choice",
  "question":
-    ["MAH... che strano, pirati!",
-            "mi aspettavo qualcosa di diverso...",
-            "Sarà tutto questo cercare... mi sto stancando!!!",
-            "io vi lascio il mio cannocchiale, magari vi aiuta...",
-            "riuscite a capire quale di questi tre è il significato del quadro?",
-            "Corpo di mille balene, devo riposarmi!!!",
-            "povero me... sto invecchiando... aiutatemi voi!"
+    ["MAH... che strano...",
+            "non capisco... non riesco a capire...",
+            "ecco! è colpa tua!!! Mi sto stancando troppo, mi fai pensare troppo!",
+            "Pensaci da solo, ora...",
+            "devi capire quale di questi tre è il significato del quadro",
+            "A me questo dettaglio sfugge...non ho voglia di pensarci",
+            "IO sono impegnato... pensaci tu!"
         ],
  "answers": []
 },
 {"type": "impiccato",
  "question":
     ["Il pirata che ha fatto il tesoro che vogliamo trovare è molto conosciuto...",
-            "... per tutti i mari e su tutte le navi i pirati parlano di lui!",
-            "non sarà facile scoprire chi è...",
-            "ARRRRRR pirati!!!",
-            "Ha dipinto anche il quadro Notte Stellata...Trovatelo...AVREMO IL NOME DEL PIRATA DEL QUADRO CON I GIRASOLI!!!!!!",
-            "Se lo trovate... ARRR!!! Mi sto già godendo il meritato riposo!",
-            "Andate ciurma, conto su di voi per trovare la risposta!!!"
+            "... a Tortuga non fanno altro che parlare di lui!",
+            "è famosissimo, non sarà facile trovare il tesoro!",
+            "ovviamente per me è facile... ma per te...",
+            "ha dipinto anche il quadro Notte Stellata. Devi trovarlo e dimmi il suo NOME!!!",
+            "Se lo trovi...sarò...e va bene, saremo ricchi!",
+            "VAI su, non ho voglia di aspettare!!!"
         ],
  "answers": []
 },
 {"type": "mult_choice",
  "question":
-    ["SIAMO GIUNTI ALLA FINE DEL NOSTRO VIAGGIO!",
-            "Abbiamo raccolto tantissime informazioni...",
-            "OVVIAMENTE senza di me non ci sareste riusciti...",
-            "Ma devo dire che avete fatto un ottimo lavoro!!!",
+    ["CI SIAMO QUASI!",
+            "IO ho ovviamente raccolto tantissime informazioni...",
+            "grazie a me stiamo per trovare il tesoro",
+            "... è preziosissimo, ti elenco le informazioni che abbiamo...",
             "Il quadro con 3 grandi fiori gialli, è del 1888, misura solo 73x58cm, fatto con pittura ad olio, il pirata OLANDESE è VINCENT VAN GOGH!",
-            "CIURMA!!! Sta a voi ora cercare il nostro TESORO!!!",
-            "CE LA FARETE, NE SONO SICURO!!!"
+            "Sta a te almeno cercare il mio TESORO, il resto l'ho fatto io!!!",
+            "Tutto sommato credo che tu ce la possa fare!!!"
         ],
  "answers": []
-}],
-    "immagine": "../images/capitano.png"
+}
+]
+},
+{
+    "immagine": "../images/jacksparrow.png"
 }

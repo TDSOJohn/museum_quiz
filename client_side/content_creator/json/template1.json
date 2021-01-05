@@ -1,126 +1,131 @@
 {
     "benvenuto":
-        ["ARRR! Benvenuta a bordo, piccola ciurma! Siamo in 5 nel nostro equipaggio!",
-    	    "Io sono Cippy, il miglior pappagallo pirata sulla terra, per tutti i bucanieri!",
-    		"Devo trovare il tesoro che il pirata Azzurro ha nascosto su un isola in mezzo al mare!",
-    		"Tu e i tuoi compagni mi aiuterete in questa avventura?",
-    		"Corpo di mille balene! STRABILIANTE! Tu sei il pirata che mi mancava!",
-    		"Per non creare guazzabugli, vi accompagnerò e vi darò suggerimenti per acciuffare il bottino!",
-    		"ALL'ARREMBAGGIO, PIRATI!!!"],
+        ["AHOY! Corpo di mille balene! Ero sicuro di trovarvi qui! Mi hanno a lungo parlato di voi, i migliori pirati in circolazione!",
+        "Sono il CAPITANO! Per tutti i bucanieri, sto per iniziare un'avventura...voglio conquistare il bottino segreto! ",
+        "Ho bisogno di voi, però...",
+        "ARRR...Siete disposti ad aiutarmi? Sarò con voi per tutto il viaggio... per darvi consigli da veri pirati!",
+        "STRABILIANTE! Salite a bordo CIURMA!"],
     "missioni":
-     [
-     {"type": "mult_choice",
-      "question":
-        ["ARRR! Piccola ciurma, dobbiamo cercare il nostro tesoro",
-            "Il nostro amico Cippy, volando nella nave del Pirata Azzurro, ha scoperto di che si tratta...",
-            "(lo dirò solo a voi, piccola e coraggiosa ciurma, è un tesoro preziosissimo!!!)",
-            "Miei piccoli pirati, dovrete prima dobbiamo trovare un altro indizio!",
-            "il nostro quadro ha tre grandi girasoli, ma il quadro con tre donne velate di spalle al suo interno è stato fatto nello stesso anno del nostro tesoro",
-            "Corpo di mille balene!!!" ,
-            "ANDATE E NON FATEMI ATTENDERE! ALL'ARREMBAGGIO!"],
-      "answers": []
-     },
-     {"type": "impiccato",
-     "question":
-        ["Per la benda di Barbanera! Siete stati velocissimi, più veloci dei fulmini delle tempeste di mare!!!",
-            "ARRR! FATE MOLTA ATTENZIONE! Ci sono pirati cattivi lì fuori... ",
-            "Per la prossima ricerca vi assisterò come sempre...",
-            "Ricordatevi, mia piccola ciurma, che non dobbiamo farci sentire dagli altri pirati!!!",
-            "Ora dovete dirmi il nome del pirata che ha creato il quadro che avete appena scovato",
-            "State attenti, pirati!",
-            "Andate, ma non fatevi sentire!!!"],
-     "answers":[]
-    },
-    {"type":"impiccato",
-     "question":
-        ["AHOY! SIETE STRABILIANTI! DEI PIRATI UNICI!",
+    [
+    {"type": "mult_choice",
+    "question":
+    ["ARRR! Miei pirati, dobbiamo cercare il tesoro",
+        "Sono sempre io, il Capitano... ho scoperto che si tratta di un tesoro preziosissimo!",
+        "(ovviamente i dettagli sono fatti d'oro purissimo!!!)",
+        "AHOY Pirati, dovrete prima trovare un altro indizio però!",
+        "il nostro quadro ha tre grandi girasoli, ma il quadro con tre donne velate di spalle al suo interno è stato fatto nello stesso anno...ditemelo!",
+        "Corpo di mille balene!!!",
+        "ANDATE E NON FATEMI ATTENDERE! ALL'ARREMBAGGIO!"
+    ],
+"answers": []
+},
+{"type": "impiccato",
+"question":
+    ["Per la benda di Barbanera! Siete stati velocissimi, più veloci dei fulmini delle tempeste di mare!!!",
+        "ARRR! Ricordatevi che non dobbiamo farci sentire dagli altri pirati!!!",
+        "Ho scoperto degli indizi utili...",
+        "Se mi dimostrerete di essere dei bravi pirati, vi aiuterò!",
+        "Ora dovete dirmi il nome del pirata che ha creato il quadro che avete appena scovato",
+        "FATE MOLTA ATTENZIONE! Parlate a bassa voce, corpo di mille balene...",
+        "Cercate, ma non fatevi sentire!!!"
+    ],
+"answers":[]
+},
+{"type":"impiccato",
+ "question":
+    ["AHOY! SIETE STRABILIANTI! DEI PIRATI UNICI!",
             "Per continuare la ricerca del nostro bottino, dobbiamo cercare un altro indizio!",
             "Vi lascio il mio cannocchiale... è PREZIOSISSIMO",
             "con questo potrete vedere facilmente ogni dettaglio",
             "dovete dirmi il colore dello sfondo del quadro fatto dal pirata MONET...al suo interno ha una grande spiaggia...",
-            "ricordatevi...osservate con attenzione, piccola ciurma!",
-            "FATE ATTENZIONE e usate il cannocchiale...!"],
-     "answers": []
-    },
-    {"type": "mult_choice",
-     "question":
-        ["Il bottino deve entrare nella nostra nave!!!",
-            "Io sono Cippy, il miglio pappagallo pirata... ",
-            "dovete ascoltare ogni mio aiuto, vi farà trovare quello che stiamo cercando!",
-            "Il mio cannocchiale magico vi permetterà di scovare anche un altro importante dettaglio...",
+            "ricordatevi...osservate con molta attenzione!",
+            "FATE ATTENZIONE e usate il cannocchiale...!"
+],
+ "answers": []
+},
+{"type": "mult_choice",
+ "question":
+    ["Il bottino deve entrare nella nostra nave!!!",
+            "Con il mio aiuto riuscirete sicuramente a trovarlo!",
+            "LEGGETE OGNI DETTAGLIO...vi assisterò io stesso",
+            "Prestate molta attenzione e scovate anche questo indizio...",
             "Il quadro che avete appena trovato ha le stesse dimensioni del quadro con i girasoli...Cercatele!",
-            "Andate miei pirati e tornate con la risposta!",
-            "ALL'ARREMBAGGIO!!!"],
-     "answers": []
-    },
-    {"type": "mult_choice",
-     "question":
-        ["SIETE LA MIGLIOR CIURMA DI SEMPRE!",
+            "quando siete sicuri della risposta, venite da me e ditemela!",
+            "ALL'ARREMBAGGIO!!!"
+],
+ "answers": []
+},
+{"type": "mult_choice",
+ "question":
+    ["SIETE LA MIGLIOR CIURMA DI SEMPRE!",
             "Vi ricordate bene qual è il nostro obiettivo, vero?",
-            "Dobbiamo trovare il tesoro!",
-            "è un tesoro preziosissimo... se lo troveremo, saremo ricchissimi!",
-            "è stato realizzato con la tecnica della pittura ad olio, come un quadro di HENRI MATISSE fatto nel 1907 con una figura blu...qual è il suo titolo?",
-            "Corpo di mille balene!",
-            "Veloci, non abbiamo tempo!"],
-     "answers": []
-    },
-    {"type": "mult_choice",
-     "question":
-        ["Bravissimi, piccoli pirati!",
-            "Io credo che il tesoro sia vicino...",
-            "...lo sento...",
-            "Però mi fido più di voi...",
-            "per trovare il tesoro dovete dirmi cosa è la figura blu al centro del quadro che avete appena trovato...",
-            "il capitano ci sta chiamando...",
-            "datemi la risposta subito, CIURMA!!!"],
-     "answers": []
-    },
-    {"type": "impiccato",
-     "question":
-        ["Non so voi...ma io mi sto divertendo tantissimo!",
-            "State facendo ottimi progressi!",
-            "ho scoperto una cosa...",
-            "ovviamente ci servirà per trovare il tesoro",
-            "il pittore del nostro bottino viene dalla stessa terra di un altro pirata, cercate il suo quadro Composizione in rosso, blu e... GIALLO e ditemi da dove viene!",
-            "Io torno dal capitano, è molto impaziente",
-            "All'arrembaggio, pirati!!!"],
-     "answers": []
-    },
-    {"type": "mult_choice",
-     "question":
-        ["MAH... che strano, piccoli pirati!",
-            "sono confuso...",
-            "tutta questa ricerca mi sta facendo girare la testa",
-            "io vi lascio il mio cannocchiale magico...",
-            "riuscite a capire quale di questi tre è il significato del quadro? Io non mi ricordo qual è quello giusto...",
-            "corpo di mille balene, ho bisogno di un po' di riposo!",
-            "Sbrigatevi a trovare tutti gli indizi!!!"
-            ],
-     "answers": []
-    },
-    {"type": "impiccato",
-     "question":
-        ["Il pirata che ha fatto il tesoro che vogliamo trovare è molto conosciuto...",
+            "Dobbiamo trovare il nostro tesoro!",
+            "Corpo di mille balene! Ha un dettaglio che lo rende ancora più prezioso!",
+            "è stato realizzato con la tecnica della pittura ad olio, come un quadro di HENRI MATISSE fatto nel 1907 con una figura blu. Qual è il suo titolo?",
+            "MIA CIURMA!!!",
+            "Non fatemi attendere, andate e fate presto!!!"
+],
+ "answers": []
+},
+{"type": "mult_choice",
+ "question":
+    ["Ottimo, Pirati!",
+            "Ora dovete darmi un'altra informazione che ci porterà al tesoro...",
+            "...è di fondamentale importanza...",
+            "Ma i miei poveri occhi mi fanno brutti scherzi... mi fido più di voi...",
+            "dovete dirmi cosa è la figura blu al centro del quadro che avete appena trovato...",
+            "Credete che sia così semplice?",
+            "Allora datemi la risposta, CIURMA!!!"
+],
+ "answers": []
+},
+{"type": "impiccato",
+ "question":
+    ["A tutti i pirati piacciono i tesori...",
+            "...ma a NOI piacciono TANTISSIMO!",
+            "Ho scoperto una cosa...",
+            "MA HO BISOGNO DEL VOSTRO AIUTO!",
+            "il pittore del nostro bottino viene dalla stessa terra di un altro pirata, cercate il quadro Composizione in rosso, blu e giallo e ditemi da dove viene!",
+            "però... dovete fare in fretta, sento che qualcuno ci sta seguendo",
+            "Andate e datemi la risposta!!!"
+],
+ "answers": []
+},
+{"type": "mult_choice",
+ "question":
+    ["MAH... che strano, pirati!",
+            "mi aspettavo qualcosa di diverso...",
+            "Sarà tutto questo cercare... mi sto stancando!!!",
+            "io vi lascio il mio cannocchiale, magari vi aiuta...",
+            "riuscite a capire quale di questi tre è il significato del quadro?",
+            "Corpo di mille balene, devo riposarmi!!!",
+            "povero me... sto invecchiando... aiutatemi voi!"
+        ],
+ "answers": []
+},
+{"type": "impiccato",
+ "question":
+    ["Il pirata che ha fatto il tesoro che vogliamo trovare è molto conosciuto...",
             "... per tutti i mari e su tutte le navi i pirati parlano di lui!",
-            "Sappiamo che non sarà facile accaparrarsi il bottino...",
-            "ARRRR PIRATI!!!",
-            "ha dipinto anche il quadro Notte Stellata...Trovatelo...AVREMO IL NOME DEL PIRATA DEL QUADRO CON I GIRASOLI!!!",
-            "SIAMO VICINI!!!",
-            "Andate ciurma, conto su di voi!!!"
-            ],
-     "answers": []
-    },
-    {"type": "mult_choice",
-     "question":
-        ["SIAMO GIUNTI ALLA FINE DEL NOSTRO VIAGGIO!",
+            "non sarà facile scoprire chi è...",
+            "ARRRRRR pirati!!!",
+            "Ha dipinto anche il quadro Notte Stellata...Trovatelo...AVREMO IL NOME DEL PIRATA DEL QUADRO CON I GIRASOLI!!!!!!",
+            "Se lo trovate... ARRR!!! Mi sto già godendo il meritato riposo!",
+            "Andate ciurma, conto su di voi per trovare la risposta!!!"
+        ],
+ "answers": []
+},
+{"type": "mult_choice",
+ "question":
+    ["SIAMO GIUNTI ALLA FINE DEL NOSTRO VIAGGIO!",
             "Abbiamo raccolto tantissime informazioni...",
-            "e tutto grazie al vostro impegno!!!",
-            "Ora ve le elenco, così sarà più facile completare la ricerca",
+            "OVVIAMENTE senza di me non ci sareste riusciti...",
+            "Ma devo dire che avete fatto un ottimo lavoro!!!",
             "Il quadro con 3 grandi fiori gialli, è del 1888, misura solo 73x58cm, fatto con pittura ad olio, il pirata OLANDESE è VINCENT VAN GOGH!",
-            "CIURMA!!! Abbiamo tutto quello che ci serve...Sta a voi ora cercare il nostro TESORO!!!",
+            "CIURMA!!! Sta a voi ora cercare il nostro TESORO!!!",
             "CE LA FARETE, NE SONO SICURO!!!"
-            ],
-     "answers": []
+        ],
+ "answers": []
 }],
-"immagine": "../images/cippy.png"
+    "immagine": "../images/capitano.png"
 }
