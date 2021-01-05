@@ -1,6 +1,7 @@
 
-const baseURL   = 'http://192.168.2.10:3000';
-const templURL  = baseURL + '/content_creator/html/';
+const baseURL       = 'http://192.168.2.10:3000';
+const htmlTemplURL  = baseURL + '/content_creator/html/';
+const jsonTemplURL  = baseURL + '/content_creator/json/';
 
 var domparser   = new DOMParser();
 var xhr         = new XMLHttpRequest();
@@ -8,10 +9,12 @@ var xhr         = new XMLHttpRequest();
 var htmlContent = "";
 var risp = [];
 var file;
-var json = [];
+var local_json = [];
+var template_json = [];
 
 var body = document.getElementsByTagName('body');
 var quiz_quests;
+
 
 const callAPI = async (myURL) =>
 {
@@ -21,6 +24,7 @@ const callAPI = async (myURL) =>
     file            = await response.text();
     return file;
 }
+
 
 function parseTemplate(htmlIn)
 {
@@ -34,10 +38,12 @@ function parseTemplate(htmlIn)
     return doc;
 }
 
+
 function showContent(pathToTempl)
 {
     quiz_quests = document.querySelectorAll('.quiz_quest');
 
+    //  check if number of questions is already 10, otherwise retrieve template from server
     if(quiz_quests.length >= 10)
     {
         alert('Hai già selezionato 10 domande! Clicca "Create JSON and Upload" per completare la creazione');
@@ -45,7 +51,7 @@ function showContent(pathToTempl)
     {
         var x       = document.getElementById("demo");
 
-        let myURL   = templURL + pathToTempl;
+        let myURL   = htmlTemplURL + pathToTempl;
         callAPI(myURL).then(result => {
             htmlContent = result;
             var htmlOut = parseTemplate(htmlContent);
@@ -53,6 +59,16 @@ function showContent(pathToTempl)
         });
     }
 }
+
+
+function getJSONTemplate(pathToTempl)
+{
+    var myURL = jsonTemplURL + pathToTempl;
+    callAPI(myURL).then(result => {
+        template_json = result;
+    });
+}
+
 
 function compileJSON()
 {
@@ -73,18 +89,19 @@ function compileJSON()
             tempElement.type    = "mult_choice";
             tempElement.question= quiz_quests[i].elements[0].value;
             tempElement.answers = tempArray;
-            json.push(tempElement);
+            local_json.push(tempElement);
         } else if(quiz_quests[i].classList.contains('hanged_man'))
         {
             tempElement         = {};
             tempElement.type    = "hanged_man";
             tempElement.question= quiz_quests[i].elements[0].value;
             tempElement.answer  = quiz_quests[i].elements[1].value;
-            json.push(tempElement);
+            local_json.push(tempElement);
         }
     }
-    alert(JSON.stringify(json));
+    alert(JSON.stringify(local_json));
 }
+
 
 function verifyAndUpload()
 {
@@ -96,7 +113,7 @@ function verifyAndUpload()
         xhr.open("POST", baseURL, true);
         xhr.setRequestHeader("Content-Type", "application/json");
 
-        xhr.send('{' + JSON.stringify(json) + '}');
+        xhr.send('{' + JSON.stringify(local_json) + '}');
 
         xhr.onreadystatechange = function ()
         {
@@ -116,6 +133,8 @@ function verifyAndUpload()
 
 
 var questionTypes;
+var etaTypes;
+
 
 window.onload = function() {
     questionTypes   = document.querySelectorAll('.questType');
@@ -123,4 +142,9 @@ window.onload = function() {
 
     questionTypes[0].addEventListener('click', function() { showContent('mult_choice_templ.html'); });
     questionTypes[1].addEventListener('click', function() { showContent('hanged_man_templ.html'); });
+
+    for(let i = 0; i < etaTypes.length; i++)
+    {
+        etaTypes[i].addEventListener('click', function() { getJSONTemplate(`template${i}.json`); });
+    }
 };

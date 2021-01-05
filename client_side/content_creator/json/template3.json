@@ -1,0 +1,138 @@
+{"benvenuto":
+    ["Signori, ricorderete questo giorno come il giorno in cui avete quasi catturato Capitan Jack Sparrow...",
+        "Sto scherzando, nessuno può avvicinarsi a me...",
+        "MMMH, tranne i pirati come TE... ho bisogno di una nave e tu ne hai una...",
+        "Lo confesso. È mia intenzione requisire la tua nave...",
+        "prendere una ciurma a Tortuga, razziare, predare, saccheggiare... il bottino!",
+        "Ho scelto te come mio compagno... accetti?",
+        "Siamo in un sogno? No!!! Ora che hai accettato, ricorda...",
+        "Ogni uomo che indietro rimane, indietro viene lasciato, ma io ti accompagnerò per tutto il viaggio!"
+]
+},
+{"missioni":
+ [
+ {"type": "mult_choice",
+  "question":
+    ["Sono proprio io, JACK SPARROW... so che mi stavi aspettando, dobbiamo cercare il tesoro",
+        "Ovviamente ci riuscirei da solo, ma tu hai la nave...",
+        "grazie alla mia astuzia ho scoperto che si tratta di un tesoro preziosissimo...",
+        "...ma per trovarlo, dovrai prima trovare un altro indizio!",
+        "Il quadro ha tre donne velate di spalle al suo interno...trovalo e dimmi l'anno in cui è stato fatto...è lo stesso del nostro tesoro",
+        "RICORDATI...devi cavartela da solo, io ho altro da fare!",
+        "VAI E BADA A NON FARMI ATTENDERE!"
+        ],
+ "answers": []
+ },
+ {"type": "impiccato",
+ "question":
+    ["Ehm...sei stato velocissimo, fin troppo... mi stavo ancora rilassando",
+            "e va bene... sei stato bravo. Ma ora devi dirmi un'altra informazione!",
+            "Ho scoperto degli indizi utili... MA non devi farti scoprire dagli altri pirati...Tortuga è piena di impiccioni",
+            "Se mi dimostrerai di essere all'altezza del mio STRABILIANTE nome, ti aiuterò...forse!",
+            "dimmi il nome del pirata che ha dipinto il quadro che hai appena scovato.",
+            "FAI MOLTA ATTENZIONE! Parla a bassa voce e datti da fare...",
+            "Cerca la risposta, ma non farti sentire!!!"
+],
+ "answers":[]
+},
+{"type":"impiccato",
+ "question":
+    ["Mhhh notevole!",
+            "Per continuare la ricerca del nostro bottino, devi, mio caro, cercare un altro indizio!",
+            "Ti lascio la mia preziosissima bussola... TUTTI SANNO QUANTO IO CI TENGA",
+            "con questa andrai dritto al tuo obiettivo...sempre che tu ne sia in grado",
+            "Cerca il quadnro di MONET con una grande spiaggia...ho bisogno del colore dello sfondo!",
+            "ricordati...stai lavorando per me!",
+            "FAI ATTENZIONE e usa la bussola, non mi fido del tuo istinto...!"
+],
+ "answers": []
+},
+{"type": "mult_choice",
+ "question":
+    ["Il bottino deve entrare nella MIA... o tua... nave!!!",
+            "in ogni caso, sono JACK SPARROW... CAPITAN JACK SPARROW!",
+            "Presta molta attenzione...",
+            "LEGGI OGNI DETTAGLIO...Ti assisterò io stesso, se ne ho voglia. ",
+            "Il quadro che hai appena trovato, GRAZIE A ME, ha le stesse dimensioni del quadro dei Girasoli!",
+            "quando sei sicuro della risposta, vieni da me e dammela!",
+            "VELOCE!!!"
+],
+ "answers": []
+},
+{"type": "mult_choice",
+ "question":
+    ["Devo dire che tra tutti i ridicoli pirati che ho incontrato, tu sei uno dei migliori",
+            "Ti ricordi bene qual è il nostro obiettivo, vero?",
+            "Devo...dobbiamo... trovare il tesoro... lo avevi già scordato",
+            "So che per te sarà difficile, sei un pirata qualunque... vuoi dimostrarmi che non è così?",
+            "è stato realizzato con la tecnica della pittura ad olio, come un quadro di HENRI MATISSE deel 1907 con una figura blu. Qual è il suo titolo?.",
+            "Spero di sbagliarmi sul tuo conto...",
+            "...VAI e dimostrami chi sei!"
+],
+ "answers": []
+},
+{"type": "mult_choice",
+ "question":
+    ["Notevole!",
+            "Ora devi aiutarmi con un altro dettaglio...",
+            "Mi fido ciecamente di ME...ma voglio sapere cosa sembra a TE, sono solo curioso ovviamente...",
+            "se mi darai la risposta giusta, potrai usare ancora la mia preziosissima bussola!",
+            "cosa è la figura blu al centro del quadro che hai appena trovato...?",
+            "non ho voglia di pensare...",
+            "dammi la risposta!!!"
+],
+ "answers": []
+},
+{"type": "impiccato",
+ "question":
+    ["A tutti i pirati piacciono i tesori...",
+            "...ma a me piace tantissimo QUESTO TESORO!",
+            "Ho scoperto una cosa...",
+            "Avevi dubbi? io so sempre tutto!",
+            "il pittore del nostro bottino viene dalla stessa terra di un altro pirata, cercate il suo quadro Composizione in rosso, blu e giallo. Da dove viene?",
+            "però... mi sto stancando di attendere!",
+            "DEVI SBRIGARTI, mi sto spazientendo!"
+],
+ "answers": []
+},
+{"type": "mult_choice",
+ "question":
+    ["MAH... che strano...",
+            "non capisco... non riesco a capire...",
+            "ecco! è colpa tua!!! Mi sto stancando troppo, mi fai pensare troppo!",
+            "Pensaci da solo, ora...",
+            "devi capire quale di questi tre è il significato del quadro",
+            "A me questo dettaglio sfugge...non ho voglia di pensarci",
+            "IO sono impegnato... pensaci tu!"
+        ],
+ "answers": []
+},
+{"type": "impiccato",
+ "question":
+    ["Il pirata che ha fatto il tesoro che vogliamo trovare è molto conosciuto...",
+            "... a Tortuga non fanno altro che parlare di lui!",
+            "è famosissimo, non sarà facile trovare il tesoro!",
+            "ovviamente per me è facile... ma per te...",
+            "ha dipinto anche il quadro Notte Stellata. Devi trovarlo e dimmi il suo NOME!!!",
+            "Se lo trovi...sarò...e va bene, saremo ricchi!",
+            "VAI su, non ho voglia di aspettare!!!"
+        ],
+ "answers": []
+},
+{"type": "mult_choice",
+ "question":
+    ["CI SIAMO QUASI!",
+            "IO ho ovviamente raccolto tantissime informazioni...",
+            "grazie a me stiamo per trovare il tesoro",
+            "... è preziosissimo, ti elenco le informazioni che abbiamo...",
+            "Il quadro con 3 grandi fiori gialli, è del 1888, misura solo 73x58cm, fatto con pittura ad olio, il pirata OLANDESE è VINCENT VAN GOGH!",
+            "Sta a te almeno cercare il mio TESORO, il resto l'ho fatto io!!!",
+            "Tutto sommato credo che tu ce la possa fare!!!"
+        ],
+ "answers": []
+}
+]
+},
+{
+    "immagine": "../images/jacksparrow.png"
+}
