@@ -1,5 +1,5 @@
 
-const baseURL       = 'http://192.168.2.10:3000';
+const baseURL       = 'http://192.168.1.167:3000';
 const htmlTemplURL  = baseURL + '/content_creator/html/';
 const jsonTemplURL  = baseURL + '/content_creator/json/';
 

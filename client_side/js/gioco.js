@@ -8,7 +8,7 @@
 import * as utilities from './utilities.js';
 
 //  baseURL should be server ip
-const baseURL   = '192.168.2.10';
+const baseURL   = '192.168.1.167';
 const apiPort   = '3000';
 let id          = '1';
 
