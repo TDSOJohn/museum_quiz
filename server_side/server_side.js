@@ -72,7 +72,7 @@ const server = http.createServer((request, response) => {
 
             //  Back to "home" folder ( /client_side )
             let completePathName = '/webapp/museum_quiz/client_side' + pathName;
-            console.log(relativePathName);
+            console.log(completePathName);
 
             fs.readFile(completePathName, (err, data) =>
             {
