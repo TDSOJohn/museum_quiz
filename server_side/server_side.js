@@ -1,6 +1,6 @@
 //  Route
 
-//  RESTful API URL format: http://192.168.1.110/?id=n (n is integer {1, 2, 3})
+//  RESTful API URL format: http://server_ip:port/?id=n (n is integer {1, 2, 3})
 //  client-side HTML retrieval URL format: http://192.168.1.110/client_side/webpage.html
 //  javascript is in strict mode => throws more errors and could give better performance
 'use strict';
@@ -14,15 +14,15 @@ const path = require('path');
 //  npm dependencies
 var QRCode = require('qrcode');
 
-const utilities = require('./utilities.js');
-const dbFolder = './database/';
+const utilities = require('/webapp/museum_quiz/server_side/utilities.js');
+const dbFolder = '/webapp/museum_quiz/server_side/database/';
 
 //  accept any connection to the correct port
 const hostname = '0.0.0.0';
 //  ruby-on-rails default, better change it
-const port = 3000;
+const port = 8000;
 
-const this_ip = '192.168.1.167';
+const this_ip = '130.136.1.50';
 
 var mimeTypes = {
     '.html': 'text/html',
@@ -62,7 +62,7 @@ const server = http.createServer((request, response) => {
         //  If no path to file nor id is given, run the first example (id = 1)
         if ((pathName == '/') && (id <= 0))
         {
-            pathName = '/html/gioco.html';
+            pathName = '/webapp/museum_quiz/client_side/html/gioco.html';
             id = 1;
         }
         //  If pathname is path to a resource, try to fetch it and send it to the client
@@ -71,7 +71,7 @@ const server = http.createServer((request, response) => {
             let extName = String(path.extname(pathName)).toLowerCase();
 
             //  Back to "home" folder ( /client_side )
-            let relativePathName = '../client_side' + pathName;
+            let relativePathName = '/webapp/museum_quiz/client_side/' + pathName;
             console.log(relativePathName);
 
             fs.readFile(relativePathName, (err, data) =>
@@ -96,7 +96,7 @@ const server = http.createServer((request, response) => {
             if (queryType == 'json' || queryType == null)
             {
                 //  Build jsonPathName from id and try to readSync the file
-                let jsonPathName = `database/data${id}.json`;
+                let jsonPathName = `/webapp/museum_quiz/server_side/database/data${id}.json`;
                 fs.readFile(jsonPathName, (err, data) =>
                 {
                     if (err)
@@ -116,7 +116,7 @@ const server = http.createServer((request, response) => {
             //  Build qrPathName from id and try to readSync the file
             else if (queryType == 'qr')
             {
-                let qrPathName = `qrCodes/data${id}.png`;
+                let qrPathName = `/webapp/museum_quiz/server_side/qrCodes/data${id}.png`;
                 fs.readFile(qrPathName, (err, data) =>
                 {
                     if (err)
@@ -154,14 +154,14 @@ const server = http.createServer((request, response) => {
                     utilities.errorHandler(err);
                 else
                 {
-                    fs.writeFile(`database/data${dbFiles.length + 1}.json`, body, 'utf8', (err) =>
+                    fs.writeFile(`/webapp/museum_quiz/server_side/database/data${dbFiles.length + 1}.json`, body, 'utf8', (err) =>
                     {
                         console.log('data' + (dbFiles.length + 1) + ' has been saved!');
                     });
-                    qrFilePath = `qrCodes/data${dbFiles.length + 1}.png`;
+                    qrFilePath = `/webapp/museum_quiz/server_side/qrCodes/data${dbFiles.length + 1}.png`;
                     //  Generate qr code and save it as .png file in ./qrCodes/, then call callback() to respond with 303 - redirect
                     //  Send a 303 response (see other) with the location of the .png qr code
-                    QRCode.toFile(qrFilePath, `http://${this_ip}:${port}/html/gioco.html?id=${dbFiles.length + 1}`, function (err) {
+                    QRCode.toFile(qrFilePath, `http://${this_ip}:${port}/webapp/museum_quiz/server_side/html/gioco.html?id=${dbFiles.length + 1}`, function (err) {
                         response.writeHead(303, {
                             'Location': `?id=${dbFiles.length + 1}&type=qr`
                         }).end();

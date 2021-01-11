@@ -1,7 +1,7 @@
 
-const baseURL       = 'http://192.168.1.167:3000';
-const htmlTemplURL  = baseURL + '/content_creator/html/';
-const jsonTemplURL  = baseURL + '/content_creator/json/';
+const baseURL       = 'http://130.136.1.50:8000//webapp/museum_quiz/client_side/';
+const htmlTemplURL  = baseURL + 'content_creator/html/';
+const jsonTemplURL  = baseURL + 'content_creator/json/';
 
 var domparser       = new DOMParser();
 var xhr             = new XMLHttpRequest();
