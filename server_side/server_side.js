@@ -71,10 +71,10 @@ const server = http.createServer((request, response) => {
             let extName = String(path.extname(pathName)).toLowerCase();
 
             //  Back to "home" folder ( /client_side )
-            let relativePathName = '/webapp/museum_quiz/client_side' + pathName;
+            let completePathName = '/webapp/museum_quiz/client_side' + pathName;
             console.log(relativePathName);
 
-            fs.readFile(relativePathName, (err, data) =>
+            fs.readFile(completePathName, (err, data) =>
             {
                 if (err)
                     utilities.errorHandler(err, response);
