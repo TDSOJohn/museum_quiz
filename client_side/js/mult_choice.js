@@ -35,5 +35,5 @@ function evaluate_answer() {
         }
     }
     gg == true ? alert("Missione compiuta") :
-        alert("Che peccato hai sbagliato! Ritenta, questa volta non sbaglierai!");
+        alert("Che peccato, hai sbagliato! Ritenta, questa volta non sbaglierai!");
 };
