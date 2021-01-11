@@ -8,7 +8,7 @@
 import * as utilities from './utilities.js';
 
 //  baseURL should be server ip
-const baseURL   = '130.136.1.50';
+const baseURL   = 'http://giovanni.basso3.tw.cs.unibo.it';
 const apiPort   = '8000';
 let id          = '1';
 
@@ -21,7 +21,7 @@ const callAPI   = async () =>
 //  Build well-formed WHATWG URL and wait for json data
     let myURL       = ('http://' + encodeURIComponent(baseURL) +
                                 ':' + encodeURIComponent(apiPort) +
-                                '/?id=' + encodeURIComponent(id));
+                                '?id=' + encodeURIComponent(id));
     console.log(myURL);
 
     const response  = await fetch(myURL);
