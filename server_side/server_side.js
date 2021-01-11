@@ -165,6 +165,9 @@ const server = http.createServer((request, response) => {
                         response.writeHead(303, {
                             'Location': `?id=${dbFiles.length + 1}&type=qr`
                         });
+
+                        response.end();
+                        
                         console.log(qrFilePath + ' saved!');
                     });
                 }
