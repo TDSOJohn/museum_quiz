@@ -62,7 +62,7 @@ const server = http.createServer((request, response) => {
         //  If no path to file nor id is given, run the first example (id = 1)
         if ((pathName == '/') && (id <= 0))
         {
-            pathName = '/webapp/museum_quiz/client_side/html/gioco.html';
+            pathName = '/html/gioco.html';
             id = 1;
         }
         //  If pathname is path to a resource, try to fetch it and send it to the client
@@ -71,7 +71,7 @@ const server = http.createServer((request, response) => {
             let extName = String(path.extname(pathName)).toLowerCase();
 
             //  Back to "home" folder ( /client_side )
-            let relativePathName = '/webapp/museum_quiz/client_side/' + pathName;
+            let relativePathName = '/webapp/museum_quiz/client_side' + pathName;
             console.log(relativePathName);
 
             fs.readFile(relativePathName, (err, data) =>
