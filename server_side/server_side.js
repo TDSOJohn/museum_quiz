@@ -8,7 +8,7 @@
 //  HTTP, FileSystem and URL modules are required
 const http = require('http');
 const fs = require('fs');
-const { url } = require('url');
+const { URL } = require('url');
 const path = require('path');
 
 //  npm dependencies
