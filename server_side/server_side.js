@@ -164,7 +164,7 @@ const server = http.createServer((request, response) => {
                     QRCode.toFile(qrFilePath, `http://${this_ip}:${port}/webapp/museum_quiz/server_side/html/gioco.html?id=${dbFiles.length + 1}`, function (err) {
                         response.writeHead(303, {
                             'Location': `?id=${dbFiles.length + 1}&type=qr`
-                        }).end();
+                        });
                         console.log(qrFilePath + ' saved!');
                     });
                 }
