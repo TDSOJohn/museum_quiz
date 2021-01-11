@@ -8,7 +8,7 @@
 import * as utilities from './utilities.js';
 
 //  baseURL should be server ip
-const baseURL   = 'http://giovanni.basso3.tw.cs.unibo.it';
+const baseURL   = 'giovanni.basso3.tw.cs.unibo.it';
 const apiPort   = '8000';
 let id          = '1';
 
