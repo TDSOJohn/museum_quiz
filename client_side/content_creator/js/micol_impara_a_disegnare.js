@@ -136,7 +136,7 @@ window.onload = function() {
 
     questionTypes[0].addEventListener('click', function() { showContent('mult_choice_templ.html'); });
     questionTypes[1].addEventListener('click', function() { showContent('hanged_man_templ.html'); });
-    questionTypes[2].addEventListener('click', function() { showContent('image_uploader_templ.html'); });
+    questionTypes[2].addEventListener('click', function() { showContent('image_upload_templ.html'); });
 
     for(let i = 0; i < etaTypes.length; i++)
     {
