@@ -1,5 +1,5 @@
 
-const baseURL       = 'http://130.136.1.50:8000//webapp/museum_quiz/server_side/';
+const baseURL       = 'http://giovanni.basso3.tw.cs.unibo.it/';
 const htmlTemplURL  = baseURL + 'content_creator/html/';
 const jsonTemplURL  = baseURL + 'content_creator/json/';
 
