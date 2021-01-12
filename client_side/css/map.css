@@ -4,6 +4,9 @@
     padding: 0px;
 }
 
+body {
+    background-color: #5ABFF7;
+}
 
 
 .container-fluid {
@@ -11,12 +14,12 @@
 }
 
 .bg-cover{
-    background-color: #54befa;
+    background-color: #5ABFF7;
     min-height: 100vh;
 }
 
 .row {
-    background-color: #54befa;
+    background-color: #5ABFF7;
     background-position: absolute;
 }
 

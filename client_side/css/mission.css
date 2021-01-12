@@ -1,11 +1,11 @@
 body {
-    background-color: #54befa;
+    background-color: #5ABFF7;
     text-align: center;
 }
 
 h1 {
     color:black;
-    text-align: center; 
+    text-align: center;
     font-size:7vh;
     padding-top: 5%;
     font-family: Brush Script MT;
@@ -18,8 +18,8 @@ p {
 
 form {
     color: black;
-    text-align: center; 
-    font-size:4vh; 
+    text-align: center;
+    font-size:4vh;
     padding-top: 5%;
     font-family: Brush Script MT;
 }
