@@ -4,8 +4,13 @@
 }
 
 .bg-cover {
-    background-color: #5ABFF7;
+    background-color: #54befa;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+    background-size: cover;
 }
+
 
 @keyframes slidein {
     from {

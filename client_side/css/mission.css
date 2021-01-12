@@ -1,24 +1,42 @@
 body {
-    background-color: aqua;
+    background-color: #54befa;
     text-align: center;
 }
 
 h1 {
-    color: red;
+    color:black;
+    text-align: center; 
+    font-size:7vh;
+    padding-top: 5%;
+    font-family: Brush Script MT;
 }
 
 p {
-    color: blue;
+    color: black;
+    text-align: center;
 }
 
 form {
-    color: blue;
+    color: black;
+    text-align: center; 
+    font-size:4vh; 
+    padding-top: 5%;
+    font-family: Brush Script MT;
 }
 
 button {
-    background-color: blue;
-    color: aqua;
+    background-color: fff;
+    color: black;
     border-radius: 20px;
-    margin-top: 25%;
-    margin-left: 75%;
+    text-align: center;
+    font-family: Brush Script MT;
+    font-size:3vh;
+}
+
+#btn {
+    font-size:3vh;
+    margin-top: 5%;
+    text-align:center;
+    border-radius: 20px;
+    font-family: Brush Script MT;
 }

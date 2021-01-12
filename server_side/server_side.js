@@ -45,11 +45,11 @@ const server = http.createServer((request, response) => {
     const { headers } = request;
 
     //  myURL is (baseURL + request.url) in order to form a correct WHATWG URL
-    let baseURL = 'http://' + request.headers.host;
-    let myURL = new URL(request.url, baseURL);
-    let pathName = myURL.pathname;
-    let id = utilities.intParser(myURL.searchParams.get('id'));
-    let queryType = myURL.searchParams.get('type');
+    let baseURL     = 'http://' + request.headers.host;
+    let myURL       = new URL(request.url, baseURL);
+    let pathName    = myURL.pathname;
+    let id          = utilities.intParser(myURL.searchParams.get('id'));
+    let queryType   = myURL.searchParams.get('type');
 
     console.log(method);
     console.log(myURL);
@@ -167,7 +167,7 @@ const server = http.createServer((request, response) => {
                         });
 
                         response.end();
-                        
+
                         console.log(qrFilePath + ' saved!');
                     });
                 }
