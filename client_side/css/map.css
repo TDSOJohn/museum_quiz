@@ -4,22 +4,21 @@
     padding: 0px;
 }
 
-body {
-    background-color: #5ABFF7;
+#main_map {
+    background-color: #54befa;
 }
-
 
 .container-fluid {
     text-align: center;
 }
 
 .bg-cover{
-    background-color: #5ABFF7;
+    background-color: #54befa;
     min-height: 100vh;
 }
 
 .row {
-    background-color: #5ABFF7;
+    background-color: #54befa;
     background-position: absolute;
 }
 
