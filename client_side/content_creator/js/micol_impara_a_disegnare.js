@@ -9,7 +9,6 @@ var xhr             = new XMLHttpRequest();
 var htmlContent     = "";
 var risp            = [];
 var file;
-var local_json      = [];
 var template_json   = [];
 
 var body            = document.getElementsByTagName('body');
@@ -99,29 +98,36 @@ function compileJSON()
 
 function verifyAndUpload()
 {
-    quiz_quests   = document.querySelectorAll('.quiz_quest');
-
-    if(quiz_quests.length == 10)
+    //  if template is == [] then age is not selected
+    if(template_json == [])
     {
-        compileJSON();
-        xhr.open("POST", baseURL, true);
-        xhr.setRequestHeader("Content-Type", "application/json");
-
-        xhr.send('{' + JSON.stringify(template_json) + '}');
-
-        xhr.onreadystatechange = function ()
-        {
-            if (xhr.readyState === 4 && xhr.status === 200)
-            {
-                console.log("file sent!");
-                body[0].innerHTML = `<img src=\"${xhr.responseURL}\">`;
-            }
-        }
+        alert('Devi ancora selezionare età!');
     } else
     {
-        alert('inserisci ancora ' +
-                (10 - quiz_quests.length) +
-                ' domande per completare il quiz');
+        quiz_quests   = document.querySelectorAll('.quiz_quest');
+
+        if(quiz_quests.length == 10)
+        {
+            compileJSON();
+            xhr.open("POST", baseURL, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.send('{' + JSON.stringify(template_json) + '}');
+
+            xhr.onreadystatechange = function ()
+            {
+                if (xhr.readyState === 4 && xhr.status === 200)
+                {
+                    console.log("file sent!");
+                    body[0].innerHTML = `<img src=\"${xhr.responseURL}\">`;
+                }
+            }
+        } else
+        {
+            alert('inserisci ancora ' +
+                    (10 - quiz_quests.length) +
+                    ' domande per completare il quiz');
+        }
     }
 }
 

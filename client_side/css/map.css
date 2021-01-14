@@ -44,6 +44,11 @@
     }
 }
 
+@media screen and (max-width: 900px)
+{
+
+}
+
 .title ul li {
     list-style: none;
     font-family: 'Ubuntu', sans-serif;
