@@ -4,3 +4,4 @@ server_side/node_modules/
 qrCodes/
 
 *.pages
+package-lock.json
