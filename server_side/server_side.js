@@ -137,7 +137,7 @@ const server = http.createServer((request, response) => {
     //  Then send a 303 - See Other with a location header to newly created qr code
     else if (method == 'POST')
     {
-        console.log(`${request.getHeader('Content-Type')}`);
+        console.log(JSON.stringify(req.headers));
         let body = [];
         let dbFiles = undefined;
         let qrFilePath = undefined;
