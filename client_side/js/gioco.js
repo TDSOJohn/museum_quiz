@@ -8,29 +8,27 @@
 import * as utilities from './utilities.js';
 
 //  baseURL should be server ip
-const baseURL   = 'giovanni.basso3.tw.cs.unibo.it';
-const apiPort   = '8000';
-let id          = '1';
+const baseURL = '127.0.0.1';
+const apiPort = '8000';
+let id = '1';
 
 let i = -1;
 let MyArr, img_personaggio;
 let sel_eta = 2;
 
-const callAPI   = async () =>
-{
-//  Build well-formed WHATWG URL and wait for json data
-    let myURL       = ('http://' + encodeURIComponent(baseURL) +
-                                '/?id=' + encodeURIComponent(id));
+const callAPI = async () => {
+    //  Build well-formed WHATWG URL and wait for json data
+    let myURL = ('http://' + encodeURIComponent(baseURL) + ':' + encodeURIComponent(apiPort) +
+        '/?id=' + encodeURIComponent(id));
     console.log(myURL);
 
-    const response  = await fetch(myURL);
-    const apiJSON   = await response.json();
+    const response = await fetch(myURL);
+    const apiJSON = await response.json();
 
     return apiJSON;
 }
 
-function updateHTML()
-{
+function updateHTML() {
     i = i + 1
     if (i > MyArr.benvenuto.length - 1) {
         window.location.href = `/html/map.html?id=${id}`;
@@ -41,9 +39,8 @@ function updateHTML()
 
 window.updateHTML = updateHTML;
 
-function loadImg ()
-{
-    let codice =  `<img src="` + MyArr.immagine + `" id="slide" alt="personaggio" style="box-sizing: border-box;width:37vh;">
+function loadImg() {
+    let codice = `<img src="` + MyArr.immagine + `" id="slide" alt="personaggio" style="box-sizing: border-box;width:37vh;">
     <style>
         #slide {
             animation-name:slidein;
@@ -61,17 +58,17 @@ function loadImg ()
     document.getElementById("personaggio").innerHTML = codice;
 }
 
-function receivedText()
-{
+function receivedText() {
     updateHTML();
     loadImg();
 }
 
-window.onload = function()
-{
+window.onload = function () {
     id = utilities.intParser(utilities.getQueryVariable('id'));
     callAPI().then(result => {
         MyArr = result;
+        localStorage.setItem('myJson', JSON.stringify(MyArr))
+        localStorage.setItem('myJsonID', id)
         receivedText();
     });
     console.log(MyArr);

@@ -14,15 +14,15 @@ const path = require('path');
 //  npm dependencies
 var QRCode = require('qrcode');
 
-const utilities = require('/webapp/museum_quiz/server_side/utilities.js');
-const dbFolder = '/webapp/museum_quiz/server_side/database/';
+const utilities = require('./utilities.js');
+const dbFolder = './database/';
 
 //  accept any connection to the correct port
-const hostname = '0.0.0.0';
+const hostname = '127.0.0.1';
 //  ruby-on-rails default, better change it
 const port = 8000;
 
-const this_ip = '130.136.1.50';
+const this_ip = '192.168.1.184';
 
 var mimeTypes = {
     '.html': 'text/html',
@@ -45,11 +45,11 @@ const server = http.createServer((request, response) => {
     const { headers } = request;
 
     //  myURL is (baseURL + request.url) in order to form a correct WHATWG URL
-    let baseURL     = 'http://' + request.headers.host;
-    let myURL       = new URL(request.url, baseURL);
-    let pathName    = myURL.pathname;
-    let id          = utilities.intParser(myURL.searchParams.get('id'));
-    let queryType   = myURL.searchParams.get('type');
+    let baseURL = 'http://' + request.headers.host;
+    let myURL = new URL(request.url, baseURL);
+    let pathName = myURL.pathname;
+    let id = utilities.intParser(myURL.searchParams.get('id'));
+    let queryType = myURL.searchParams.get('type');
 
     console.log(method);
     console.log(myURL);
@@ -57,29 +57,24 @@ const server = http.createServer((request, response) => {
     console.log(pathName);
 
     //  If method is GET, it is access to file or to RESTful API
-    if (method == 'GET')
-    {
+    if (method == 'GET') {
         //  If no path to file nor id is given, run the first example (id = 1)
-        if ((pathName == '/') && (id <= 0))
-        {
+        if ((pathName == '/') && (id <= 0)) {
             pathName = '/html/gioco.html';
             id = 1;
         }
         //  If pathname is path to a resource, try to fetch it and send it to the client
-        if (pathName !== '/')
-        {
+        if (pathName !== '/') {
             let extName = String(path.extname(pathName)).toLowerCase();
 
             //  Back to "home" folder ( /client_side )
-            let completePathName = '/webapp/museum_quiz/client_side' + pathName;
+            let completePathName = '../client_side' + pathName;
             console.log(completePathName);
 
-            fs.readFile(completePathName, (err, data) =>
-            {
+            fs.readFile(completePathName, (err, data) => {
                 if (err)
                     utilities.errorHandler(err, response);
-                else
-                {
+                else {
                     //  If no ContentType matches, send as binary stream
                     let contentType = mimeTypes[extName] || 'application/octet-stream';
                     console.log(contentType);
@@ -89,22 +84,17 @@ const server = http.createServer((request, response) => {
                     response.end();
                 }
             });
-        } else if (id >= 0)
-        {
+        } else if (id >= 0) {
             console.log('JSON REQUESTED: ' + id);
             //  RESTful API part. URL type:     http://ip:3000?id=n(&type=t)
-            if (queryType == 'json' || queryType == null)
-            {
+            if (queryType == 'json' || queryType == null) {
                 //  Build jsonPathName from id and try to readSync the file
-                let jsonPathName = `/webapp/museum_quiz/server_side/database/data${id}.json`;
-                fs.readFile(jsonPathName, (err, data) =>
-                {
-                    if (err)
-                    {
+                let jsonPathName = `./database/data${id}.json`;
+                fs.readFile(jsonPathName, (err, data) => {
+                    if (err) {
                         utilities.errorHandler(err, response);
                         response.end();
-                    } else
-                    {
+                    } else {
                         response.statusCode = 200;
                         response.setHeader('Content-Type', 'application/json');
                         response.write(data);
@@ -114,15 +104,12 @@ const server = http.createServer((request, response) => {
                 });
             }
             //  Build qrPathName from id and try to readSync the file
-            else if (queryType == 'qr')
-            {
-                let qrPathName = `/webapp/museum_quiz/server_side/qrCodes/data${id}.png`;
-                fs.readFile(qrPathName, (err, data) =>
-                {
+            else if (queryType == 'qr') {
+                let qrPathName = `./qrCodes/data${id}.png`;
+                fs.readFile(qrPathName, (err, data) => {
                     if (err)
                         utilities.errorHandler(err, response);
-                    else
-                    {
+                    else {
                         response.statusCode = 200;
                         response.setHeader('Content-Type', 'image/png');
                         response.write(data);
@@ -135,34 +122,29 @@ const server = http.createServer((request, response) => {
     }
     //  If method is POST, try to catch body and save it in server storage
     //  Then send a 303 - See Other with a location header to newly created qr code
-    else if (method == 'POST')
-    {
+    else if (method == 'POST') {
         console.log(request.headers["content-type"]);
         let body = [];
         let dbFiles = undefined;
         let qrFilePath = undefined;
 
-        request.on('data', (chunk) =>
-        {
+        request.on('data', (chunk) => {
             body.push(chunk);
         }).on('end', () => {
             body = Buffer.concat(body).toString();
 
             //  Get list of all elements inside the folder to avoid rewriting existing .json
-            fs.readdir(dbFolder, (err, dbFiles) =>
-            {
+            fs.readdir(dbFolder, (err, dbFiles) => {
                 if (err)
                     utilities.errorHandler(err);
-                else
-                {
-                    fs.writeFile(`/webapp/museum_quiz/server_side/database/data${dbFiles.length + 1}.json`, body, 'utf8', (err) =>
-                    {
+                else {
+                    fs.writeFile(`./database/data${dbFiles.length + 1}.json`, body, 'utf8', (err) => {
                         console.log('data' + (dbFiles.length + 1) + ' has been saved!');
                     });
-                    qrFilePath = `/webapp/museum_quiz/server_side/qrCodes/data${dbFiles.length + 1}.png`;
+                    qrFilePath = `./qrCodes/data${dbFiles.length + 1}.png`;
                     //  Generate qr code and save it as .png file in ./qrCodes/, then call callback() to respond with 303 - redirect
                     //  Send a 303 response (see other) with the location of the .png qr code
-                    QRCode.toFile(qrFilePath, `http://${this_ip}:${port}/webapp/museum_quiz/server_side/html/gioco.html?id=${dbFiles.length + 1}`, function (err) {
+                    QRCode.toFile(qrFilePath, `http://${this_ip}:${port}/html/gioco.html?id=${dbFiles.length + 1}`, function (err) {
                         response.writeHead(303, {
                             'Location': `?id=${dbFiles.length + 1}&type=qr`
                         });
@@ -178,7 +160,6 @@ const server = http.createServer((request, response) => {
 });
 
 //  function called on server listening gives some basic server info
-server.listen(port, hostname, () =>
-{
+server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });
