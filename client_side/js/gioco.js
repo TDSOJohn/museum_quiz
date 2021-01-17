@@ -77,6 +77,10 @@ window.onload = function()
     id = utilities.intParser(utilities.getQueryVariable('id'));
     callAPI().then(result => {
         MyArr = result;
+
+        localStorage.setItem('myJson', JSON.stringify(MyArr));
+        localStorage.setItem('myJsonID', id);
+
         receivedText();
     });
     console.log(MyArr);
