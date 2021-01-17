@@ -13,18 +13,16 @@
 
 <body>
 
-    <main role="main" class="flex-shrink-0">
+        <div class="container-fluid bg-cover" style="background-color: #54befa; min-height: 100vh;">
 
-        <div class="container">
-
-            <div style="text-align: center; font-size:3vh; color:red">
-                <h1 class="mt-5" id="title">RISPOSTA</h1>
+            <div style="text-align: center; font-size:7vh; color:black">
+                <h1 class="mt-5" id="title" style="font-family: Brush Script MT; padding-top: 5%; font-size: 7vh; text-align: center;"><b>RISPOSTA:</b></h1>
             </div>
-            <div style="text-align: center; color: blue;">
-                <p class="lead" id="subtitle">La risposta è:</p>
+            <div style="text-align: center; color: black;">
+                <p class="lead" id="subtitle" style="padding-top: 2%; font-family: Brush Script MT; font-size:5vh">La risposta è:</p>
             </div>
-            <div style="background-color: aqua; text-align: center;">
-                <form>
+            <div style="text-align: center;">
+                <form style="font-size: 4vh; padding-top: 2%; font-family: Brush Script MT;">
                     <div class="radio">
                         <label><input type="radio" name="optradio" class="option" checked></label>
                     </div>
@@ -34,11 +32,11 @@
                     <div class="radio">
                         <label><input type="radio" name="optradio" class="option"></label>
                     </div>
-                    <input type="submit" id="btn" value="Submit" onclick="evaluate_answer()">
+                    <input type="submit" id="btn" value="Invia la tua risposta" style="margin-top: 5%; font-family: Brush Script MT; border-radius:20px; font-size:4vh; text-align: center;" onclick="evaluate_answer()">
                 </form>
+                <button style="font-size: 3vh;font-family: Brush Script MT; border-radius:20px; text-align: center;">Clicca per proseguire</button>
             </div>
         </div>
 
-    </main>
 </body>
 </html>
