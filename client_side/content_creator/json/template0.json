@@ -6,7 +6,8 @@
     		"Tu e i tuoi compagni mi aiuterete in questa avventura?",
     		"Corpo di mille balene! STRABILIANTE! Tu sei il pirata che mi mancava!",
     		"Per non creare guazzabugli, vi accompagnerò e vi darò suggerimenti per acciuffare il bottino!",
-    		"ALL'ARREMBAGGIO, PIRATI!!!"],
+    		"ALL'ARREMBAGGIO, PIRATI!!!"
+        ],
     "missioni":
      [
      {"type": "mult_choice",

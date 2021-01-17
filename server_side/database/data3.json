@@ -21,7 +21,13 @@
                 "RICORDATI...devi cavartela da solo, io ho altro da fare!",
                 "VAI E BADA A NON FARMI ATTENDERE!"
             ],
-            "answers": []
+            "answers":
+            [
+                "1888",
+                "1900",
+                "1671",
+                "1700"
+            ]
         },
  {"type": "impiccato",
  "question":
@@ -32,8 +38,11 @@
             "dimmi il nome del pirata che ha dipinto il quadro che hai appena scovato.",
             "FAI MOLTA ATTENZIONE! Parla a bassa voce e datti da fare...",
             "Cerca la risposta, ma non farti sentire!!!"
-],
- "answers":[]
+    ],
+    "answers":
+    [
+        "Gaugin"
+    ]
 },
 {"type":"impiccato",
  "question":
@@ -45,7 +54,10 @@
             "ricordati...stai lavorando per me!",
             "FAI ATTENZIONE e usa la bussola, non mi fido del tuo istinto...!"
 ],
- "answers": []
+ "answers":
+ [
+     "Azzurro"
+ ]
 },
 {"type": "mult_choice",
  "question":
@@ -57,7 +69,13 @@
             "quando sei sicuro della risposta, vieni da me e dammela!",
             "VELOCE!!!"
 ],
- "answers": []
+ "answers":
+ [
+    "73x58 cm",
+    "60x80 cm",
+    "10x5 cm",
+    "30x40 cm"
+ ]
 },
 {"type": "mult_choice",
  "question":
@@ -69,7 +87,13 @@
             "Spero di sbagliarmi sul tuo conto...",
             "...VAI e dimostrami chi sei!"
 ],
- "answers": []
+ "answers":
+ [
+     "Nudo Blu",
+     "Figura Blu",
+     "Corpo Blu",
+     "Quadro Blu"
+ ]
 },
 {"type": "mult_choice",
  "question":
@@ -81,7 +105,13 @@
             "non ho voglia di pensare...",
             "dammi la risposta!!!"
 ],
- "answers": []
+ "answers":
+ [
+     "Donna",
+     "Uomo",
+     "Squalo",
+     "Oggetto"
+ ]
 },
 {"type": "impiccato",
  "question":
@@ -93,7 +123,10 @@
             "però... mi sto stancando di attendere!",
             "DEVI SBRIGARTI, mi sto spazientendo!"
 ],
- "answers": []
+ "answers":
+ [
+     "Olanda"
+ ]
 },
 {"type": "mult_choice",
  "question":
@@ -105,7 +138,13 @@
             "A me questo dettaglio sfugge...non ho voglia di pensarci",
             "IO sono impegnato... pensaci tu!"
         ],
- "answers": []
+ "answers":
+ [
+     "Ricerca di Equilibrio",
+     "L autore apprezzava i colori",
+     "Confusione",
+     "L autore apprezzava i quadrati"
+ ]
 },
 {"type": "impiccato",
  "question":
@@ -117,7 +156,10 @@
             "Se lo trovi...sarò...e va bene, saremo ricchi!",
             "VAI su, non ho voglia di aspettare!!!"
         ],
- "answers": []
+ "answers":
+ [
+     "Vincent Van Gogh"
+ ]
 },
 {"type": "mult_choice",
  "question":
@@ -129,7 +171,13 @@
             "Sta a te almeno cercare il mio TESORO, il resto l'ho fatto io!!!",
             "Tutto sommato credo che tu ce la possa fare!!!"
         ],
- "answers": []
+ "answers":
+ [
+     "I Tre Girasoli",
+     "I Fiori Gialli",
+     "Il Vaso",
+     "Natura"
+ ]
 }],
     "immagine": "../images/jacksparrow.png"
 }

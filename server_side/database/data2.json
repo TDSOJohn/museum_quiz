@@ -17,7 +17,13 @@
         "Corpo di mille balene!!!",
         "ANDATE E NON FATEMI ATTENDERE! ALL'ARREMBAGGIO!"
     ],
-"answers": []
+        "answers":
+        [
+            "1888",
+            "1900",
+            "1671",
+            "1700"
+        ]
 },
 {"type": "impiccato",
 "question":
@@ -29,7 +35,10 @@
         "FATE MOLTA ATTENZIONE! Parlate a bassa voce, corpo di mille balene...",
         "Cercate, ma non fatevi sentire!!!"
     ],
-"answers":[]
+    "answers":
+    [
+        "Gaugin"
+    ]
 },
 {"type":"impiccato",
  "question":
@@ -41,7 +50,10 @@
             "ricordatevi...osservate con molta attenzione!",
             "FATE ATTENZIONE e usate il cannocchiale...!"
 ],
- "answers": []
+ "answers":
+ [
+     "Azzurro"
+ ]
 },
 {"type": "mult_choice",
  "question":
@@ -53,7 +65,13 @@
             "quando siete sicuri della risposta, venite da me e ditemela!",
             "ALL'ARREMBAGGIO!!!"
 ],
- "answers": []
+ "answers":
+ [
+    "73x58 cm",
+    "60x80 cm",
+    "10x5 cm",
+    "30x40 cm"
+ ]
 },
 {"type": "mult_choice",
  "question":
@@ -65,7 +83,13 @@
             "MIA CIURMA!!!",
             "Non fatemi attendere, andate e fate presto!!!"
 ],
- "answers": []
+ "answers":
+ [
+     "Nudo Blu",
+     "Figura Blu",
+     "Corpo Blu",
+     "Quadro Blu"
+ ]
 },
 {"type": "mult_choice",
  "question":
@@ -77,7 +101,13 @@
             "Credete che sia così semplice?",
             "Allora datemi la risposta, CIURMA!!!"
 ],
- "answers": []
+ "answers":
+ [
+     "Donna",
+     "Uomo",
+     "Squalo",
+     "Oggetto"
+ ]
 },
 {"type": "impiccato",
  "question":
@@ -89,7 +119,10 @@
             "però... dovete fare in fretta, sento che qualcuno ci sta seguendo",
             "Andate e datemi la risposta!!!"
 ],
- "answers": []
+ "answers":
+ [
+     "Olanda"
+ ]
 },
 {"type": "mult_choice",
  "question":
@@ -101,7 +134,13 @@
             "Corpo di mille balene, devo riposarmi!!!",
             "povero me... sto invecchiando... aiutatemi voi!"
         ],
- "answers": []
+ "answers":
+ [
+     "Ricerca di Equilibrio",
+     "L autore apprezzava i colori",
+     "Confusione",
+     "L autore apprezzava i quadrati"
+ ]
 },
 {"type": "impiccato",
  "question":
@@ -113,7 +152,10 @@
             "Se lo trovate... ARRR!!! Mi sto già godendo il meritato riposo!",
             "Andate ciurma, conto su di voi per trovare la risposta!!!"
         ],
- "answers": []
+ "answers":
+ [
+     "Vincent Van Gogh"
+ ]
 },
 {"type": "mult_choice",
  "question":
@@ -125,7 +167,13 @@
             "CIURMA!!! Sta a voi ora cercare il nostro TESORO!!!",
             "CE LA FARETE, NE SONO SICURO!!!"
         ],
- "answers": []
+ "answers":
+ [
+     "I Tre Girasoli",
+     "I Fiori Gialli",
+     "Il Vaso",
+     "Natura"
+ ]
 }],
     "immagine": "../images/capitano.png"
 }

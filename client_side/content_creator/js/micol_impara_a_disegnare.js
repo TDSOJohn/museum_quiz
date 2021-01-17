@@ -1,5 +1,11 @@
 
+//  THIS IS FOR UNIBO SERVER TESTING
 const baseURL       = 'http://giovanni.basso3.tw.cs.unibo.it/';
+
+//  THIS IS FOR HOME TESTING
+//const baseURL       = '127.0.0.1:8000/';
+
+
 const htmlTemplURL  = baseURL + 'content_creator/html/';
 const jsonTemplURL  = baseURL + 'content_creator/json/';
 
@@ -51,6 +57,7 @@ function showContent(pathToTempl)
         var x       = document.getElementById("demo");
 
         let myURL   = htmlTemplURL + pathToTempl;
+
         callAPI(myURL).then(result => {
             htmlContent = result;
             var htmlOut = parseTemplate(htmlContent);
@@ -62,7 +69,8 @@ function showContent(pathToTempl)
 
 function getJSONTemplate(pathToTempl)
 {
-    var myURL = jsonTemplURL + pathToTempl;
+    let myURL = jsonTemplURL + pathToTempl;
+
     callAPI(myURL).then(result => {
         template_json = JSON.parse(result);
     });
@@ -101,7 +109,7 @@ function verifyAndUpload()
     //  if template is == [] then age is not selected
     if(template_json == [])
     {
-        alert('Devi ancora selezionare età!');
+        alert('Devi ancora selezionare l\'età!');
     } else
     {
         quiz_quests   = document.querySelectorAll('.quiz_quest');
