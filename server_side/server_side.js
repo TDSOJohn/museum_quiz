@@ -6,23 +6,35 @@
 'use strict';
 
 //  HTTP, FileSystem and URL modules are required
-const http = require('http');
-const fs = require('fs');
-const { URL } = require('url');
-const path = require('path');
+const http              = require('http');
+const fs                = require('fs');
+const { URL }           = require('url');
+const path              = require('path');
 
 //  npm dependencies
-var QRCode = require('qrcode');
+var QRCode              = require('qrcode');
 
-const utilities = require('/webapp/museum_quiz/server_side/utilities.js');
-const dbFolder = '/webapp/museum_quiz/server_side/database/';
+
+//  THIS IS FOR UNIBO SERVER TESTING
+const path_to_folder    = '/webapp/museum_quiz/';
+const this_ip           = '130.136.1.50';
+
+//  THIS IS FOR HOME TESTING
+//const path_to_folder    = '../';
+//const this_ip           = '127.0.0.1';
+
+
+const path_to_client    = path_to_folder + 'client_side/';
+const path_to_server    = path_to_folder + 'server_side/';
+const dbFolder          = path_to_server + 'database/';
+
+const utilities         = require(path_to_server + 'utilities.js');
 
 //  accept any connection to the correct port
 const hostname = '0.0.0.0';
 //  ruby-on-rails default, better change it
 const port = 8000;
 
-const this_ip = '130.136.1.50';
 
 var mimeTypes = {
     '.html': 'text/html',
@@ -71,7 +83,7 @@ const server = http.createServer((request, response) => {
             let extName = String(path.extname(pathName)).toLowerCase();
 
             //  Back to "home" folder ( /client_side )
-            let completePathName = '/webapp/museum_quiz/client_side' + pathName;
+            let completePathName = path_to_client + pathName;
             console.log(completePathName);
 
             fs.readFile(completePathName, (err, data) =>
@@ -96,7 +108,7 @@ const server = http.createServer((request, response) => {
             if (queryType == 'json' || queryType == null)
             {
                 //  Build jsonPathName from id and try to readSync the file
-                let jsonPathName = `/webapp/museum_quiz/server_side/database/data${id}.json`;
+                let jsonPathName = `${dbFolder}data${id}.json`;
                 fs.readFile(jsonPathName, (err, data) =>
                 {
                     if (err)
@@ -116,7 +128,7 @@ const server = http.createServer((request, response) => {
             //  Build qrPathName from id and try to readSync the file
             else if (queryType == 'qr')
             {
-                let qrPathName = `/webapp/museum_quiz/server_side/qrCodes/data${id}.png`;
+                let qrPathName = `${path_to_server}qrCodes/data${id}.png`;
                 fs.readFile(qrPathName, (err, data) =>
                 {
                     if (err)
@@ -137,43 +149,46 @@ const server = http.createServer((request, response) => {
     //  Then send a 303 - See Other with a location header to newly created qr code
     else if (method == 'POST')
     {
-        console.log(request.headers["content-type"]);
+        const data_type = request.headers["content-type"];
         let body = [];
         let dbFiles = undefined;
         let qrFilePath = undefined;
 
-        request.on('data', (chunk) =>
+        if(data_type == "application/json")
         {
-            body.push(chunk);
-        }).on('end', () => {
-            body = Buffer.concat(body).toString();
-
-            //  Get list of all elements inside the folder to avoid rewriting existing .json
-            fs.readdir(dbFolder, (err, dbFiles) =>
+            request.on('data', (chunk) =>
             {
-                if (err)
-                    utilities.errorHandler(err);
-                else
+                body.push(chunk);
+            }).on('end', () => {
+                body = Buffer.concat(body).toString();
+
+                //  Get list of all elements inside the folder to avoid rewriting existing .json
+                fs.readdir(dbFolder, (err, dbFiles) =>
                 {
-                    fs.writeFile(`/webapp/museum_quiz/server_side/database/data${dbFiles.length + 1}.json`, body, 'utf8', (err) =>
+                    if (err)
+                        utilities.errorHandler(err);
+                    else
                     {
-                        console.log('data' + (dbFiles.length + 1) + ' has been saved!');
-                    });
-                    qrFilePath = `/webapp/museum_quiz/server_side/qrCodes/data${dbFiles.length + 1}.png`;
-                    //  Generate qr code and save it as .png file in ./qrCodes/, then call callback() to respond with 303 - redirect
-                    //  Send a 303 response (see other) with the location of the .png qr code
-                    QRCode.toFile(qrFilePath, `http://${this_ip}:${port}/webapp/museum_quiz/server_side/html/gioco.html?id=${dbFiles.length + 1}`, function (err) {
-                        response.writeHead(303, {
-                            'Location': `?id=${dbFiles.length + 1}&type=qr`
+                        fs.writeFile(`${dbFolder}data${dbFiles.length + 1}.json`, body, 'utf8', (err) =>
+                        {
+                            console.log('data' + (dbFiles.length + 1) + ' has been saved!');
                         });
+                        qrFilePath = `${path_to_server}qrCodes/data${dbFiles.length + 1}.png`;
+                        //  Generate qr code and save it as .png file in ./qrCodes/, then call callback() to respond with 303 - redirect
+                        //  Send a 303 response (see other) with the location of the .png qr code
+                        QRCode.toFile(qrFilePath, `http://${this_ip}${path_to_client}html/gioco.html?id=${dbFiles.length + 1}`, function (err) {
+                            response.writeHead(303, {
+                                'Location': `?id=${dbFiles.length + 1}&type=qr`
+                            });
 
-                        response.end();
+                            response.end();
 
-                        console.log(qrFilePath + ' saved!');
-                    });
-                }
+                            console.log(qrFilePath + ' saved!');
+                        });
+                    }
+                });
             });
-        });
+        }
     }
 });
 
