@@ -7,9 +7,14 @@
 
 import * as utilities from './utilities.js';
 
-//  baseURL should be server ip
+//  baseURL should be server ip or URL
+
+//  THIS IS FOR UNIBO SERVER TESTING
 const baseURL   = 'giovanni.basso3.tw.cs.unibo.it';
-const apiPort   = '8000';
+
+//  THIS IS FOR HOME TESTING
+//const baseURL   = '127.0.0.1:8000';
+
 let id          = '1';
 
 let i = -1;
@@ -19,7 +24,7 @@ let sel_eta = 2;
 const callAPI   = async () =>
 {
 //  Build well-formed WHATWG URL and wait for json data
-    let myURL       = ('http://' + encodeURIComponent(baseURL) +
+    let myURL       = ('http://' + baseURL +
                                 '/?id=' + encodeURIComponent(id));
     console.log(myURL);
 
