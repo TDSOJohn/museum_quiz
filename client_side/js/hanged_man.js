@@ -112,5 +112,5 @@ function proseguire() {
     if(missionID != 9)
         window.location.href = `map.html?&id=${myJsonID}`
     else
-        window.location.hrefe = "fine.html"
+        window.location.href = "fine.html"
 }
