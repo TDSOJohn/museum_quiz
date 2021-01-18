@@ -64,7 +64,6 @@ function evaluate_answer() {
     } else {
         alert("Che peccato, hai sbagliato! Ritenta, questa volta non sbaglierai!");
     }
-    return false;
 };
 
 function prosegui() {
