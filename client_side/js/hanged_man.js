@@ -38,8 +38,8 @@ var tentativi_max = parola.length - 3;
 var incompleta = calcolaincompleta(parola, bits);
 
 function calcolaincompleta(parola, bits){
-    /*permette di calcolare il suggerimento partendo dalla parola da trovare e sostituendo 
-    alle posizioni dell'array bits con valore 0 un "-" e quelle con valore "1" con la lettera 
+    /*permette di calcolare il suggerimento partendo dalla parola da trovare e sostituendo
+    alle posizioni dell'array bits con valore 0 un "-" e quelle con valore "1" con la lettera
     ad esso corrispondente*/
     incompleta = ""
     for (i=0; i < parola.length; i++){
@@ -59,10 +59,10 @@ function calcolaincompleta(parola, bits){
 function calcolarandom(vettore){
     /*permette di calcolare randomicamente un numero corrispondente ad una
     posizione all'interno dell'array bits che verrà sostituita dalla lettera*/
-    
+
     // cerco indici con "-"
     var betaindex = vettore.map(function(valore, indice){if (valore==0){return indice }});
-    
+
     while (betaindex.findIndex(function(valore,indice){ return valore == undefined})>-1){
         // è presente almeno un "undefined" (i valori non zero di bits)
         betaindex.map(function(valore,indice){if (valore == undefined){betaindex.splice(indice,1)}});
@@ -73,7 +73,7 @@ function calcolarandom(vettore){
 
 
 function aggiornabits (bits,tentativi){
-    /*permette l'aggiornamento dell'array bits e del numero di tentativi dell'utente, che 
+    /*permette l'aggiornamento dell'array bits e del numero di tentativi dell'utente, che
     verranno salvati in un array */
     tentativi = tentativi + 1 // aggiorno tentativi
     numero = calcolarandom (bits) // determino lettera randomica da aggiungere
@@ -106,6 +106,9 @@ if (inserita.toLowerCase() == parola.toLowerCase()){
 }
 function proseguire() {
 	/* permette di tornare alla mappa per proseguire il gioco */
-    const myJsonID = localStorage.getItem('myJsonID')
-    window.location.href = `map.html?&id=${myJsonID}`
+//    const myJsonID = localStorage.getItem('myJsonID')
+    if(missionID != 10)
+        window.location.href = `map.html?&id=${myJsonID}`
+    else
+        window.location.hrefe = "fine.html"
 }

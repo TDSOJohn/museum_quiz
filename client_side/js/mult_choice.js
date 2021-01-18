@@ -67,7 +67,7 @@ function evaluate_answer() {
 };
 
 function prosegui() {
-    if(missionID != 9)
+    if(missionID != 10)
         window.location.href = `map.html?&id=${myJsonID}`
     else
         window.location.hrefe = "fine.html"
