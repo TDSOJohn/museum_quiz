@@ -180,7 +180,11 @@ $(function () {
     $(".btn10").click(function () {
         localStorage.removeItem("btn10");
         localStorage.setItem("btn10", "disabled");
-        $(".btn1").addClass(localStorage.getItem("btn10"));
-        window.location.href = `fine.html?id_missione=9?&id=${myJsonID}`
+        $(".btn10").addClass(localStorage.getItem("btn10"));
+    if (myJsonParsed.missioni[9].type == "mult_choice") {
+        window.location.href = mult_choice.html?id_missione=9?&id=${myJsonID}
+    } else {
+        window.location.href = impiccato.html?id_missione=9?&id=${myJsonID}
+    }
     });
 });
