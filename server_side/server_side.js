@@ -176,7 +176,7 @@ const server = http.createServer((request, response) => {
                         qrFilePath = `${path_to_server}qrCodes/data${dbFiles.length + 1}.png`;
                         //  Generate qr code and save it as .png file in ./qrCodes/, then call callback() to respond with 303 - redirect
                         //  Send a 303 response (see other) with the location of the .png qr code
-                        QRCode.toFile(qrFilePath, `http://${this_ip}${path_to_client}html/gioco.html?id=${dbFiles.length + 1}`, function (err) {
+                        QRCode.toFile(qrFilePath, `http://giovanni.basso3.tw.cs.unibo.it${path_to_client}html/gioco.html?id=${dbFiles.length + 1}`, function (err) {
                             response.writeHead(303, {
                                 'Location': `?id=${dbFiles.length + 1}&type=qr`
                             });
