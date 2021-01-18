@@ -37,52 +37,75 @@ var tentativi = 0;
 var tentativi_max = parola.length - 3;
 var incompleta = calcolaincompleta(parola, bits);
 
-function calcolaincompleta(parola, bits) {
+function calcolaincompleta(parola, bits){
+    /*permette di calcolare il suggerimento partendo dalla parola da trovare e sostituendo 
+    alle posizioni dell'array bits con valore 0 un "-" e quelle con valore "1" con la lettera 
+    ad esso corrispondente*/
     incompleta = ""
-    for (i = 0; i < parola.length; i++) {
-        if (bits[i] == 0) {
+    for (i=0; i < parola.length; i++){
+        if (bits[i]==0){
+            // rimane incognita
             incompleta = incompleta + "-"
-        } else { incompleta = incompleta + parola[i] }
+        } else {
+            // lettera di suggerimento
+            incompleta = incompleta + parola[i]
+        }
     }
     document.getElementById("suggerimento").innerHTML = incompleta
     return incompleta
 }
 
-function calcolarandom(vettore) {
-    var betaindex = vettore.map(function (valore, indice) { if (valore == 0) { return indice } });
-    while (betaindex.findIndex(function (valore, indice) { return valore == undefined }) > -1) {
-        betaindex.map(function (valore, indice) { if (valore == undefined) { betaindex.splice(indice, 1) } });
+
+function calcolarandom(vettore){
+    /*permette di calcolare randomicamente un numero corrispondente ad una
+    posizione all'interno dell'array bits che verrà sostituita dalla lettera*/
+    
+    // cerco indici con "-"
+    var betaindex = vettore.map(function(valore, indice){if (valore==0){return indice }});
+    
+    while (betaindex.findIndex(function(valore,indice){ return valore == undefined})>-1){
+        // è presente almeno un "undefined" (i valori non zero di bits)
+        betaindex.map(function(valore,indice){if (valore == undefined){betaindex.splice(indice,1)}});
+        // ho eliminato gli "undefined"
     }
-    return betaindex[Math.floor(Math.random() * (betaindex.length))]
+    return betaindex[Math.floor(Math.random() * (betaindex.length))] // restituisco indice casuale
 }
 
-function aggiornabits(bits, tentativi) {
-    tentativi = tentativi + 1
-    numero = calcolarandom(bits)
-    bits[numero] = 1
+
+function aggiornabits (bits,tentativi){
+    /*permette l'aggiornamento dell'array bits e del numero di tentativi dell'utente, che 
+    verranno salvati in un array */
+    tentativi = tentativi + 1 // aggiorno tentativi
+    numero = calcolarandom (bits) // determino lettera randomica da aggiungere
+    bits[numero]= 1 // aggiorno bits
     return [bits, tentativi]
 }
 
-function controlla() {
 
 
-    inserita = $("#insert").val()
-    if (inserita.toLowerCase() == parola.toLowerCase()) {
-        alert("COMPLIMENTI! La risposta è esatta")
-        $("#interazione").empty()
-        $("#interazione").append("<button id=\"prosegui\" onclick= \"proseguire()\">Clicca per proseguire</button>")
-    } else if (tentativi == tentativi_max) {
-        document.getElementById("suggerimento").innerHTML = parola
-        alert("Hai terminato i tentativi a disposizione! Clicca per proseguire...")
-        $("#interazione").empty()
-        $("#interazione").append("<button id=\"prosegui\" onclick= \"proseguire()\">Clicca per proseguire</button>")
-    } else {
-        rslt = aggiornabits(bits, tentativi)
-        bits = rslt[0]; tentativi = rslt[1];
-        incompleta = calcolaincompleta(parola, bits)
+function controlla(){
+/* permette di controllare se la parola inserita dall'utente sia corretta o meno*/
+inserita= $("#insert").val()
+if (inserita.toLowerCase() == parola.toLowerCase()){
+    /* Parola corretta */
+    alert("COMPLIMENTI! La risposta è esatta")
+    $("#interazione").empty() // svuoto e sostituisco contenuto della div
+    $("#interazione").append("<button id=\"prosegui\" onclick= \"proseguire()\">Clicca per proseguire</button>")
+} else if (tentativi == tentativi_max){
+    /* Tentativi finiti */
+    document.getElementById("suggerimento").innerHTML = parola
+    alert("Hai terminato i tentativi a disposizione! Clicca per proseguire...")
+    $("#interazione").empty()
+    $("#interazione").append("<button id=\"prosegui\" onclick= \"proseguire()\">Clicca per proseguire</button>")
+} else {
+    /* Parola non corretta */
+    rslt = aggiornabits (bits,tentativi) // Aggiungo un suggerimento (lettera)
+    bits = rslt[0]; tentativi = rslt[1]; // Aggiorno variabili
+    incompleta = calcolaincompleta (parola,bits) // Aggiorno Suggerimento
     }
 }
 function proseguire() {
+	/* permette di tornare alla mappa per proseguire il gioco */
     const myJsonID = localStorage.getItem('myJsonID')
     window.location.href = `map.html?&id=${myJsonID}`
 }

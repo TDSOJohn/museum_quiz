@@ -21,20 +21,22 @@
             <div style="text-align: center; color: black;">
                 <p class="lead" id="subtitle" style="padding-top: 2%; font-family: Brush Script MT; font-size:5vh">La risposta è:</p>
             </div>
-            <div style="text-align: center;">
+            <div id="interazione" style="text-align: center;">
                 <form style="font-size: 4vh; padding-top: 2%; font-family: Brush Script MT;">
                     <div class="radio">
-                        <label><input type="radio" name="optradio" class="option" checked></label>
+                        <label><input type="radio" name="optradio" class="option" checked style="display: block;"><p id="opt0">OPT1</p></label>
                     </div>
                     <div class="radio">
-                        <label><input type="radio" name="optradio" class="option"></label>
+                        <label><input type="radio" name="optradio" class="option" style="display: block;"><p id="opt1">OPT2</p></label>
                     </div>
                     <div class="radio">
-                        <label><input type="radio" name="optradio" class="option"></label>
+                        <label><input type="radio" name="optradio" class="option" style="display: block;"><p id="opt2">OPT3</p></label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio" class="option" style="display: block;"><p id="opt3">OPT4</p></label>
                     </div>
                     <input type="submit" id="btn" value="Invia la tua risposta" style="margin-top: 5%; font-family: Brush Script MT; border-radius:20px; font-size:4vh; text-align: center;" onclick="evaluate_answer()">
                 </form>
-                <button style="font-size: 3vh;font-family: Brush Script MT; border-radius:20px; text-align: center;">Clicca per proseguire</button>
             </div>
         </div>
 
