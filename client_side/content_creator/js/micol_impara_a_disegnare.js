@@ -120,7 +120,7 @@ function verifyAndUpload()
             xhr.open("POST", baseURL, true);
             xhr.setRequestHeader("Content-Type", "application/json");
 
-            xhr.send('{' + JSON.stringify(template_json) + '}');
+            xhr.send(JSON.stringify(template_json));
 
             xhr.onreadystatechange = function ()
             {
