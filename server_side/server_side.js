@@ -188,6 +188,9 @@ const server = http.createServer((request, response) => {
                     }
                 });
             });
+        } else if(data_type == "image/png" || data_type == "image/jpeg" || data_type == "image/jpg")
+        {
+
         }
     }
 });
