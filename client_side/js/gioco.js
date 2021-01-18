@@ -49,7 +49,6 @@ function updateHTML2() {
     const domanda = myJsonParsed.missioni[missionID].question;
     i = i + 1;
     if (i > domanda.length - 1) {
-        console.log('leeeeeeeeeeeeeeeeeeeeel');
         if (myJsonParsed.missioni[missionID].type == 'mult_choice') {
             window.location.href = `/html/mult_choice.html?id_missione=${missionID}?id=${id}`;
         } else {
