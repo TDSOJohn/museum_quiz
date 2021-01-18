@@ -106,7 +106,7 @@ if (inserita.toLowerCase() == parola.toLowerCase()){
 }
 function proseguire() {
 	/* permette di tornare alla mappa per proseguire il gioco */
-//    const myJsonID = localStorage.getItem('myJsonID')
+    const myJsonID = localStorage.getItem('myJsonID')
     if(missionID != 10)
         window.location.href = `map.html?&id=${myJsonID}`
     else

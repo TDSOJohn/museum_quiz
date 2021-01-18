@@ -67,6 +67,8 @@ function evaluate_answer() {
 };
 
 function prosegui() {
+    const myJsonID = localStorage.getItem('myJsonID')
+    
     if(missionID != 10)
         window.location.href = `map.html?&id=${myJsonID}`
     else
