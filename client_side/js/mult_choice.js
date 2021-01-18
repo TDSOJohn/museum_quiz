@@ -5,6 +5,7 @@ function intParser(string_in) {
     }
     return parsed;
 }
+
 function getQueryVariable(variable_in) {
     // cerco il valore della variabile richiessta all'interno della query
     var query = window.location.search.substring(1);
@@ -18,21 +19,10 @@ function getQueryVariable(variable_in) {
     }
     console.log('Query variable %s not found', variable_in);
 }
+
 const missionID = intParser(getQueryVariable('id_missione'));
 console.log('ID della mission', missionID)
-// var risp = [{
-//     'testo': '1888',
-//     'giusta': true
-// },
-// {
-//     'testo': '1900',
-//     'giusta': false
-// },
-// {
-//     'testo': '1780',
-//     'giusta': false
-// }
-// ];
+
 const myJson = localStorage.getItem('myJson')
 const myJsonParsed = JSON.parse(myJson)
 const myJsonID = localStorage.getItem('myJsonID')
@@ -76,6 +66,11 @@ function evaluate_answer() {
     }
 
 };
+
 function prosegui() {
     window.location.href = `map.html?&id=${myJsonID}`
 }
+
+$("#btn").submit(function(e) {
+    e.preventDefault();
+});
