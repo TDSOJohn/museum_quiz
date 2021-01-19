@@ -82,7 +82,7 @@ const server = http.createServer((request, response) => {
         {
             if(pathName == '/content_creator')
             {
-                pathName = '/content_creator/html/main.html';
+                pathName = 'content_creator/html/main.html';
             }
 
             let extName = String(path.extname(pathName)).toLowerCase();
