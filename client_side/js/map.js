@@ -3,22 +3,13 @@ function precarica(img) {
         $('<img/>')[0].src = this;
     });
 }
-precarica([
-    '../images/grotta_dell_uncino.jpg',
-    '../images/lago_senza_nome.jpg',
-    '../images/fiume_azzurro.jpg',
-    '../images/montagne_del_morto.jpg',
-    '../images/passo_dell_impiccato.jpg',
-    '../images/sabbie_mobili.jpg',
-    '../images/foresta_buia.jpg',
-    '../images/montagna_del_fuoco.jpg',
-    '../images/deserto_dei_serpenti.jpg',
-    '../images/tesoro.jpg'
-]);
 
 /*******jQuery for external title*********/
 
-let map_image = document.getElementById('pirate_map');
+window.onload = function
+({
+    var map_image = document.getElementById('pirate_map');
+});
 
 /* I valori iniziali dei bottoni */
 function valoriIniziali() {
