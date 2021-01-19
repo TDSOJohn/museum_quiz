@@ -57,18 +57,18 @@ $(function () {
     {
         $(`.btn${i+1}`).click(function () {
 
-            localStorage.removeItem(`.btn${i+1}`);
+            localStorage.removeItem(`btn${i+1}`);
             if(i < 9)
             {
-                localStorage.removeItem(`.btn${i+2}`);
-                localStorage.setItem(`.btn${i+2}`, "");
+                localStorage.removeItem(`btn${i+2}`);
+                localStorage.setItem(`btn${i+2}`, "");
             }
-            localStorage.setItem(`.btn${i+1}`, "disabled");
+            localStorage.setItem(`btn${i+1}`, "disabled");
 
             localStorage.setItem('mission_id', 1);
 
-            $(`.btn${i+1}`).addClass(localStorage.getItem(`.btn${i+1}`));
-            $(`.btn${i+1}`).removeClass("disabled");
+            $(`btn${i+1}`).addClass(localStorage.getItem(`btn${i+1}`));
+            $(`btn${i+1}`).removeClass("disabled");
 
             //  Set new map image with correct red selection
             map_image.setAttribute('href', `../images/map_${id_missione}.jpg`);
