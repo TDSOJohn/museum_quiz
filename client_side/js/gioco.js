@@ -10,10 +10,10 @@ import * as utilities from './utilities.js';
 //  baseURL should be server ip or URL
 
 //  THIS IS FOR UNIBO SERVER TESTING
-const baseURL   = 'giovanni.basso3.tw.cs.unibo.it';
+//const baseURL   = 'giovanni.basso3.tw.cs.unibo.it';
 
 //  THIS IS FOR HOME TESTING
-//const baseURL   = '127.0.0.1:8000';
+const baseURL   = '127.0.0.1:8000';
 
 let id          = '1';
 
