@@ -62,11 +62,11 @@ function evaluate_answer() {
     }
     if (sel == corretta) {
         $("#interazione").empty()
+        $("#frase").empty();
+        $("#frase").append("<p>Missione Compiuta!</p>");
         $("#interazione").append("<button id=\"prosegui\" onclick= \"prosegui()\"  style=\"font-size: 3vh;font-family: cursive; border-radius:20px; text-align: center;\">Clicca per proseguire</button>")
-        alert("Missione compiuta");
     } else {
-        alert("Che peccato, hai sbagliato! Ritenta, questa volta non sbaglierai!");
-
+        $("#frase").append("<p>Che peccato, hai sbagliato! Ritenta, questa volta non sbaglierai!</p>");
     }
 
 };

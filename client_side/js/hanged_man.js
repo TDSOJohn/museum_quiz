@@ -1,9 +1,4 @@
 
-$("body").append("<div class=\"container-fluid bg-cover h-100\" id=\"sfondo\"><div class=\"row\" id=\"row1\"><div class=\"col-sm\"><h1><b>Impiccato</b></h1></div></div>")
-$("#sfondo").append("<div class=\"container\"><div class=\"row\" id=\"row2\"><div class=\"col-sm\"><div id =\"risposta\"></div></div></div></div>")
-$("#risposta").append("<p id=\"frase\"></p><div id=\"interazione\"><p id=\"suggerimento\"></p><input type=\"text\" id=\"insert\" onfocus=\"this.value=''\" value=\"inserisci la risposta\"> <br> </input><button onclick=\"controlla()\">Invia la risposta</button></div>")
-
-
 function intParser(string_in) {
     const parsed = parseInt(string_in, 10);
     if (isNaN(parsed) && (parsed !== null)) {
