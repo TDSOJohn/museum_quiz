@@ -4,11 +4,12 @@ function precarica(img) {
     });
 }
 
+var map_image;
 /*******jQuery for external title*********/
 
 window.onload = function ()
 {
-    var map_image = document.querySelector('#pirate_map');
+    map_image = document.querySelector('#pirate_map');
 };
 
 /* I valori iniziali dei bottoni */
