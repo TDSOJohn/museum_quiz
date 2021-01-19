@@ -1,10 +1,6 @@
-function precarica(img) {
-    $(img).each(function () {
-        $('<img/>')[0].src = this;
-    });
-}
-
 var map_image;
+
+
 /*******jQuery for external title*********/
 
 /* I valori iniziali dei bottoni */
@@ -59,7 +55,7 @@ $(function () {
         $(".btn2").removeClass("disabled");
 
         //  Set new map image with correct red selection
-        map_image.setAttribute("xlink:href", "../images/map_1.jpg");
+        map_image.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '../images/map_1.jpg');
 
         if (myJsonParsed.missioni[0].type == "mult_choice") {
             window.location.href = `mult_choice.html?id_missione=0?&id=${myJsonID}`
@@ -77,7 +73,7 @@ $(function () {
         $(".btn3").removeClass("disabled");
 
         //  Set new map image with correct red selection
-        map_image.setAttribute("xlink:href", "../images/map_2.jpg");
+        map_image.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '../images/map_2.jpg');
 
         if (myJsonParsed.missioni[1].type == "mult_choice") {
             window.location.href = `mult_choice.html?id_missione=1?&id=${myJsonID}`
@@ -95,7 +91,7 @@ $(function () {
         $(".btn4").removeClass("disabled");
 
         //  Set new map image with correct red selection
-        map_image.setAttribute("xlink:href", "../images/map_3.jpg");
+        map_image.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '../images/map_3.jpg');
 
         if (myJsonParsed.missioni[2].type == "mult_choice") {
             window.location.href = `mult_choice.html?id_missione=2?&id=${myJsonID}`
@@ -113,7 +109,7 @@ $(function () {
         $(".btn5").removeClass("disabled");
 
         //  Set new map image with correct red selection
-        map_image.setAttribute("xlink:href", "../images/map_4.jpg");
+        map_image.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '../images/map_4.jpg');
 
         if (myJsonParsed.missioni[3].type == "mult_choice") {
             window.location.href = `mult_choice.html?id_missione=3?&id=${myJsonID}`
@@ -131,7 +127,7 @@ $(function () {
         $(".btn6").removeClass("disabled");
 
         //  Set new map image with correct red selection
-        map_image.setAttribute("xlink:href", "../images/map_5.jpg");
+        map_image.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '../images/map_5.jpg');
 
         if (myJsonParsed.missioni[4].type == "mult_choice") {
             window.location.href = `mult_choice.html?id_missione=4?&id=${myJsonID}`
@@ -149,7 +145,7 @@ $(function () {
         $(".btn7").removeClass("disabled");
 
         //  Set new map image with correct red selection
-        map_image.setAttribute("xlink:href", "../images/map_6.jpg");
+        map_image.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '../images/map_6.jpg');
 
         if (myJsonParsed.missioni[5].type == "mult_choice") {
             window.location.href = `mult_choice.html?id_missione=5?&id=${myJsonID}`
@@ -167,7 +163,7 @@ $(function () {
         $(".btn8").removeClass("disabled");
 
         //  Set new map image with correct red selection
-        map_image.setAttribute("xlink:href", "../images/map_7.jpg");
+        map_image.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '../images/map_7.jpg');
 
         if (myJsonParsed.missioni[6].type == "mult_choice") {
             window.location.href = `mult_choice.html?id_missione=6?&id=${myJsonID}`
@@ -185,7 +181,7 @@ $(function () {
         $(".btn9").removeClass("disabled");
 
         //  Set new map image with correct red selection
-        map_image.setAttribute("xlink:href", "../images/map_8.jpg");
+        map_image.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '../images/map_8.jpg');
 
         if (myJsonParsed.missioni[7].type == "mult_choice") {
             window.location.href = `mult_choice.html?id_missione=7?&id=${myJsonID}`
@@ -203,7 +199,7 @@ $(function () {
         $(".btn10").removeClass("disabled");
 
         //  Set new map image with correct red selection
-        map_image.setAttribute("xlink:href", "../images/map_9.jpg");
+        map_image.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '../images/map_9.jpg');
 
         if (myJsonParsed.missioni[8].type == "mult_choice") {
             window.location.href = `mult_choice.html?id_missione=8?&id=${myJsonID}`
@@ -218,7 +214,7 @@ $(function () {
         $(".btn1").addClass(localStorage.getItem("btn10"));
 
         //  Set new map image with correct red selection
-        map_image.setAttribute("xlink:href", "../images/map_10.jpg");
+        map_image.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '../images/map_10.jpg');
 
         if (myJsonParsed.missioni[9].type == "mult_choice") {
             window.location.href = `mult_choice.html?id_missione=9?&id=${myJsonID}`
