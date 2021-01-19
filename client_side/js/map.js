@@ -6,10 +6,10 @@ function precarica(img) {
 
 /*******jQuery for external title*********/
 
-window.onload = function
-({
+window.onload = function ()
+{
     var map_image = document.getElementById('pirate_map');
-});
+};
 
 /* I valori iniziali dei bottoni */
 function valoriIniziali() {
