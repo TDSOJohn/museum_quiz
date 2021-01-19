@@ -80,6 +80,11 @@ const server = http.createServer((request, response) => {
         //  If pathname is path to a resource, try to fetch it and send it to the client
         if (pathName !== '/')
         {
+            if(pathName == '/content_creator')
+            {
+                pathName = '/content_creator/html/main.html';
+            }
+
             let extName = String(path.extname(pathName)).toLowerCase();
 
             //  Back to "home" folder ( /client_side )
