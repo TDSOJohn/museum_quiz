@@ -98,7 +98,9 @@ if (inserita.toLowerCase() == parola.toLowerCase()){
     /* Tentativi finiti */
     document.getElementById("suggerimento").innerHTML = parola
     alert("Hai terminato i tentativi a disposizione! Clicca per proseguire...")
-    $("#interazione").empty()
+    $("#interazione").empty();
+    $("#frase").empty();
+    $("#frase").append("<p>Missione Compiuta!</p>");
     $("#interazione").append("<button id=\"prosegui\" onclick= \"proseguire()\">Clicca per proseguire</button>")
 } else {
     /* Parola non corretta */
