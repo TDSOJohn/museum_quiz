@@ -22,19 +22,18 @@ h1{
     font-size: 6vh;
     text-align: center;
     color: black;
-    font-family: Brush Script MT;
+    font-family: cursive;
     margin-top: 20%;
 }
 
 h2{
     text-align: center;
-    color: black; 
+    color: black;
     font-size:7vh;
-    font-family: Brush Script MT;
+    font-family: cursive;
     margin-top:10%;
 }
 
 img {
     margin-top: 30%;
 }
-

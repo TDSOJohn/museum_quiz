@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Scelta Multipla - museum quiz</title>
+    <title>Mission</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -14,15 +14,19 @@
 <body>
 
         <div class="container-fluid bg-cover" style="background-color: #54befa; min-height: 100vh;">
-
-            <div style="text-align: center; font-size:7vh; color:black">
-                <h1 class="mt-5" id="title" style="font-family: Brush Script MT; padding-top: 5%; font-size: 7vh; text-align: center;"><b>RISPOSTA:</b></h1>
+            <div class="row" style="text-align: center; font-size:5vh; color:black">
+                <div class="col">
+                <h1 style="font-family: cursive; font-size: 7vh; text-align: center;"><b>Seleziona la risposta:</b></h1>
             </div>
-            <div style="text-align: center; color: black;">
-                <p class="lead" id="subtitle" style="padding-top: 2%; font-family: Brush Script MT; font-size:5vh">La risposta è:</p>
             </div>
-            <div id="interazione" style="text-align: center;">
-                <form style="font-size: 4vh; padding-top: 2%; font-family: Brush Script MT;">
+            <div class="row">
+                <div class="col">
+                <p id="frase" style="font-family: cursive; padding-top: 5%; font-size: 3vh; text-align: center; color:black"></p>
+            </div>
+            </div>
+            <div class= "row" id="interazione" style="text-align: center;">
+            <div class="col">
+                <form style="font-size: 3vh; padding-top: 2%; font-family: cursive;">
                     <div class="radio">
                         <label><input type="radio" name="optradio" class="option" checked style="display: block;"><p id="opt0">OPT1</p></label>
                     </div>
@@ -35,8 +39,9 @@
                     <div class="radio">
                         <label><input type="radio" name="optradio" class="option" style="display: block;"><p id="opt3">OPT4</p></label>
                     </div>
-                    <input type="button" id="btn" value="Invia la tua risposta" style="margin-top: 5%; font-family: Brush Script MT; border-radius:20px; font-size:4vh; text-align: center;" onclick="evaluate_answer()">
+                    <input type="submit" id="btn" value="Invia la tua risposta" style="margin-top: 5%; font-family: cursive; border-radius:20px; font-size:4vh; text-align: center;" onclick="evaluate_answer()">
                 </form>
+            </div>
             </div>
         </div>
 

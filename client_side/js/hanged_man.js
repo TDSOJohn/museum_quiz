@@ -1,7 +1,7 @@
 
-$("body").append("<div class=\"container-fluid bg-cover\" id=\"sfondo\" style=\"background-color: #54befa; background-repeat: no-repeat;background-position: center; min-height: 100vh; background-size: cover;\"><div class=\"row\" style=\"height: 15vh\"><div class=\"col-sm\"><h1 style=\"text-align: center; font-size:7vh; margin-top:5%; font-family: Brush Script MT\"><b><i>Impiccato</i></b></h1></div></div>")
-$("#sfondo").append("<div class=\"container\"><div class=\"row\" style=\"height: 15vh\"><div class=\"col-sm\"><div id =\"risposta\" style=\"text-align: center; font-size:3vh;\"></div></div></div></div>")
-$("#risposta").append("<p id=\"frase\" style=\" text-align: center; font-size:5vh; margin-top:10%; font-family: Brush Script MT\">La risposta è:</p><div id=\"interazione\"><p id=\"suggerimento\"></p><input type=\"text\" id=\"insert\" style=\"border-radius:20px; font-size:5vh; font-family: Brush Script MT; text-align: center\" onfocus=\"this.value=''\" value=\"inserisci la risposta\"> <br> </input><button style= \"border-radius:20px; margin-top:2%; font-family: Brush Script MT\"onclick=\"controlla()\">Invia la risposta</button></div>")
+$("body").append("<div class=\"container-fluid bg-cover h-100\" id=\"sfondo\"><div class=\"row\" id=\"row1\"><div class=\"col-sm\"><h1><b>Impiccato</b></h1></div></div>")
+$("#sfondo").append("<div class=\"container\"><div class=\"row\" id=\"row2\"><div class=\"col-sm\"><div id =\"risposta\"></div></div></div></div>")
+$("#risposta").append("<p id=\"frase\"></p><div id=\"interazione\"><p id=\"suggerimento\"></p><input type=\"text\" id=\"insert\" onfocus=\"this.value=''\" value=\"inserisci la risposta\"> <br> </input><button onclick=\"controlla()\">Invia la risposta</button></div>")
 
 
 function intParser(string_in) {
@@ -26,16 +26,25 @@ const missionID = intParser(getQueryVariable('id_missione'));
 console.log('id della mission', missionID)
 const myJson = localStorage.getItem('myJson')
 const myJsonParsed = JSON.parse(myJson)
-const risposta = myJsonParsed.missioni[missionID].answers
-const domanda = myJsonParsed.missioni[missionID].question
-console.log('DOMANDA E RISPOSTA', domanda, risposta)
-var parola = risposta[0];
+const parola = myJsonParsed.missioni[missionID].answers[0]
+const domanda = myJsonParsed.missioni[missionID].question[4]
+
+//const parola = "Azzurro"
+//const domanda = "dovete dirmi il colore dello sfondo del quadro fatto dal pirata MONET...al suo interno ha una grande spiaggia..."
+
+console.log('DOMANDA E RISPOSTA', domanda, parola)
 var bits = new Array(parola.length).fill(0);
 bits[0] = 1;
 bits[bits.length - 1] = 1;
 var tentativi = 0;
 var tentativi_max = parola.length - 3;
 var incompleta = calcolaincompleta(parola, bits);
+
+
+window.onload = function () {
+    document.getElementById("frase").innerText = domanda;
+}
+
 
 function calcolaincompleta(parola, bits){
     /*permette di calcolare il suggerimento partendo dalla parola da trovare e sostituendo
@@ -104,6 +113,8 @@ if (inserita.toLowerCase() == parola.toLowerCase()){
     incompleta = calcolaincompleta (parola,bits) // Aggiorno Suggerimento
     }
 }
+
+
 function proseguire() {
 	/* permette di tornare alla mappa per proseguire il gioco */
     const myJsonID = localStorage.getItem('myJsonID')
