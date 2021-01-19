@@ -15,8 +15,7 @@
     overflow: hidden;
 }
 
-button
-{
+input {
     height: 20vh;
     font-size: 3vh;
     font-family: cursive;
