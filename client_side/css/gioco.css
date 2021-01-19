@@ -15,7 +15,7 @@
     overflow: hidden;
 }
 
-input {
+#welcome_txt {
     height: 20vh;
     font-size: 5vh;
     font-family: cursive;
