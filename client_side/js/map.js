@@ -65,7 +65,7 @@ $(function () {
             }
             localStorage.setItem(`btn${i+1}`, "disabled");
 
-            localStorage.setItem('mission_id', 1);
+            localStorage.setItem('mission_id', `${i+1}`);
 
             $(`btn${i+1}`).addClass(localStorage.getItem(`btn${i+1}`));
             $(`btn${i+1}`).removeClass("disabled");
