@@ -74,9 +74,9 @@ $(function () {
             map_image.setAttribute('href', `../images/map_${id_missione}.jpg`);
 
             if (myJsonParsed.missioni[0].type == "mult_choice") {
-                window.location.href = `mult_choice.html?id_missione=0?&id=${myJsonID}`;
+                window.location.href = `mult_choice.html?id_missione=${i}?&id=${myJsonID}`;
             } else {
-                window.location.href = `impiccato.html?id_missione=0?&id=${myJsonID}`;
+                window.location.href = `impiccato.html?id_missione=${i}?&id=${myJsonID}`;
             }
         });
     }
