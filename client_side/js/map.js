@@ -18,7 +18,7 @@ precarica([
 
 /*******jQuery for external title*********/
 
-let map_image = getElementById('pirate_map');
+let map_image = document.getElementById('pirate_map');
 
 /* I valori iniziali dei bottoni */
 function valoriIniziali() {
