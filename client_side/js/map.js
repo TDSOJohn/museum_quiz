@@ -43,7 +43,7 @@ $(function () {
         setValues();
     }
 
-    map_image = document.querySelector('#pirate_map').outerHTML;
+    map_image = document.querySelector('#pirate_map');
 
     $(".btn1").click(function () {
 
