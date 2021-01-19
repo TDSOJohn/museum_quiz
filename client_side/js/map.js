@@ -8,7 +8,7 @@ function precarica(img) {
 
 window.onload = function ()
 {
-    var map_image = document.getElementById('pirate_map');
+    var map_image = document.querySelector('#pirate_map');
 };
 
 /* I valori iniziali dei bottoni */
