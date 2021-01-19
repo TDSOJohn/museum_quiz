@@ -88,25 +88,28 @@ function aggiornabits (bits,tentativi){
 
 function controlla(){
 /* permette di controllare se la parola inserita dall'utente sia corretta o meno*/
-inserita= $("#insert").val()
-if (inserita.toLowerCase() == parola.toLowerCase()){
-    /* Parola corretta */
-    alert("COMPLIMENTI! La risposta è esatta")
-    $("#interazione").empty() // svuoto e sostituisco contenuto della div
-    $("#interazione").append("<button id=\"prosegui\" onclick= \"proseguire()\">Clicca per proseguire</button>")
-} else if (tentativi == tentativi_max){
-    /* Tentativi finiti */
-    document.getElementById("suggerimento").innerHTML = parola
-    alert("Hai terminato i tentativi a disposizione! Clicca per proseguire...")
-    $("#interazione").empty();
-    $("#frase").empty();
-    $("#frase").append("<p>Missione Compiuta!</p>");
-    $("#interazione").append("<button id=\"prosegui\" onclick= \"proseguire()\">Clicca per proseguire</button>")
-} else {
-    /* Parola non corretta */
-    rslt = aggiornabits (bits,tentativi) // Aggiungo un suggerimento (lettera)
-    bits = rslt[0]; tentativi = rslt[1]; // Aggiorno variabili
-    incompleta = calcolaincompleta (parola,bits) // Aggiorno Suggerimento
+    inserita= $("#insert").val()
+    if (inserita.toLowerCase() == parola.toLowerCase())
+    {
+        /* Parola corretta */
+        $("#interazione").empty() // svuoto e sostituisco contenuto della div
+        $("#interazione").append("<button id=\"prosegui\" onclick= \"proseguire()\">Clicca per proseguire</button>")
+        $("#frase").empty();
+        $("#frase").append("<p>Missione Compiuta!</p>");
+    } else if (tentativi == tentativi_max)
+    {
+        /* Tentativi finiti */
+        document.getElementById("suggerimento").innerHTML = parola
+        $("#interazione").empty();
+        $("#frase").empty();
+        $("#frase").append("<p>Hai terminato i tentativi a disposizione! Clicca per proseguire...</p>");
+        $("#interazione").append("<button id=\"prosegui\" onclick= \"proseguire()\">Clicca per proseguire</button>")
+    } else
+    {
+        /* Parola non corretta */
+        rslt = aggiornabits (bits,tentativi) // Aggiungo un suggerimento (lettera)
+        bits = rslt[0]; tentativi = rslt[1]; // Aggiorno variabili
+        incompleta = calcolaincompleta (parola,bits) // Aggiorno Suggerimento
     }
 }
 
