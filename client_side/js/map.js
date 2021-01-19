@@ -7,11 +7,6 @@ function precarica(img) {
 var map_image;
 /*******jQuery for external title*********/
 
-window.onload = function ()
-{
-    map_image = document.querySelector('#pirate_map').outerHTML;
-};
-
 /* I valori iniziali dei bottoni */
 function valoriIniziali() {
     localStorage.setItem("btn1", "nessunaclasse");
@@ -51,6 +46,8 @@ $(function () {
     } else {
         setValues();
     }
+
+    map_image = document.querySelector('#pirate_map').outerHTML;
 
     $(".btn1").click(function () {
 
