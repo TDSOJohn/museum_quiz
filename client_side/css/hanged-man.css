@@ -32,10 +32,10 @@ h1{
 
 #insert {
     border-radius:20px; 
-    font-size:4vh; 
+    font-size:3vh; 
     font-family: cursive; 
     text-align: center; 
-    width:50vh; 
+    width:30vh; 
     margin-top:5%;
 }
 
@@ -43,5 +43,5 @@ button {
     border-radius:20px; 
     margin-top:2%; 
     font-family: cursive; 
-    width: 50vh;
+    width: 30vh;
 }
