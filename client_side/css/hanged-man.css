@@ -6,6 +6,10 @@
     background-size: cover;
 }
 
+.container {
+    overflow: hidden;
+}
+
 .row {
    max-width:100vw;
 }
