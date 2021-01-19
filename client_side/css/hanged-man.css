@@ -8,6 +8,7 @@
 
 .container {
     overflow: hidden;
+    text-align: center;
 }
 
 .row {
