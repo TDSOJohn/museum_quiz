@@ -9,7 +9,7 @@ var map_image;
 
 window.onload = function ()
 {
-    map_image = document.querySelector('#pirate_map');
+    map_image = document.querySelector('#pirate_map').outerHTML;
 };
 
 /* I valori iniziali dei bottoni */
