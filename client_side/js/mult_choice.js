@@ -66,7 +66,7 @@ function evaluate_answer() {
         $("#frase").append("<p>Missione Compiuta!</p>");
         $("#interazione").append("<button id=\"prosegui\" onclick= \"prosegui()\"  style=\"font-size: 3vh;font-family: cursive; border-radius:20px; text-align: center;\">Clicca per proseguire</button>")
     } else {
-        $("#frase").append("<p>Che peccato, hai sbagliato! Ritenta, questa volta non sbaglierai!</p>");
+        $("#alert").append("<p>Che peccato, hai sbagliato! Ritenta, questa volta non sbaglierai!</p>");
     }
 
 };
