@@ -23,7 +23,7 @@ function getQueryVariable(variable_in) {
     console.log('Query variable %s not found', variable_in);
 }
 const missionID = intParser(getQueryVariable('id_missione'));
-console.log('id della mission', missionID)
+
 const myJson = localStorage.getItem('myJson')
 const myJsonParsed = JSON.parse(myJson)
 const parola = myJsonParsed.missioni[missionID].answers[0]
@@ -32,7 +32,6 @@ const domanda = myJsonParsed.missioni[missionID].question[4]
 //const parola = "Azzurro"
 //const domanda = "dovete dirmi il colore dello sfondo del quadro fatto dal pirata MONET...al suo interno ha una grande spiaggia..."
 
-console.log('DOMANDA E RISPOSTA', domanda, parola)
 var bits = new Array(parola.length).fill(0);
 bits[0] = 1;
 bits[bits.length - 1] = 1;

@@ -36,13 +36,35 @@ const callAPI   = async () =>
 
 function updateHTML()
 {
-    i = i + 1
+    document.getElementById('titolo').innerHTML = `Benvenuto!`;
+
+    i = i + 1;
     if (i > MyArr.benvenuto.length - 1) {
         window.location.href = `/html/map.html?id=${id}`;
     } else {
-        document.getElementById("testo").value = MyArr.benvenuto[i];
+        document.getElementById('testo').value = MyArr.benvenuto[i];
     }
 }
+
+function updateHTML2() {
+    const myJson = localStorage.getItem('myJson');
+    const myJsonParsed = JSON.parse(myJson);
+    const missionID = utilities.intParser(utilities.getQueryVariable('id_missione'));
+    document.getElementById('titolo').innerHTML = `Missione ${missionID + 1}`;
+    const domanda = myJsonParsed.missioni[missionID].question;
+    i = i + 1;
+    if (i > domanda.length - 1) {
+        if (myJsonParsed.missioni[missionID].type == 'mult_choice') {
+            window.location.href = `/html/mult_choice.html?id_missione=${missionID}?id=${id}`;
+        } else {
+            window.location.href = `/html/impiccato.html?id_missione=${missionID}?id=${id}`;
+        }
+    } else {
+        document.getElementById('testo').value = domanda[i];
+    }
+    window.updateHTML = updateHTML2;
+}
+
 
 window.updateHTML = updateHTML;
 
@@ -68,7 +90,14 @@ function loadImg ()
 
 function receivedText()
 {
-    updateHTML();
+    if (!localStorage.getItem('First Time'))
+    {
+        updateHTML();
+        localStorage.setItem('First Time', true);
+    } else
+    {
+        updateHTML2();
+    }
     loadImg();
 }
 
@@ -84,4 +113,4 @@ window.onload = function()
         receivedText();
     });
     console.log(MyArr);
-}
+};

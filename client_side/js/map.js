@@ -73,11 +73,7 @@ $(function () {
             //  Set new map image with correct red selection
             map_image.setAttribute('href', `../images/map_${id_missione}.jpg`);
 
-            if (myJsonParsed.missioni[i].type == "mult_choice") {
-                window.location.href = `mult_choice.html?id_missione=${i}?&id=${myJsonID}`;
-            } else {
-                window.location.href = `impiccato.html?id_missione=${i}?&id=${myJsonID}`;
-            }
+            window.location.href = `gioco.html?id_missione=${i}?&id=${myJsonID}`;
         });
     }
 });
