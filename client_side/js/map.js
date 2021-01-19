@@ -38,8 +38,6 @@ $(function () {
     const myJsonParsed  = JSON.parse(myJson);
     const myJsonID      = localStorage.getItem('myJsonID');
 
-    id_missione         = localStorage.getItem('mission_id');
-
     console.log(myJsonParsed.missioni[0].type)
     if (!localStorage.getItem("btn1")) {
         valoriIniziali();
@@ -48,7 +46,8 @@ $(function () {
         setValues();
     }
 
-    map_image = document.querySelector('#pirate_map');
+    id_missione         = localStorage.getItem('mission_id');
+    map_image           = document.querySelector('#pirate_map');
 
     //  Set new map image with correct red selection
     map_image.setAttribute('href', `../images/map_${id_missione}.jpg`);
