@@ -20,14 +20,12 @@ function getQueryVariable(variable_in) {
     console.log('Query variable %s not found', variable_in);
 }
 const missionID = intParser(getQueryVariable('id_missione'));
-console.log('ID della mission', missionID)
-const myJson = localStorage.getItem('myJson')
-const myJsonParsed = JSON.parse(myJson)
-const myJsonID = localStorage.getItem('myJsonID')
-const risp = myJsonParsed.missioni[missionID].answers
-const domanda = myJsonParsed.missioni[missionID].question[4]
-//const risp = ['pippo', 'pluto','paperino','topolino']
-//const domanda = "dovete dirmi il colore dello sfondo del quadro fatto dal pirata MONET...al suo interno ha una grande spiaggia..."
+console.log('ID della mission', missionID);
+const myJson = localStorage.getItem('myJson');
+const myJsonParsed = JSON.parse(myJson);
+const myJsonID = localStorage.getItem('myJsonID');
+const risp = myJsonParsed.missioni[missionID].answers;
+const domanda = myJsonParsed.missioni[missionID].question[4];
 
 const corretta = risp[0] // la risposta corretta è sempre la prima nel JSON
 
@@ -57,6 +55,7 @@ function evaluate_answer() {
     for (i=0; i<ele.length; i++) {
         if(ele[i].checked) {
             sel = document.getElementById("opt"+i).innerText;
+            sel_parent = document.getElementById("opt"+i);
             console.log(sel)
         }
     }
@@ -66,6 +65,8 @@ function evaluate_answer() {
         $("#frase").append("<p>Missione Compiuta!</p>");
         $("#interazione").append("<button id=\"prosegui\" onclick= \"prosegui()\"  style=\"font-size: 3vh;font-family: cursive; border-radius:20px; text-align: center;\">Clicca per proseguire</button>")
     } else {
+        sel_parent.style.color = 'red';
+        $("#alert").empty();
         $("#alert").append("<p>Che peccato, hai sbagliato! Ritenta, questa volta non sbaglierai!</p>");
     }
 

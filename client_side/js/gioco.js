@@ -2,7 +2,7 @@
 //  Support: Chrome 55+, Edge 15+, Firefox 52+, Opera 42+, Safari 10.1+ (no IE support)
 //  If not supported, use XMLHttpRequest instead
 
-//  http:ip_address:3000/html/gioco.html?id=n
+//  http:ip_address:8000/html/gioco.html?id=n
 
 
 import * as utilities from './utilities.js';
@@ -10,16 +10,19 @@ import * as utilities from './utilities.js';
 //  baseURL should be server ip or URL
 
 //  THIS IS FOR UNIBO SERVER TESTING
-const baseURL   = 'giovanni.basso3.tw.cs.unibo.it';
+//const baseURL   = 'giovanni.basso3.tw.cs.unibo.it';
 
 //  THIS IS FOR HOME TESTING
-//const baseURL   = '127.0.0.1:8000';
+const baseURL   = '127.0.0.1:8000';
 
 let id          = '1';
 
-let i = -1;
+let counter = -1;
 let MyArr, img_personaggio;
 let sel_eta = 2;
+let myJson = [];
+let myJsonParsed = null;
+
 
 const callAPI   = async () =>
 {
@@ -38,29 +41,30 @@ function updateHTML()
 {
     document.getElementById('titolo').innerHTML = `Benvenuto!`;
 
-    i = i + 1;
-    if (i > MyArr.benvenuto.length - 1) {
+    counter = counter + 1;
+    if (counter > MyArr.benvenuto.length - 1) {
         window.location.href = `/html/map.html?id=${id}`;
     } else {
-        document.getElementById('testo').value = MyArr.benvenuto[i];
+        document.getElementById('testo').value = MyArr.benvenuto[counter];
     }
 }
 
 function updateHTML2() {
-    const myJson = localStorage.getItem('myJson');
-    const myJsonParsed = JSON.parse(myJson);
-    const missionID = utilities.intParser(utilities.getQueryVariable('id_missione'));
-    document.getElementById('titolo').innerHTML = `Missione ${missionID + 1}`;
+    const missionID = localStorage.getItem('mission_id') - 1;
+    let missionID_hr = missionID + 1;
+    
+    document.getElementById('titolo').innerHTML = `Missione ${missionID_hr}`;
     const domanda = myJsonParsed.missioni[missionID].question;
-    i = i + 1;
-    if (i > domanda.length - 1) {
+
+    counter = counter + 1;
+    if (counter > domanda.length - 1) {
         if (myJsonParsed.missioni[missionID].type == 'mult_choice') {
             window.location.href = `/html/mult_choice.html?id_missione=${missionID}?id=${id}`;
         } else {
             window.location.href = `/html/impiccato.html?id_missione=${missionID}?id=${id}`;
         }
     } else {
-        document.getElementById('testo').value = domanda[i];
+        document.getElementById('testo').value = domanda[counter];
     }
     window.updateHTML = updateHTML2;
 }
@@ -90,7 +94,7 @@ function loadImg ()
 
 function receivedText()
 {
-    if (!localStorage.getItem('First Time'))
+    if ((localStorage.getItem('First Time') == null) || (!localStorage.getItem('First Time')))
     {
         updateHTML();
         localStorage.setItem('First Time', true);
@@ -103,14 +107,24 @@ function receivedText()
 
 window.onload = function()
 {
+    myJson = localStorage.getItem('myJson');
     id = utilities.intParser(utilities.getQueryVariable('id'));
-    callAPI().then(result => {
-        MyArr = result;
 
-        localStorage.setItem('myJson', JSON.stringify(MyArr));
-        localStorage.setItem('myJsonID', id);
+    if(id == null)
+        id = 1;
 
-        receivedText();
-    });
+    if(myJson == null)
+    {
+        callAPI().then(result => {
+            MyArr = result;
+
+            localStorage.setItem('myJson', JSON.stringify(MyArr));
+            localStorage.setItem('myJsonID', id);
+        });
+    }
+    myJsonParsed = JSON.parse(myJson);
+    MyArr = myJsonParsed;
+
     console.log(MyArr);
+    receivedText();
 };

@@ -16,19 +16,19 @@ var QRCode              = require('qrcode');
 
 
 //  THIS IS FOR UNIBO SERVER TESTING
-const path_to_folder    = '/webapp/museum_quiz/';
-const this_ip           = '130.136.1.50';
+//const path_to_folder    = '/webapp/museum_quiz/';
+//const this_ip           = '130.136.1.50';
 
 //  THIS IS FOR HOME TESTING
-//const path_to_folder    = '../';
-//const this_ip           = '127.0.0.1';
+const path_to_folder    = '../';
+const this_ip           = '127.0.0.1';
 
 
-const path_to_client    = path_to_folder + 'client_side/';
+const path_to_client    = path_to_folder + 'client_side';
 const path_to_server    = path_to_folder + 'server_side/';
 const dbFolder          = path_to_server + 'database/';
 
-const utilities         = require(path_to_server + 'utilities.js');
+const utilities         = require(path_to_server + '/utilities.js');
 
 //  accept any connection to the correct port
 const hostname = '0.0.0.0';
@@ -68,26 +68,24 @@ const server = http.createServer((request, response) => {
     console.log(id);
     console.log(pathName);
 
+    //                      GET Method
+    //
     //  If method is GET, it is access to file or to RESTful API
+    //
     if (method == 'GET')
     {
         //  If no path to file nor id is given, run the first example (id = 1)
         if ((pathName == '/') && (id <= 0))
         {
-            pathName = '/html/gioco.html';
+            pathName = '/html/gioco.html?id=1';
             id = 1;
         }
         //  If pathname is path to a resource, try to fetch it and send it to the client
         if (pathName !== '/')
         {
-            if(pathName == '/content_creator')
-            {
-                pathName = 'content_creator/html/main.html';
-            }
-
             let extName = String(path.extname(pathName)).toLowerCase();
 
-            //  Back to "home" folder ( /client_side )
+            //  Make absolute path from relative to "home" folder ( /client_side )
             let completePathName = path_to_client + pathName;
             console.log(completePathName);
 
@@ -106,14 +104,22 @@ const server = http.createServer((request, response) => {
                     response.end();
                 }
             });
+        //              RESTful API
+        //
+        //  Checks id and gives back json or qrcode
+        //
         } else if (id >= 0)
         {
-            console.log('JSON REQUESTED: ' + id);
-            //  RESTful API part. URL type:     http://ip:3000?id=n(&type=t)
+            //  RESTful API part. URL type:
+            //
+            //      http://ip:8000?id=n(&type=t)
+            //
             if (queryType == 'json' || queryType == null)
             {
                 //  Build jsonPathName from id and try to readSync the file
                 let jsonPathName = `${dbFolder}data${id}.json`;
+                console.log('JSON REQUESTED: ' + jsonPathName);
+
                 fs.readFile(jsonPathName, (err, data) =>
                 {
                     if (err)
@@ -134,6 +140,8 @@ const server = http.createServer((request, response) => {
             else if (queryType == 'qr')
             {
                 let qrPathName = `${path_to_server}qrCodes/data${id}.png`;
+                console.log('QR REQUESTED: ' + qrPathName);
+
                 fs.readFile(qrPathName, (err, data) =>
                 {
                     if (err)
@@ -150,8 +158,11 @@ const server = http.createServer((request, response) => {
             }
         }
     }
+    //                              POST Method
+    //
     //  If method is POST, try to catch body and save it in server storage
     //  Then send a 303 - See Other with a location header to newly created qr code
+    //
     else if (method == 'POST')
     {
         const data_type = request.headers["content-type"];
@@ -167,7 +178,7 @@ const server = http.createServer((request, response) => {
             }).on('end', () => {
                 body = Buffer.concat(body).toString();
 
-                //  Get list of all elements inside the folder to avoid rewriting existing .json
+                //  Get count of all elements inside the folder to avoid rewriting existing .json
                 fs.readdir(dbFolder, (err, dbFiles) =>
                 {
                     if (err)
@@ -195,7 +206,6 @@ const server = http.createServer((request, response) => {
             });
         } else if(data_type == "image/png" || data_type == "image/jpeg" || data_type == "image/jpg")
         {
-
         }
     }
 });
