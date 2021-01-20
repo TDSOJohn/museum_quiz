@@ -4,38 +4,34 @@
 
 //  http:ip_address:3000/html/gioco.html?id=n
 
-
 import * as utilities from './utilities.js';
 
 //  baseURL should be server ip or URL
 
 //  THIS IS FOR UNIBO SERVER TESTING
-const baseURL   = 'giovanni.basso3.tw.cs.unibo.it';
+// const baseURL   = 'giovanni.basso3.tw.cs.unibo.it';
 
 //  THIS IS FOR HOME TESTING
-//const baseURL   = '127.0.0.1:8000';
+const baseURL = '127.0.0.1:8000';
 
-let id          = '1';
+let id = '1';
 
 let i = -1;
 let MyArr, img_personaggio;
 let sel_eta = 2;
 
-const callAPI   = async () =>
-{
-//  Build well-formed WHATWG URL and wait for json data
-    let myURL       = ('http://' + baseURL +
-                                '/?id=' + encodeURIComponent(id));
+const callAPI = async () => {
+    //  Build well-formed WHATWG URL and wait for json data
+    let myURL = 'http://' + baseURL + '/?id=' + encodeURIComponent(id);
     console.log(myURL);
 
-    const response  = await fetch(myURL);
-    const apiJSON   = await response.json();
+    const response = await fetch(myURL);
+    const apiJSON = await response.json();
 
     return apiJSON;
-}
+};
 
-function updateHTML()
-{
+function updateHTML() {
     document.getElementById('titolo').innerHTML = `Benvenuto!`;
 
     i = i + 1;
@@ -65,12 +61,13 @@ function updateHTML2() {
     window.updateHTML = updateHTML2;
 }
 
-
 window.updateHTML = updateHTML;
 
-function loadImg ()
-{
-    let codice =  `<img src="` + MyArr.immagine + `" id="slide" alt="personaggio" style="box-sizing: border-box;width:37vh;">
+function loadImg() {
+    let codice =
+        `<img src="` +
+        MyArr.immagine +
+        `" id="slide" alt="personaggio" style="box-sizing: border-box;width:37vh;">
     <style>
         #slide {
             animation-name:slidein;
@@ -84,27 +81,23 @@ function loadImg ()
                 margin-left: 0%;
             }
         }
-        </style>`
-    document.getElementById("personaggio").innerHTML = codice;
+        </style>`;
+    document.getElementById('personaggio').innerHTML = codice;
 }
 
-function receivedText()
-{
-    if (!localStorage.getItem('First Time'))
-    {
+function receivedText() {
+    if (!localStorage.getItem('First Time')) {
         updateHTML();
         localStorage.setItem('First Time', true);
-    } else
-    {
+    } else {
         updateHTML2();
     }
     loadImg();
 }
 
-window.onload = function()
-{
+window.onload = function () {
     id = utilities.intParser(utilities.getQueryVariable('id'));
-    callAPI().then(result => {
+    callAPI().then((result) => {
         MyArr = result;
 
         localStorage.setItem('myJson', JSON.stringify(MyArr));
