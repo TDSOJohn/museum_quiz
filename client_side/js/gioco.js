@@ -16,19 +16,16 @@ const baseURL   = 'giovanni.basso3.tw.cs.unibo.it';
 //const baseURL   = '127.0.0.1:8000';
 
 //  Stores quiz id
-let id          = '1';
+let saveData   = new Object;
 
 let counter     = -1;
-let img_personaggio;
-let sel_eta     = 2;
-let myJsonParsed= null;
 
 
 const callAPI   = async () =>
 {
 //  Build well-formed WHATWG URL and wait for json data
     let myURL       = ('http://' + baseURL +
-                                '?id=' + encodeURIComponent(id));
+                                '?id=' + encodeURIComponent(saveData.quiz_id));
     console.log(myURL);
 
     const response  = await fetch(myURL);
@@ -38,55 +35,38 @@ const callAPI   = async () =>
 }
 
 
-function LSsanityCheck(id_in)
-{
-    let id_temp         = +localStorage.getItem('myJsonID');
-    let json_temp       = +localStorage.getItem('myJson');
-    let mission_id_temp = +localStorage.getItem('mission_id');
-
-    if(id_temp == null)
-    {
-        id_temp = 1;
-    }
-
-    if(json_temp == null)
-    {
-
-    }
-}
-
-
 function updateHTML()
 {
     document.getElementById('titolo').innerHTML = `Benvenuto!`;
 
     counter = counter + 1;
-    if (counter > myJsonParsed.benvenuto.length - 1) {
-        window.location.href = `/html/map.html?id=${id}`;
+    if (counter > saveData.json.benvenuto.length - 1) {
+        localStorage.setItem(`id${saveData.quiz_id}`, JSON.stringify(saveData));
+        window.location.href = `/html/map.html?id=${saveData.quiz_id}`;
     } else {
-        document.getElementById('testo').value = myJsonParsed.benvenuto[counter];
+        document.getElementById('testo').value = saveData.json.benvenuto[counter];
     }
 }
 
 
 function updateHTML2() {
     //  Id della missione in corso (0, ..., 9)
-    const missionID = +localStorage.getItem('mission_id');
+    const missionID = saveData.mission_id;
     //  versione Human-Readable (ordinale partendo da 1)
     let missionID_hr = (missionID + 1);
 
     document.getElementById('titolo').innerHTML = `Missione ${missionID_hr}`;
-    const domanda = myJsonParsed.missioni[missionID].question;
+    const domanda = saveData.json.missioni[missionID].question;
 
-    console.log(myJsonParsed.missioni[missionID].type);
+    console.log(saveData.json.missioni[missionID].type);
     console.log(missionID);
 
     counter = counter + 1;
     if (counter > domanda.length - 1) {
-        if (myJsonParsed.missioni[missionID].type == 'mult_choice') {
-            window.location.href = `/html/mult_choice.html?id=${id}`;
+        if (saveData.json.missioni[missionID].type == 'mult_choice') {
+            window.location.href = `/html/mult_choice.html?id=${saveData.quiz_id}`;
         } else {
-            window.location.href = `/html/impiccato.html?id=${id}`;
+            window.location.href = `/html/impiccato.html?id=${saveData.quiz_id}`;
         }
     } else {
         document.getElementById('testo').value = domanda[counter];
@@ -99,7 +79,7 @@ window.updateHTML = updateHTML;
 
 function loadImg ()
 {
-    let codice =  `<img src="` + myJsonParsed.immagine + `" id="slide" alt="personaggio" style="box-sizing: border-box;width:37vh;">
+    let codice =  `<img src="` + saveData.json.immagine + `" id="slide" alt="personaggio" style="box-sizing: border-box;width:37vh;">
     <style>
         #slide {
             animation-name:slidein;
@@ -120,10 +100,11 @@ function loadImg ()
 
 function receivedText()
 {
-    if ((localStorage.getItem('First Time') == null) || !(localStorage.getItem('First Time')))
+    if((saveData.first_time == true))
     {
+        console.log("First Time here!");
         updateHTML();
-        localStorage.setItem('First Time', true);
+        saveData.first_time = false;
     } else
     {
         updateHTML2();
@@ -134,35 +115,23 @@ function receivedText()
 
 window.onload = function()
 {
-    id = utilities.intParser(utilities.getQueryVariable('id'));
+    saveData       = utilities.LSsanityCheck();
 
-    if(id == null)
-        id = 1;
-
-    try
+    console.log(saveData.json);
+    if((saveData.json == null) || (saveData.json == undefined))
     {
-        myJsonParsed = JSON.parse(localStorage.getItem('myJson'));
-    } catch (e)
-    {
-        callAPI().then(result => {
-            myJsonParsed = result;
-
-            localStorage.setItem('myJson', JSON.stringify(myJsonParsed));
-            localStorage.setItem('myJsonID', id);
-        });
-    } finally
-    {
-        if(myJsonParsed == null)
+        callAPI().then(result =>
         {
-            callAPI().then(result => {
-                myJsonParsed = result;
+            console.log("a");
+            console.log(result);
+            saveData.json = result;
+            localStorage.setItem(`id${saveData.quiz_id}`, JSON.stringify(saveData));
+            receivedText();
+        });
+    } else
+        receivedText();
 
-                localStorage.setItem('myJson', JSON.stringify(myJsonParsed));
-                localStorage.setItem('myJsonID', id);
-            });
-        }
-    }
+    console.log(saveData);
 
-    console.log(myJsonParsed);
-    receivedText();
+    localStorage.setItem(`id${saveData.quiz_id}`, JSON.stringify(saveData));
 };

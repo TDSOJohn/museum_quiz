@@ -27,3 +27,58 @@ export function getQueryVariable(variable_in)
     console.log('Query variable %s not found', variable_in);
     return null;
 }
+
+export function LSsanityCheck()
+{
+    //  create empty saveData_temp variable
+    let saveData_temp   = new Object;
+    //  get id from URL query
+    let id_temp         = intParser(getQueryVariable('id'));
+
+    //  set default id if id == null
+    if(id_temp == null)
+        id_temp = 1;
+
+    //  Try to read localStorage save for given id
+    try {
+        saveData_temp   = JSON.parse(localStorage.getItem(`id${id_temp}`));
+    } catch (e)
+    //  catch and log error
+    {
+        console.log(e);
+    } finally
+    {
+        //  if saveData_temp is null return null
+        if(saveData_temp == null)
+        {
+            console.log("no data found!");
+            saveData_temp               = new Object;
+            saveData_temp.quiz_id       = id_temp;
+            saveData_temp.mission_id    = 0;
+            saveData_temp.first_time    = true;
+        }
+        else
+        {
+            //  if id is missing, not a number or null, set id to id_temp
+            if((saveData_temp.quiz_id == null) || (isNaN(saveData_temp.quiz_id)) || (saveData_temp.quiz_id == undefined))
+                saveData_temp.quiz_id = id_temp;
+
+            if((saveData_temp.first_time == null) || (isNaN(saveData_temp.first_time)) || (saveData_temp.first_time == undefined))
+                saveData_temp.first_time = (saveData_temp.mission_id == 0);
+
+            //  if mission id is missing, not a number or null, set mission id to 0 (restart quiz)
+            if( (saveData_temp.mission_id == null) ||
+                (isNaN(saveData_temp.mission_id)) ||
+                (saveData_temp.mission_id == undefined) ||
+                (saveData_temp.mission_id < 0) ||
+                (saveData_temp.mission_id >= 10))
+            {
+                saveData_temp.mission_id = 0;
+                saveData_temp.first_time = true;
+            }
+
+        }
+    }
+
+    return saveData_temp;
+}

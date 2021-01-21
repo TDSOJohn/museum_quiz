@@ -1,21 +1,26 @@
 
-const missionID     = localStorage.getItem('mission_id');
-const myJsonID      = localStorage.getItem('myJsonID');
-const myJsonParsed  = JSON.parse(localStorage.getItem('myJson'));
+import * as utilities from './utilities.js';
 
-const parola = myJsonParsed.missioni[missionID].answers[0];
-const domanda = myJsonParsed.missioni[missionID].question[4];
-
-var bits = new Array(parola.length).fill(0);
-bits[0]             = 1;
-bits[bits.length - 1] = 1;
-var tentativi       = 0;
-var tentativi_max   = parola.length - 3;
-var incompleta      = calcolaincompleta(parola, bits);
+let saveData = new Object;
+let parola, domanda, incompleta, inserita, tentativi, tentativi_max;
 
 
-window.onload = function ()
+
+window.onload = function()
 {
+    saveData            = utilities.LSsanityCheck();
+    let missionID       = saveData.mission_id;
+
+    parola              = saveData.json.missioni[missionID].answers[0];
+    domanda             = saveData.json.missioni[missionID].question[4];
+
+    var bits = new Array(parola.length).fill(0);
+    bits[0]             = 1;
+    bits[bits.length - 1] = 1;
+    tentativi           = 0;
+    tentativi_max       = parola.length - 3;
+    incompleta          = calcolaincompleta(parola, bits);
+
     document.getElementById("frase").innerText = domanda;
 }
 
@@ -26,7 +31,7 @@ function calcolaincompleta(parola, bits)
     alle posizioni dell'array bits con valore 0 un "-" e quelle con valore "1" con la lettera
     ad esso corrispondente*/
     incompleta = "";
-    for (i=0; i < parola.length; i++)
+    for (let i = 0; i < parola.length; i++)
     {
         if (bits[i]==0)
         {
@@ -101,11 +106,23 @@ function controlla()
     }
 }
 
+window.controlla = controlla
 
-function proseguire() {
-	/* permette di tornare alla mappa per proseguire il gioco */
-    if(missionID != 9)
-        window.location.href = `map.html?&id=${myJsonID}`;
+function proseguire()
+{
+    //  Missione compiuta! vai alla successiva
+    saveData.mission_id = saveData.mission_id + 1;
+    console.log(saveData);
+
+    localStorage.setItem(`id${saveData.quiz_id}`, JSON.stringify(saveData));
+
+    if(saveData.mission_id != 10)
+        window.location.href = `map.html?&id=${saveData.quiz_id}`;
     else
+    {
+        localStorage.removeItem(`id${saveData.quiz_id}`);
         window.location.href = "fine.html";
+    }
 }
+
+window.proseguire = proseguire
