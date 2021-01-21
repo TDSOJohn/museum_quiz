@@ -29,7 +29,7 @@ $(function ()
 
     for(let i = 0; i < 10; i++)
     {
-        $(`.btn${i}`).click(function ()
+        $(`.btn${i}`).click(function()
         {
             window.location.href = `gioco.html?id=${saveData.quiz_id}`;
         });

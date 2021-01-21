@@ -122,7 +122,6 @@ window.onload = function()
     {
         callAPI().then(result =>
         {
-            console.log("a");
             console.log(result);
             saveData.json = result;
             localStorage.setItem(`id${saveData.quiz_id}`, JSON.stringify(saveData));
