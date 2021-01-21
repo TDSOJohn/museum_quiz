@@ -16,12 +16,12 @@ var QRCode              = require('qrcode');
 
 
 //  THIS IS FOR UNIBO SERVER TESTING
-//const path_to_folder    = '/webapp/museum_quiz/';
-//const this_ip           = '130.136.1.50';
+const path_to_folder    = '/webapp/museum_quiz/';
+const this_ip           = '130.136.1.50';
 
 //  THIS IS FOR HOME TESTING
-const path_to_folder    = '../';
-const this_ip           = '127.0.0.1';
+//const path_to_folder    = '../';
+//const this_ip           = '127.0.0.1';
 
 
 const path_to_client    = path_to_folder + 'client_side';
@@ -31,7 +31,7 @@ const dbFolder          = path_to_server + 'database/';
 const utilities         = require(path_to_server + '/utilities.js');
 
 //  accept any connection to the correct port
-const hostname = '0.0.0.0';
+const hostname = '127.0.0.1';
 //  ruby-on-rails default, better change it
 const port = 8000;
 

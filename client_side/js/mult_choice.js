@@ -1,30 +1,8 @@
-function intParser(string_in) {
-    const parsed = parseInt(string_in, 10);
-    if (isNaN(parsed) && (parsed !== null)) {
-        return 1;
-    }
-    return parsed;
-}
 
-function getQueryVariable(variable_in) {
-    // cerco il valore della variabile richiessta all'interno della query
-    var query = window.location.search.substring(1);
-    var vars = query.split('&');
-    for (var i = 0; i < vars.length; i++) {
-        //separo le variabili dai loro valori
-        var pair = vars[i].split('=');
-        if (decodeURIComponent(pair[0]) == variable_in) {
-            return decodeURIComponent(pair[1]);
-        }
-    }
-    console.log('Query variable %s not found', variable_in);
-}
-const missionID = intParser(getQueryVariable('id_missione'));
-console.log('ID della mission', missionID);
-const myJson = localStorage.getItem('myJson');
-const myJsonParsed = JSON.parse(myJson);
-const myJsonID = localStorage.getItem('myJsonID');
-const risp = myJsonParsed.missioni[missionID].answers;
+const missionID     = localStorage.getItem('mission_id');
+const myJsonParsed  = JSON.parse(localStorage.getItem('myJson'));
+const myJsonID      = localStorage.getItem('myJsonID');
+const risp          = myJsonParsed.missioni[missionID].answers;
 const domanda = myJsonParsed.missioni[missionID].question[4];
 
 const corretta = risp[0] // la risposta corretta è sempre la prima nel JSON
@@ -73,9 +51,6 @@ function evaluate_answer() {
 };
 
 function prosegui() {
-    const myJsonID = localStorage.getItem('myJsonID')
-    const missionID = intParser(getQueryVariable('id_missione'));
-
     if(missionID != 9)
         window.location.href = `map.html?&id=${myJsonID}`
     else

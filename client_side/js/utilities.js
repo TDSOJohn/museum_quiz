@@ -25,4 +25,5 @@ export function getQueryVariable(variable_in)
         }
     }
     console.log('Query variable %s not found', variable_in);
+    return null;
 }

@@ -1,5 +1,11 @@
 var map_image;
 
+function LSsanityCheck()
+{
+    let id_temp         = +localStorage.getItem('myJsonID');
+    let json_temp       = localStorage.getItem('myJson');
+    let mission_id_temp = +localStorage.getItem('mission_id');
+}
 
 /*******jQuery for external title*********/
 
@@ -21,7 +27,7 @@ function setValues() {
 
 $(function ()
 {
-    const myJsonID      = localStorage.getItem('myJsonID');
+    const myJsonID      = +localStorage.getItem('myJsonID');
 
     if (!localStorage.getItem("btn1")) {
         valoriIniziali();
@@ -30,12 +36,13 @@ $(function ()
         setValues();
     }
 
-    id_missione         = localStorage.getItem('mission_id');
+    id_missione         = +localStorage.getItem('mission_id');
     map_image           = document.querySelector('#pirate_map');
 
     //  Set new map image with correct red selection
-    map_image.setAttribute('href', `../images/map_${id_missione}.jpg`);
-
+    map_image.setAttribute('href', `../images/map_${id_missione + 1}.jpg`);
+    if(id_missione == 0)
+        map_image.setAttribute('href', `../images/map_${id_missione}.jpg`);
 
     for(let i = 0; i < 10; i++)
     {
@@ -49,22 +56,19 @@ $(function ()
             }
             localStorage.setItem(`btn${i+1}`, "disabled");
 
-            localStorage.setItem('mission_id', `${i+1}`);
+            localStorage.setItem('mission_id', `${i}`);
 
             $(`btn${i+1}`).addClass(localStorage.getItem(`btn${i+1}`));
             $(`btn${i+1}`).removeClass("disabled");
 
-            //  Set new map image with correct red selection
-            map_image.setAttribute('href', `../images/map_${id_missione}.jpg`);
-
-            window.location.href = `gioco.html?id_missione=${i}&id=${myJsonID}`;
+            window.location.href = `gioco.html?id=${myJsonID}`;
         });
     }
 });
 
 function resetLocalStorage()
 {
-    let id = localStorage.getItem('myJsonID');
+    let id = +localStorage.getItem('myJsonID');
     localStorage.clear();
 
     if(id == null)
