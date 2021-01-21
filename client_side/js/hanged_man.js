@@ -2,7 +2,7 @@
 import * as utilities from './utilities.js';
 
 let saveData = new Object;
-let parola, domanda, incompleta, inserita, tentativi, tentativi_max, bits;
+let parola, domanda, incompleta, inserita, tentativi, tentativi_max, bits, rslt;
 
 
 
@@ -14,7 +14,7 @@ window.onload = function()
     parola              = saveData.json.missioni[missionID].answers[0];
     domanda             = saveData.json.missioni[missionID].question[4];
 
-    var bits = new Array(parola.length).fill(0);
+    bits = new Array(parola.length).fill(0);
     bits[0]             = 1;
     bits[bits.length - 1] = 1;
     tentativi           = 0;
@@ -66,12 +66,12 @@ function calcolarandom(vettore)
 }
 
 
-function aggiornabits (bits,tentativi)
+function aggiornabits(bits,tentativi)
 {
     /*permette l'aggiornamento dell'array bits e del numero di tentativi dell'utente, che
     verranno salvati in un array */
     tentativi = tentativi + 1; // aggiorno tentativi
-    numero = calcolarandom (bits); // determino lettera randomica da aggiungere
+    let numero = calcolarandom(bits); // determino lettera randomica da aggiungere
     bits[numero]= 1; // aggiorno bits
     return [bits, tentativi];
 }
@@ -100,7 +100,7 @@ function controlla()
     } else
     {
         /* Parola non corretta */
-        rslt = aggiornabits (bits,tentativi); // Aggiungo un suggerimento (lettera)
+        rslt = aggiornabits(bits,tentativi); // Aggiungo un suggerimento (lettera)
         bits = rslt[0]; tentativi = rslt[1]; // Aggiorno variabili
         incompleta = calcolaincompleta (parola,bits); // Aggiorno Suggerimento
     }
