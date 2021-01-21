@@ -77,7 +77,7 @@ const server = http.createServer((request, response) => {
         //  If no path to file nor id is given, run the first example (id = 1)
         if ((pathName == '/') && (id <= 0))
         {
-            pathName = '/html/gioco.html?id=1';
+            pathName = '/html/gioco.html';
             id = 1;
         }
         //  If pathname is path to a resource, try to fetch it and send it to the client
