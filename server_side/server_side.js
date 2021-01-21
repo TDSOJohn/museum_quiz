@@ -31,7 +31,7 @@ const dbFolder          = path_to_server + 'database/';
 const utilities         = require(path_to_server + '/utilities.js');
 
 //  accept any connection to the correct port
-const hostname = '127.0.0.1';
+const hostname = '0.0.0.0';
 //  ruby-on-rails default, better change it
 const port = 8000;
 
