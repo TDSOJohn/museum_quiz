@@ -11,8 +11,8 @@
     background-size: cover;
 }
 
-body {
-    overflow-y: auto;
+html, body {
+    overflow-y: hidden;
 }
 
 #testo {
