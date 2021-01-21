@@ -5,8 +5,11 @@
     padding: 0;
 }
 
+body {
+    background-color: #54befa;    
+}
+
 #main_content {
-    background-color: #54befa;
     min-height: 100vh;
     text-align: center;
 }
