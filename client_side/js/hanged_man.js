@@ -2,7 +2,7 @@
 import * as utilities from './utilities.js';
 
 let saveData = new Object;
-let parola, domanda, incompleta, inserita, tentativi, tentativi_max;
+let parola, domanda, incompleta, inserita, tentativi, tentativi_max, bits;
 
 
 
