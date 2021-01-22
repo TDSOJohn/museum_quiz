@@ -100,7 +100,7 @@ function compileJSON()
             template_json.missioni[i].answers.push(quiz_quests[i].elements[1].value);
         }
     }
-    alert(JSON.stringify(template_json));
+//    alert(JSON.stringify(template_json));
 }
 
 
@@ -109,7 +109,7 @@ function verifyAndUpload()
     //  if template is == [] then age is not selected
     if(template_json == [])
     {
-        alert('Devi ancora selezionare l\'età!');
+        alert('Devi ancora selezionare l\'eta\'!');
     } else
     {
         quiz_quests   = document.querySelectorAll('.quiz_quest');
