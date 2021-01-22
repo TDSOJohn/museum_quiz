@@ -154,6 +154,10 @@ window.onload = function() {
 
     for(let i = 0; i < etaTypes.length; i++)
     {
-        etaTypes[i].addEventListener('click', function() { getJSONTemplate(`template${i}.json`); });
+        etaTypes[i].addEventListener('click', function()
+        {
+            getJSONTemplate(`template${i}.json`);
+            etaTypes[i].style.color = red;
+        });
     }
 };
