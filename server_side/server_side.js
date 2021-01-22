@@ -16,12 +16,12 @@ var QRCode              = require('qrcode');
 
 
 //  THIS IS FOR UNIBO SERVER TESTING
-//const path_to_folder    = '/webapp/museum_quiz/';
-//const this_ip           = '130.136.1.50';
+const path_to_folder    = '/webapp/museum_quiz/';
+const this_ip           = '130.136.1.50';
 
 //  THIS IS FOR HOME TESTING
-const path_to_folder    = '../';
-const this_ip           = '127.0.0.1';
+//const path_to_folder    = '../';
+//const this_ip           = '127.0.0.1';
 
 
 const path_to_client    = path_to_folder + 'client_side';
