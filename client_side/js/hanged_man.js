@@ -22,6 +22,14 @@ window.onload = function()
     incompleta          = calcolaincompleta(parola, bits);
 
     document.getElementById("frase").innerText = domanda;
+
+    // Accessibility
+    document.querySelector('#insert').addEventListener("keyup", event =>
+    {
+        if(event.key !== "enter") return;
+        document.querySelector('#validate').click();
+    });
+
 }
 
 

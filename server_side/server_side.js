@@ -85,6 +85,7 @@ const server = http.createServer((request, response) => {
         {
             let extName = String(path.extname(pathName)).toLowerCase();
 
+            //  If patname is to content creator section, set session cookie header
             if(pathName == '/content_creator/html/main.html')
                 response.setHeader('Set-Cookie', 'sessionID=12; Path=/');
 

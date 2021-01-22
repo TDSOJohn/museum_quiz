@@ -1,0 +1,15 @@
+E' fondamentale che un sistema sia utilizzabile esclusivamente mediante tastiera e navigabile utilizzando il minor numero di tasti possibile.
+
+
+	WCAG 2.1 principles
+
+- Perceivable.
+
+- Operable.
+
+- Understandable.
+
+- Robust.
+
+La codifica di un sito utilizzando HTML semanticamente valido, fornendo rappresentazioni testuali equivalenti per immagini e di testi dei link significativi aiutano gli utenti non vedenti che utilizzano screen reader e display Braille.
+
