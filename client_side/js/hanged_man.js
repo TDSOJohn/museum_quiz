@@ -22,6 +22,7 @@ window.onload = function()
     incompleta          = calcolaincompleta(parola, bits);
 
     document.getElementById("frase").innerText = domanda;
+    document.getElementById("insert").setAttribute('title', domanda);
 
     // Accessibility
     document.querySelector('#insert').addEventListener("keyup", event =>
