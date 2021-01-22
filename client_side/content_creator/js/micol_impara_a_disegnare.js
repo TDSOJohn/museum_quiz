@@ -160,7 +160,9 @@ window.onload = function() {
             for(let j = 0; j < etaTypes.length; j++)
                 etaTypes[j].style.background = '#555';
 
-            etaTypes[i].style.background = 'white';
+            etaTypes[i].style.background= 'white';
+            etaTypes[i].style.color     = 'black';
+
         });
     }
 };
