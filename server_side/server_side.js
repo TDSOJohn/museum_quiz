@@ -86,7 +86,7 @@ const server = http.createServer((request, response) => {
             let extName = String(path.extname(pathName)).toLowerCase();
 
             if(pathName == '/content_creator/html/main.html')
-                response.setHeader('Set-Cookie', 'sessionID=12');
+                response.setHeader('Set-Cookie', 'sessionID=12; Path=/');
 
             //  Make absolute path from relative to "home" folder ( /client_side )
             let completePathName = path_to_client + pathName;
