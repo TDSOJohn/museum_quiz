@@ -68,7 +68,7 @@ function evaluate_answer()
         $("#interazione").append("<button id=\"prosegui\" onclick= \"prosegui()\" autofocus=\"autofocus\" title=\"Complimenti, hai completato la missione\" style=\"font-size: 3vh;font-family: cursive; border-radius:20px; text-align: center;\">Clicca per proseguire</button>")
     } else
     {
-        sel.setAttribute('title', 'questa risposta è purtroppo sbagliata');
+        sel_parent.setAttribute('title', 'questa risposta è purtroppo sbagliata');
         sel_parent.style.color = 'red';
         $("#alert").empty();
         $("#alert").append("<p>Che peccato, hai sbagliato! Ritenta, questa volta non sbaglierai!</p>");

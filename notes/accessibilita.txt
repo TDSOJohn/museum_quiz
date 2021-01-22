@@ -23,4 +23,6 @@ soluzioni implementate:
 - uso tag <title> in immagine mappa e ogni bottone cliccabile
 possibile miglioramento: aggiungere id a ogni <title> e aria-labelledby="id" come attributo dell'elemento che voglio descrivere
 
-- uso attributo title="${domanda}" per far leggere la domanda quando viene selezionato il campo di input 
+- uso attributo title="${domanda}" per far leggere la domanda quando viene selezionato il campo di input, sia su impiccato che su mult_choice
+
+ 
