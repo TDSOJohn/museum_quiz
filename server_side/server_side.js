@@ -168,7 +168,7 @@ const server = http.createServer((request, response) => {
     //
     else if (method == 'POST')
     {
-        const session_id = request.headers["Cookie"];
+        const session_id = request.headers.cookie;
         const data_type = request.headers["content-type"];
         let body = [];
         let dbFiles = undefined;
