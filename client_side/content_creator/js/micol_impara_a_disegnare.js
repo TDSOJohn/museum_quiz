@@ -158,7 +158,10 @@ window.onload = function() {
         {
             getJSONTemplate(`template${i}.json`);
             for(let j = 0; j < etaTypes.length; j++)
-                etaTypes[j].style.background = '#555';
+            {
+                etaTypes[j].style.background= '#555';
+                etaTypes[j].style.color     = 'white';
+            }
 
             etaTypes[i].style.background= 'white';
             etaTypes[i].style.color     = 'black';
