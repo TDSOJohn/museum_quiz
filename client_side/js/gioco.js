@@ -10,10 +10,10 @@ import * as utilities from './utilities.js';
 //  baseURL should be server ip or URL
 
 //  THIS IS FOR UNIBO SERVER TESTING
-const baseURL   = 'giovanni.basso3.tw.cs.unibo.it';
+//const baseURL   = 'giovanni.basso3.tw.cs.unibo.it';
 
 //  THIS IS FOR HOME TESTING
-//const baseURL   = '127.0.0.1:8000';
+const baseURL   = '127.0.0.1:8000';
 
 //  Stores quiz id
 let saveData   = new Object;
@@ -57,9 +57,6 @@ function updateHTML2() {
 
     document.getElementById('titolo').innerHTML = `Missione ${missionID_hr}`;
     const domanda = saveData.json.missioni[missionID].question;
-
-    console.log(saveData.json.missioni[missionID].type);
-    console.log(missionID);
 
     counter = counter + 1;
     if (counter > domanda.length - 1) {

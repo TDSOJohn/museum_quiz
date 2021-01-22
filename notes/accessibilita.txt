@@ -13,3 +13,9 @@ E' fondamentale che un sistema sia utilizzabile esclusivamente mediante tastiera
 
 La codifica di un sito utilizzando HTML semanticamente valido, fornendo rappresentazioni testuali equivalenti per immagini e di testi dei link significativi aiutano gli utenti non vedenti che utilizzano screen reader e display Braille.
 
+
+soluzioni implementate:
+
+- uso tag ARIA role="button" in map.html per facilitare il riconoscimento da parte di screen readers.
+
+- uso attributo autofocus="autofocus" per evidenziare automaticamente il bottone desiderato

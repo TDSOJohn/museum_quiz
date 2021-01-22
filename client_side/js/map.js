@@ -12,6 +12,16 @@ function setValues() {
         $(`.btn${i}`).addClass("disabled");
 
     $(`.btn${saveData.mission_id}`).removeClass("disabled");
+
+    //  Accessibility features (cycle with "tab", enter with "return")
+    $(`.btn${saveData.mission_id}`).attr('tabindex', '0');
+    $(`.btn${saveData.mission_id}`).attr('autofocus', 'autofocus');
+
+    document.querySelector(`.btn${saveData.mission_id}`).addEventListener("keyup", event =>
+    {
+        if(event.key !== "Enter") return;
+        window.location.href = `gioco.html?id=${saveData.quiz_id}`;
+    });
 }
 
 $(function ()
@@ -21,7 +31,7 @@ $(function ()
 
     setValues();
 
-    let id_missione         = saveData.mission_id;
+    let id_missione     = saveData.mission_id;
     map_image           = document.querySelector('#pirate_map');
 
     //  Set new map image with correct red selection
@@ -29,11 +39,12 @@ $(function ()
 
     for(let i = 0; i < 10; i++)
     {
-        $(`.btn${i}`).click(function()
+        $(`.btn${i}`).on('click', function()
         {
             window.location.href = `gioco.html?id=${saveData.quiz_id}`;
         });
     }
+
 });
 
 function resetLocalStorage()

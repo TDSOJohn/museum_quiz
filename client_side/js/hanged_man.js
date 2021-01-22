@@ -26,7 +26,7 @@ window.onload = function()
     // Accessibility
     document.querySelector('#insert').addEventListener("keyup", event =>
     {
-        if(event.key !== "enter") return;
+        if(event.key !== "Enter") return;
         document.querySelector('#validate').click();
     });
 
@@ -94,7 +94,7 @@ function controlla()
     {
         /* Parola corretta */
         $("#interazione").empty(); // svuoto e sostituisco contenuto della div
-        $("#interazione").append("<button id=\"prosegui\" onclick= \"proseguire()\">Clicca per proseguire</button>");
+        $("#interazione").append("<button id=\"prosegui\" onclick= \"proseguire()\" autofocus=\"autofocus\">Clicca per proseguire</button>");
         $("#frase").empty();
         $("#frase").append("<p>Missione Compiuta!</p>");
     } else if (tentativi == tentativi_max)
@@ -104,7 +104,7 @@ function controlla()
         $("#interazione").empty();
         $("#frase").empty();
         $("#frase").append("<p>Hai terminato i tentativi a disposizione! Clicca per proseguire...</p>");
-        $("#interazione").append("<button id=\"prosegui\" onclick= \"proseguire()\">Clicca per proseguire</button>");
+        $("#interazione").append("<button id=\"prosegui\" onclick= \"proseguire()\" autofocus=\"autofocus\">Clicca per proseguire</button>");
     } else
     {
         /* Parola non corretta */

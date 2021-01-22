@@ -7,7 +7,7 @@ let risp, domanda, corretta;
 let rbs;
 
 
-window.onload = function ()
+window.onload = function()
 {
     saveData            = utilities.LSsanityCheck();
     missionID           = saveData.mission_id;
@@ -34,6 +34,12 @@ window.onload = function ()
         // scrivo le opzioni nell'html in posizioni casuali
         document.getElementById("opt"+i).innerText = risp[arr[i]];
     }
+
+    document.addEventListener("keyup", event =>
+    {
+        if(event.key !== "Enter") return;
+        document.getElementById('btn').click();
+    });
 };
 
 
@@ -57,7 +63,7 @@ function evaluate_answer()
         $("#interazione").empty();
         $("#frase").empty();
         $("#frase").append("<p>Missione Compiuta!</p>");
-        $("#interazione").append("<button id=\"prosegui\" onclick= \"prosegui()\"  style=\"font-size: 3vh;font-family: cursive; border-radius:20px; text-align: center;\">Clicca per proseguire</button>")
+        $("#interazione").append("<button id=\"prosegui\" onclick= \"prosegui()\" autofocus=\"autofocus\" style=\"font-size: 3vh;font-family: cursive; border-radius:20px; text-align: center;\">Clicca per proseguire</button>")
     } else
     {
         sel_parent.style.color = 'red';
