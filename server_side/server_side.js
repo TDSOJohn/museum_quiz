@@ -87,7 +87,7 @@ const server = http.createServer((request, response) => {
 
             if(pathName == '/content_creator/html/main.html')
                 response.setHeader('Set-Cookie', 'sessionID=12');
-                
+
             //  Make absolute path from relative to "home" folder ( /client_side )
             let completePathName = path_to_client + pathName;
             console.log(completePathName);
@@ -168,11 +168,13 @@ const server = http.createServer((request, response) => {
     //
     else if (method == 'POST')
     {
+        const session_id = request.headers["Cookie"];
         const data_type = request.headers["content-type"];
         let body = [];
         let dbFiles = undefined;
         let qrFilePath = undefined;
 
+        console.log(session_id);
         if(data_type == "application/json")
         {
             request.on('data', (chunk) =>
