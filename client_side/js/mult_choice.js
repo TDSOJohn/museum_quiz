@@ -28,6 +28,8 @@ window.onload = function()
     console.log(arr);
 
     document.getElementById("frase").innerText = domanda;
+    document.getElementById("main_form").setAttribute('title', domanda);
+
     rbs = document.querySelectorAll(".option");
     for (let i = 0; i < rbs.length; ++i)
     {
