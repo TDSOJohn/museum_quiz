@@ -97,7 +97,7 @@ function compileJSON()
         {
             template_json.missioni[i].type          = "hanged_man";
             template_json.missioni[i].question[4]   = quiz_quests[i].elements[0].value;
-            template_json.missioni[i].answers       = quiz_quests[i].elements[1].value;
+            template_json.missioni[i].answers.push(quiz_quests[i].elements[1].value);
         }
     }
     alert(JSON.stringify(template_json));
