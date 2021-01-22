@@ -16,6 +16,9 @@ La codifica di un sito utilizzando HTML semanticamente valido, fornendo rapprese
 
 soluzioni implementate:
 
-- uso tag ARIA role="button" in map.html per facilitare il riconoscimento da parte di screen readers.
+- uso attributo ARIA role="button" in map.html per facilitare il riconoscimento da parte di screen readers
 
 - uso attributo autofocus="autofocus" per evidenziare automaticamente il bottone desiderato
+
+- uso tag <title> in immagine mappa e ogni bottone cliccabile
+possibile miglioramento: aggiungere id a ogni <title> e aria-labelledby="id" come attributo dell'elemento che voglio descrivere
