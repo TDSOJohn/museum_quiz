@@ -65,9 +65,10 @@ function evaluate_answer()
         $("#interazione").empty();
         $("#frase").empty();
         $("#frase").append("<p>Missione Compiuta!</p>");
-        $("#interazione").append("<button id=\"prosegui\" onclick= \"prosegui()\" autofocus=\"autofocus\" style=\"font-size: 3vh;font-family: cursive; border-radius:20px; text-align: center;\">Clicca per proseguire</button>")
+        $("#interazione").append("<button id=\"prosegui\" onclick= \"prosegui()\" autofocus=\"autofocus\" title=\"Complimenti, hai completato la missione\" style=\"font-size: 3vh;font-family: cursive; border-radius:20px; text-align: center;\">Clicca per proseguire</button>")
     } else
     {
+        sel.setAttribute('title', 'questa risposta è purtroppo sbagliata');
         sel_parent.style.color = 'red';
         $("#alert").empty();
         $("#alert").append("<p>Che peccato, hai sbagliato! Ritenta, questa volta non sbaglierai!</p>");
